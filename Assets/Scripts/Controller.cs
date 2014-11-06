@@ -12,8 +12,8 @@ public class Controller : MonoBehaviour {
 	private Vector3 floorPosition;	
 	private float lookAheadAmount = .01f;
 	private float ySpeed=0;
-	private float gravity=.5f;
-	private float jumpForce=.15f;
+	private float gravity=.1f;
+	private float jumpForce=2.15f;
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
 	void OnDrawGizmos(){
@@ -48,7 +48,7 @@ public class Controller : MonoBehaviour {
 		}
 		//jump:
 		if (Input.GetKeyDown("space") && jumpState==0) {
-			ySpeed-=jumpForce;
+			ySpeed+=jumpForce;
 			jumpState=1;
 		}
 	}
@@ -58,17 +58,18 @@ public class Controller : MonoBehaviour {
 		float pathPercent = pathPosition%1;
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
-		
+		Vector3 diretion;
+		lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
+		diretion = lookTarget - coordinateOnPath;
 		//calculate look data if we aren't going to be looking beyond the extents of the path:
 		if(pathPercent-lookAheadAmount>=0 && pathPercent+lookAheadAmount <=1){
 			
 			//leading or trailing point so we can have something to look at:
-			lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
-			Vector3 diretion = lookTarget - coordinateOnPath;
+			// lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
+			// diretion = lookTarget - coordinateOnPath;
 			//Debug.DrawRay(transform.position, diretion.normalized * 10, Color.red);
 
 			//look:
-			character.LookAt(transform.position + diretion.normalized, previousNormal);
 			//Debug.Log(lookTarget);
 			//nullify all rotations but y since we just want to look where we are going:
 			//float yRot = character.eulerAngles.y;
@@ -79,7 +80,9 @@ public class Controller : MonoBehaviour {
 			previousNormal = hit.normal;
 			Debug.DrawRay(coordinateOnPath, -previousNormal * hit.distance);
 			//Debug.DrawRay(hit.point, hit.normal*10, Color.green);
-
+			character.LookAt(transform.position + diretion.normalized, previousNormal);
+			//character.LookAt(transform.position + diretion.normalized, previousNormal);
+			//Debug.Log(transform.position + " " + diretion.normalized+ " " + previousNormal);
 
 			//character.transform.rotation = Quaternion.LookRotation(hit.normal);
 			floorPosition=hit.point;
@@ -89,17 +92,23 @@ public class Controller : MonoBehaviour {
 	
 	void MoveCharacter(){
 		//add gravity:
-		ySpeed += gravity * Time.deltaTime;
+		//ySpeed += gravity * Time.deltaTime;
 		
 		//apply gravity:
-		character.position=new Vector3(floorPosition.x,character.position.y-ySpeed,floorPosition.z);
-		
-		//floor checking:
-		if(character.position.y<floorPosition.y){
-			ySpeed=0;
-			jumpState=0;
-			character.position=new Vector3(floorPosition.x,floorPosition.y,floorPosition.z);
-		}		
+		character.position = floorPosition + previousNormal.normalized * ySpeed;
+
+		ySpeed -=gravity;
+		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);
+		jumpState=0;
+
+		// character.position=new Vector3( Mathf.Round(floorPosition.x*100)/100,
+		// 	Mathf.Round(floorPosition.y*100)/100,
+		// 	Mathf.Round(floorPosition.z*100)/100);
+		Debug.Log(ySpeed + " " + previousNormal+ " " + previousNormal.normalized);
+		// if(character.position.y<floorPosition.y){
+		// 	//ySpeed=0;
+		// 	character.position=new Vector3(floorPosition.x,floorPosition.y,floorPosition.z);
+		// }		
 	}
 	
 }
