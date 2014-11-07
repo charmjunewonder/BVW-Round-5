@@ -17,8 +17,8 @@ public class Controller : MonoBehaviour {
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
 	private float velocity = 0;
-	private float velocityDecrement = 0.03f;
-	private float velocityIncrement = 0.09f;
+	private float velocityDecrement = 0.01f;
+	private float velocityIncrement = 0.03f;
 	private float cameraOffset = 0.01f;
 	private Vector3 previousPosition;
 	void OnDrawGizmos(){
@@ -39,7 +39,6 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
-		//updateCamera();
 	}
 	
 	
@@ -50,7 +49,7 @@ public class Controller : MonoBehaviour {
 			velocity += velocityIncrement;
 		}
 
-		velocity = Mathf.Clamp(velocity - velocityDecrement, 0, 1);
+		velocity = Mathf.Clamp(velocity - velocityDecrement, 0, 0.5f);
 		pathPosition += Time.deltaTime * velocity;
 
 		//jump:
@@ -63,74 +62,32 @@ public class Controller : MonoBehaviour {
 	
 	void FindFloorAndRotation(){
 		float pathPercent = pathPosition%1;
-		Debug.Log(pathPercent);
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
 		Vector3 diretion;
 		lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
 		diretion = lookTarget - coordinateOnPath;
+		
+		int layerOfPath = 1 << 8;
 
-		//calculate look data if we aren't going to be looking beyond the extents of the path:
-		if(pathPercent-lookAheadAmount>=0 && pathPercent+lookAheadAmount <=1){
-			
-			//leading or trailing point so we can have something to look at:
-			// lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
-			// diretion = lookTarget - coordinateOnPath;
-			//Debug.DrawRay(transform.position, diretion.normalized * 10, Color.red);
-
-			//look:
-			//Debug.Log(lookTarget);
-			//nullify all rotations but y since we just want to look where we are going:
-			//float yRot = character.eulerAngles.y;
-			//character.eulerAngles=new Vector3(0,yRot,0);
-		}
-
-		if (Physics.Raycast(coordinateOnPath,-previousNormal,out hit, rayLength)){
+		if (Physics.Raycast(coordinateOnPath,-previousNormal,out hit, rayLength, layerOfPath)){
 			previousNormal = hit.normal;
 			Debug.DrawRay(coordinateOnPath, -previousNormal * hit.distance);
-			//Debug.DrawRay(hit.point, hit.normal*10, Color.green);
-
-
-			//character.LookAt(transform.position + diretion.normalized, previousNormal);
-			//Debug.Log(transform.position + " " + diretion.normalized+ " " + previousNormal);
-
-			//character.transform.rotation = Quaternion.LookRotation(hit.normal);
 			if(Vector3.Distance(previousPosition, hit.point) > 0.1f){
 				floorPosition=hit.point;
 				character.LookAt(transform.position + diretion.normalized, previousNormal);
-				//camera.LookAt(transform.position + diretion.normalized, previousNormal);
-				//iTween.MoveUpdate(camera.gameObject, coordinateOnPath - diretion.normalized * 2, 0);
-				//camera.position = coordinateOnPath - diretion.normalized * 2;
 			}
 		}
 	}
 	
 	
 	void MoveCharacter(){
-		//add gravity:
-		//ySpeed += gravity * Time.deltaTime;
-		
-		//apply gravity:
 		character.position = floorPosition + previousNormal.normalized * ySpeed;
 		previousPosition = character.position;
 		ySpeed -=gravity;
 		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);
 		jumpState=0;
-
-		// character.position=new Vector3( Mathf.Round(floorPosition.x*100)/100,
-		// 	Mathf.Round(floorPosition.y*100)/100,
-		// 	Mathf.Round(floorPosition.z*100)/100);
-		//Debug.Log(ySpeed + " " + previousNormal+ " " + previousNormal.normalized);
-		// if(character.position.y<floorPosition.y){
-		// 	//ySpeed=0;
-		// 	character.position=new Vector3(floorPosition.x,floorPosition.y,floorPosition.z);
-		// }		
-	}
 	
-	void updateCamera(){
-		// float pathPercent = Mathf.Clamp(pathPosition%1 - cameraOffset, 0, 1);
-		float pathPercent = pathPosition%1;
-		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
-		iTween.MoveUpdate(camera.gameObject, coordinateOnPath, 0);
 	}
+
 }
