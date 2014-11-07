@@ -4,7 +4,8 @@ using System.Collections;
 public class Controller : MonoBehaviour {
 	public Transform[] controlPath;
 	public Transform character;
-	
+	public Transform camera;
+
 	private float pathPosition=0;
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -17,8 +18,9 @@ public class Controller : MonoBehaviour {
 	private Vector3 previousNormal;
 	private float velocity = 0;
 	private float velocityDecrement = 0.03f;
-	private float velocityIncrement = 0.12f;
+	private float velocityIncrement = 0.09f;
 	private float cameraOffset = 0.01f;
+	private Vector3 previousPosition;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -37,6 +39,7 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
+		//updateCamera();
 	}
 	
 	
@@ -60,11 +63,13 @@ public class Controller : MonoBehaviour {
 	
 	void FindFloorAndRotation(){
 		float pathPercent = pathPosition%1;
+		Debug.Log(pathPercent);
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
 		Vector3 diretion;
 		lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
 		diretion = lookTarget - coordinateOnPath;
+
 		//calculate look data if we aren't going to be looking beyond the extents of the path:
 		if(pathPercent-lookAheadAmount>=0 && pathPercent+lookAheadAmount <=1){
 			
@@ -84,12 +89,19 @@ public class Controller : MonoBehaviour {
 			previousNormal = hit.normal;
 			Debug.DrawRay(coordinateOnPath, -previousNormal * hit.distance);
 			//Debug.DrawRay(hit.point, hit.normal*10, Color.green);
-			character.LookAt(transform.position + diretion.normalized, previousNormal);
+
+
 			//character.LookAt(transform.position + diretion.normalized, previousNormal);
 			//Debug.Log(transform.position + " " + diretion.normalized+ " " + previousNormal);
 
 			//character.transform.rotation = Quaternion.LookRotation(hit.normal);
-			floorPosition=hit.point;
+			if(Vector3.Distance(previousPosition, hit.point) > 0.1f){
+				floorPosition=hit.point;
+				character.LookAt(transform.position + diretion.normalized, previousNormal);
+				//camera.LookAt(transform.position + diretion.normalized, previousNormal);
+				//iTween.MoveUpdate(camera.gameObject, coordinateOnPath - diretion.normalized * 2, 0);
+				//camera.position = coordinateOnPath - diretion.normalized * 2;
+			}
 		}
 	}
 	
@@ -100,7 +112,7 @@ public class Controller : MonoBehaviour {
 		
 		//apply gravity:
 		character.position = floorPosition + previousNormal.normalized * ySpeed;
-
+		previousPosition = character.position;
 		ySpeed -=gravity;
 		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);
 		jumpState=0;
@@ -115,4 +127,10 @@ public class Controller : MonoBehaviour {
 		// }		
 	}
 	
+	void updateCamera(){
+		// float pathPercent = Mathf.Clamp(pathPosition%1 - cameraOffset, 0, 1);
+		float pathPercent = pathPosition%1;
+		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
+		iTween.MoveUpdate(camera.gameObject, coordinateOnPath, 0);
+	}
 }
