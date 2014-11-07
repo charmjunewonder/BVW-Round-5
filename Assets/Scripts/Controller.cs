@@ -7,7 +7,6 @@ public class Controller : MonoBehaviour {
 	
 	private float pathPosition=0;
 	private RaycastHit hit;
-	private float speed = 0.12f;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
 	private float lookAheadAmount = .01f;
@@ -16,6 +15,10 @@ public class Controller : MonoBehaviour {
 	private float jumpForce=2.15f;
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
+	private float velocity = 0;
+	private float velocityDecrement = 0.03f;
+	private float velocityIncrement = 0.12f;
+	private float cameraOffset = 0.01f;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -40,12 +43,13 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		//forward path movement:
 
-		if(Input.GetKey(KeyCode.A)) {
-			pathPosition += Time.deltaTime * speed;
+		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+			velocity += velocityIncrement;
 		}
-		if(Input.GetKey(KeyCode.D)) {
-			pathPosition += Time.deltaTime * speed;
-		}
+
+		velocity = Mathf.Clamp(velocity - velocityDecrement, 0, 1);
+		pathPosition += Time.deltaTime * velocity;
+
 		//jump:
 		if (Input.GetKeyDown("space") && jumpState==0) {
 			ySpeed+=jumpForce;
@@ -104,7 +108,7 @@ public class Controller : MonoBehaviour {
 		// character.position=new Vector3( Mathf.Round(floorPosition.x*100)/100,
 		// 	Mathf.Round(floorPosition.y*100)/100,
 		// 	Mathf.Round(floorPosition.z*100)/100);
-		Debug.Log(ySpeed + " " + previousNormal+ " " + previousNormal.normalized);
+		//Debug.Log(ySpeed + " " + previousNormal+ " " + previousNormal.normalized);
 		// if(character.position.y<floorPosition.y){
 		// 	//ySpeed=0;
 		// 	character.position=new Vector3(floorPosition.x,floorPosition.y,floorPosition.z);
