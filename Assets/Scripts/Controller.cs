@@ -1,5 +1,4 @@
 #define DEBUG
-
 using UnityEngine;
 using System.Collections;
 
@@ -22,7 +21,7 @@ public class Controller : MonoBehaviour {
 	private Vector3 previousNormal;
 	private float velocity = 0;
 	private float velocityDecrement = 0.01f;
-	private float velocityIncrement = 0.03f;
+	private float velocityIncrement = 0.05f;
 	private float cameraOffset = 0.01f;
 	private Vector3 previousPosition;
 
@@ -59,7 +58,7 @@ public class Controller : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
 			velocity += velocityIncrement;
 		}
-#elif
+#else
 		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) {
 			velocity += velocityIncrement;
 		}
