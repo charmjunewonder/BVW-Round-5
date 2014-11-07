@@ -9,6 +9,9 @@ public class Controller : MonoBehaviour {
 	public Transform camera;
 	public int collectedItemCount = 0;
 	public GameObject[] models;
+	public int characterMode = 0;
+	public string[] tagsForItems;// = {"MilkItem", "BookItem", "MoneyItem", "PillItem"};
+
 	private float pathPosition=0;
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -25,7 +28,6 @@ public class Controller : MonoBehaviour {
 	private float cameraOffset = 0.01f;
 	private Vector3 previousPosition;
 
-	private int characterMode = 0;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -35,6 +37,12 @@ public class Controller : MonoBehaviour {
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
+		tagsForItems = new string[4];
+		tagsForItems[0] = "MilkItem";
+		tagsForItems[1] = "BookItem";
+		tagsForItems[2] = "MoneyItem";
+		tagsForItems[3] = "PillItem";
+
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -108,8 +116,22 @@ public class Controller : MonoBehaviour {
 		if(collectedItemCount >= 5){
 			collectedItemCount = 0;
 			models[characterMode].SetActive(false);
+
+			//destroy previous items
+			GameObject[] items = GameObject.FindGameObjectsWithTag(tagsForItems[characterMode]);
+			int num = items.Length;
+			for(int i = 0; i < num; i++){
+				Destroy(items[i]);
+			}
 			characterMode = ++characterMode % 4;
 			models[characterMode].SetActive(true);
+
+
 		}
+	}
+
+	public Vector3 GetPositionAheadWithOffset(float offset){
+		float pathPercent = (pathPosition+offset)%1;
+		return iTween.PointOnPath(controlPath,pathPercent);
 	}
 }
