@@ -1,11 +1,15 @@
+#define DEBUG
+
 using UnityEngine;
 using System.Collections;
 
 public class Controller : MonoBehaviour {
+
 	public Transform[] controlPath;
 	public Transform character;
 	public Transform camera;
-
+	public int collectedItemCount = 0;
+	public GameObject[] models;
 	private float pathPosition=0;
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -21,12 +25,18 @@ public class Controller : MonoBehaviour {
 	private float velocityIncrement = 0.03f;
 	private float cameraOffset = 0.01f;
 	private Vector3 previousPosition;
+
+	private int characterMode = 0;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
 	
 	
 	void Start(){
+		//set the model of the character
+		characterMode = 0;
+		models[0].SetActive(true);
+
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
 		foreach (Transform child in character) {
@@ -39,16 +49,21 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
+		CheckCollectedItemCount();
 	}
 	
 	
 	void DetectKeys(){
 		//forward path movement:
-
+#if DEBUG
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
 			velocity += velocityIncrement;
 		}
-
+#elif
+		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) {
+			velocity += velocityIncrement;
+		}
+#endif
 		velocity = Mathf.Clamp(velocity - velocityDecrement, 0, 0.5f);
 		pathPosition += Time.deltaTime * velocity;
 
@@ -67,7 +82,7 @@ public class Controller : MonoBehaviour {
 		Vector3 diretion;
 		lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
 		diretion = lookTarget - coordinateOnPath;
-		
+
 		int layerOfPath = 1 << 8;
 
 		if (Physics.Raycast(coordinateOnPath,-previousNormal,out hit, rayLength, layerOfPath)){
@@ -90,4 +105,12 @@ public class Controller : MonoBehaviour {
 	
 	}
 
+	void CheckCollectedItemCount(){
+		if(collectedItemCount >= 5){
+			collectedItemCount = 0;
+			models[characterMode].SetActive(false);
+			characterMode = ++characterMode % 4;
+			models[characterMode].SetActive(true);
+		}
+	}
 }
