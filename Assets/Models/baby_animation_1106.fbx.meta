@@ -41,10 +41,11 @@ ModelImporter:
     400034: joint9
     4300000: baby
     7400000: Take 001
-    7400002: Idle
+    7400002: Look Back & Froward
     7400004: Crawling
-    7400006: Idle Back
-    7400008: Idle Forward
+    7400006: Look Back
+    7400008: Look Forward
+    7400010: Idle
     9500000: //RootNode
     13700000: baby
   materials:
@@ -126,7 +127,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Idle
+      name: Look Back & Froward
       takeName: Take 001
       firstFrame: 1
       lastFrame: 39
@@ -197,7 +198,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -250,7 +251,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Idle Back
+      name: Look Back
       takeName: Take 001
       firstFrame: 1
       lastFrame: 16
@@ -312,10 +313,72 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Idle Forward
+      name: Look Forward
       takeName: Take 001
       firstFrame: 16
       lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: baby
+        weight: 1
+      - path: cloth
+        weight: 1
+      - path: j_body
+        weight: 1
+      - path: j_body/j_arms
+        weight: 1
+      - path: j_body/j_arms/joint9
+        weight: 1
+      - path: j_body/j_arms/joint9/joint10
+        weight: 1
+      - path: j_body/j_arms/joint9/joint10/joint11
+        weight: 1
+      - path: j_body/j_arms/joint12
+        weight: 1
+      - path: j_body/j_arms/joint12/joint13
+        weight: 1
+      - path: j_body/j_arms/joint12/joint13/joint14
+        weight: 1
+      - path: j_body/j_arms/joint15
+        weight: 1
+      - path: j_body/j_lleg
+        weight: 1
+      - path: j_body/j_lleg/joint6
+        weight: 1
+      - path: j_body/j_lleg/joint6/joint7
+        weight: 1
+      - path: j_body/j_rleg
+        weight: 1
+      - path: j_body/j_rleg/joint3
+        weight: 1
+      - path: j_body/j_rleg/joint3/joint4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1.10000002
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

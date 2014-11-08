@@ -35,6 +35,9 @@ public class Controller : MonoBehaviour {
 
 	private Queue normals;
 
+	private Animator animator;
+
+	private bool walkable = false;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -44,6 +47,7 @@ public class Controller : MonoBehaviour {
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
+		animator = models[0].GetComponent<Animator>();
 		tagsForItems = new string[4];
 		tagsForItems[0] = "MilkItem";
 		tagsForItems[1] = "BookItem";
@@ -60,7 +64,13 @@ public class Controller : MonoBehaviour {
 		}
 
 		normals = new Queue ();
+		StartCoroutine(look());
+	}
 
+	IEnumerator look(){
+		animator.SetTrigger("Look");
+		yield return new WaitForSeconds(1.5f);
+		walkable = true;
 	}
 	
 	
@@ -75,13 +85,14 @@ public class Controller : MonoBehaviour {
 	
 	void DetectKeys(){
 
-		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && walkable) {
 			if(velocity <= velocityUpperBounds[0])
 				velocity += velocityIncrement * Time.deltaTime;
 		}
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;
-
+		animator.SetFloat("Speed", velocity);
+		Debug.Log(velocity);
 		//jump:
 		if (Input.GetKeyDown("space") && jumpState==0) {
 			StartCoroutine(Jump());
@@ -147,7 +158,7 @@ public class Controller : MonoBehaviour {
 			}
 			characterMode = ++characterMode % 4;
 			models[characterMode].SetActive(true);
-
+			animator = models[characterMode].GetComponent<Animator>();
 
 		}
 	}
