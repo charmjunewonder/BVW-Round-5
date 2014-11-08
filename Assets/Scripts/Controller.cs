@@ -38,6 +38,8 @@ public class Controller : MonoBehaviour {
 	private Animator animator;
 
 	private bool walkable = false;
+	private float waitingCount = 0;
+	private bool lookingBack = false;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -84,20 +86,47 @@ public class Controller : MonoBehaviour {
 	
 	
 	void DetectKeys(){
-
-		if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && walkable) {
-			if(velocity <= velocityUpperBounds[0])
+		if(walkable){
+			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+				if(velocity <= velocityUpperBounds[0])
 				velocity += velocityIncrement * Time.deltaTime;
+				waitingCount = 0;
+			} else{
+				waitingCount += Time.deltaTime;
+			}
 		}
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
-		Debug.Log(velocity);
+		if(waitingCount > 10){
+			waitingCount = 0;
+			walkable = false;
+			StartCoroutine(LookBack());
+		}
+		if(lookingBack){
+			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+				waitingCount = 0;
+				lookingBack = false;
+				StartCoroutine(LookForward());
+			}
+		}
 		//jump:
 		if (Input.GetKeyDown("space") && jumpState==0) {
 			StartCoroutine(Jump());
 			jumpState=1;
 		}
+	}
+
+	IEnumerator LookBack(){
+		animator.SetTrigger("LookBack");
+		yield return new WaitForSeconds(0.6f);
+		lookingBack = true;
+	}
+
+	IEnumerator LookForward(){
+		animator.SetTrigger("LookForward");
+		yield return new WaitForSeconds(0.95f);
+		walkable = true;
 	}
 
 	IEnumerator Jump(){
