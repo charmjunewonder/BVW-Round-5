@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour {
 	public string[] tagsForItems;// = {"MilkItem", "BookItem", "MoneyItem", "PillItem"};
 
 	public float pathPosition=0.001f;
-	
+
 	private RaycastHit hit;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
@@ -84,9 +84,23 @@ public class Controller : MonoBehaviour {
 
 		//jump:
 		if (Input.GetKeyDown("space") && jumpState==0) {
-			ySpeed+=jumpForce;
+			StartCoroutine(Jump());
 			jumpState=1;
 		}
+	}
+
+	IEnumerator Jump(){
+		float jumpIncrement = jumpForce/10;
+		for(int i = 0; i < 10; i++){
+			ySpeed += jumpIncrement;
+			yield return new WaitForSeconds(0.02f);
+		}
+		for(int i = 0; i < 10; i++){
+			ySpeed -= jumpIncrement;
+			yield return new WaitForSeconds(0.02f);
+		}
+		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);	
+		jumpState=0;
 	}
 	
 	
@@ -118,10 +132,6 @@ public class Controller : MonoBehaviour {
 
 		//Debug.Log (character.transform.position);
 
-		ySpeed -=gravity;
-		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);
-		jumpState=0;
-	
 	}
 
 	void CheckCollectedItemCount(){
