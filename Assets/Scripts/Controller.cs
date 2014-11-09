@@ -10,7 +10,6 @@ public class Controller : MonoBehaviour {
 	public int collectedItemCount = 0;
 	public GameObject[] models;
 	public int characterMode = 0;
-	public string[] tagsForItems;// = {"MilkItem", "BookItem", "MoneyItem", "PillItem"};
 
 	public float pathPosition=0.001f;
 
@@ -50,11 +49,6 @@ public class Controller : MonoBehaviour {
 		characterMode = 0;
 		models[0].SetActive(true);
 		animator = models[0].GetComponent<Animator>();
-		tagsForItems = new string[4];
-		tagsForItems[0] = "MilkItem";
-		tagsForItems[1] = "BookItem";
-		tagsForItems[2] = "MoneyItem";
-		tagsForItems[3] = "PillItem";
 
 		velocityUpperBounds = new float[4];
 		velocityUpperBounds [0] = 0.0001f;
@@ -81,7 +75,7 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
-		CheckCollectedItemCount();
+		//CheckCollectedItemCount();
 	}
 	
 	
@@ -175,16 +169,16 @@ public class Controller : MonoBehaviour {
 	}
 
 	void CheckCollectedItemCount(){
-		if(collectedItemCount >= 5){
+		if(collectedItemCount >= 4){
 			collectedItemCount = 0;
 			models[characterMode].SetActive(false);
 
 			//destroy previous items
-			GameObject[] items = GameObject.FindGameObjectsWithTag(tagsForItems[characterMode]);
-			int num = items.Length;
-			for(int i = 0; i < num; i++){
-				Destroy(items[i]);
-			}
+			// GameObject[] items = GameObject.FindGameObjectsWithTag(tagsForItems[characterMode]);
+			// int num = items.Length;
+			// for(int i = 0; i < num; i++){
+			// 	Destroy(items[i]);
+			// }
 			characterMode = ++characterMode % 4;
 			models[characterMode].SetActive(true);
 			animator = models[characterMode].GetComponent<Animator>();
@@ -192,9 +186,8 @@ public class Controller : MonoBehaviour {
 		}
 	}
 
-	public Vector3 GetPositionAheadWithOffset(float offset){
-		float pathPercent = (pathPosition+offset)%1;
-		return iTween.PointOnPath(controlPath,pathPercent);
+	public Vector3 GetPositionWithPercent(float percent){
+		return iTween.PointOnPath(controlPath,percent);
 	}
 
 	private Vector3 GetNormal(Vector3 v)

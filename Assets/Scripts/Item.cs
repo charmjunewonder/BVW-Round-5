@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemCollider : MonoBehaviour {
+public class Item : MonoBehaviour {
 	public Controller controller;
 	public float pathPosition;
+	public GameObject[] models;
+	
 	void Start(){
 		StartCoroutine(CheckValid());
 	}

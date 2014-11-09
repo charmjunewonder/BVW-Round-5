@@ -4,23 +4,27 @@ using System.Collections;
 public class ItemGenerator : MonoBehaviour {
 
 	public Controller controller;
-	public GameObject[] items;
+	public GameObject item;
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(GenerateItem());
+		GenerateItemAtFirstTime();
 	}
 
-	IEnumerator GenerateItem(){
-		while(true){
-			int modeOfCharacter = controller.characterMode;
-			GameObject item = Instantiate(items[modeOfCharacter]) as GameObject;
-			item.transform.parent = transform;
-			item.SetActive(true);
-			item.tag = controller.tagsForItems[modeOfCharacter];
-			item.transform.position = controller.GetPositionAheadWithOffset(0.001f);
-			
-			yield return new WaitForSeconds(5.0f);
+	void GenerateItemAtFirstTime(){
+		int modeOfCharacter = controller.characterMode;
+		float emptyPercent = 0.01f;
+		float increment = (1 - emptyPercent) / 120;
+		float previousPercent = emptyPercent;
+		for(int i = 0; i < 12; i++){
+			GameObject itemClone = Instantiate(item) as GameObject;
+			itemClone.transform.parent = transform;
+			itemClone.SetActive(true);
+			itemClone.GetComponent<Item>().models[modeOfCharacter].SetActive(true);
+			itemClone.tag = "Item";
+			float percent = Random.Range(previousPercent+increment, previousPercent+increment*2);
+			previousPercent = previousPercent+increment*2;
+			itemClone.transform.position = controller.GetPositionWithPercent(percent);
 		}
 	}
 }
