@@ -40,6 +40,7 @@ public class AICharacter : MonoBehaviour {
 	private float waitingCount = 0;
 	private bool lookingBack = false;
 	private Vector3 offsetVector;
+	private int moveCount = 0;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -52,7 +53,7 @@ public class AICharacter : MonoBehaviour {
 		animator = models[0].GetComponent<Animator>();
 
 		velocityUpperBounds = new float[4];
-		velocityUpperBounds [0] = 0.0001f;
+		velocityUpperBounds [0] = 0.00004f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -82,12 +83,12 @@ public class AICharacter : MonoBehaviour {
 	
 	void DetectKeys(){
 
-		if(walkable){
+		if(walkable && moveCount%3 == 0){
 			if(velocity <= velocityUpperBounds[0])
 			velocity += velocityIncrement * Time.deltaTime;
 			waitingCount = 0;
 		}
-
+		moveCount++;
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);

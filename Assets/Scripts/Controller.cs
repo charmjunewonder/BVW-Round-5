@@ -53,7 +53,7 @@ public class Controller : MonoBehaviour {
 		animator = models[0].GetComponent<Animator>();
 
 		velocityUpperBounds = new float[4];
-		velocityUpperBounds [0] = 0.0001f;
+		velocityUpperBounds [0] = 0.00004f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
