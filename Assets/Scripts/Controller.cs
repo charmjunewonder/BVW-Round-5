@@ -77,7 +77,7 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
-		//CheckCollectedItemCount();
+		CheckCollectedItemCount();
 	}
 	
 	
@@ -91,26 +91,42 @@ public class Controller : MonoBehaviour {
 				waitingCount += Time.deltaTime;
 			}
 		}
+		if(characterMode == 0){
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(LookBack());
+			}
+			if(lookingBack){
+				if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+					waitingCount = 0;
+					lookingBack = false;
+					StartCoroutine(LookForward());
+				}
+			}
+		} else{
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(Idle());
+			}
+			//jump:
+			if (Input.GetKeyDown("space") && jumpState==0) {
+				animator.SetTrigger("Jump");
+				StartCoroutine(Jump());
+				jumpState=1;
+			}
+		}
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
-		if(waitingCount > 10){
-			waitingCount = 0;
-			walkable = false;
-			StartCoroutine(LookBack());
-		}
-		if(lookingBack){
-			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-				waitingCount = 0;
-				lookingBack = false;
-				StartCoroutine(LookForward());
-			}
-		}
-		//jump:
-		if (Input.GetKeyDown("space") && jumpState==0) {
-			StartCoroutine(Jump());
-			jumpState=1;
-		}
+
+	}
+
+	IEnumerator Idle(){
+		animator.SetTrigger("Idle");
+		yield return new WaitForSeconds(1.1f);
+		walkable = true;
 	}
 
 	IEnumerator LookBack(){

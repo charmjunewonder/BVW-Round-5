@@ -82,9 +82,11 @@ public class AICharacter : MonoBehaviour {
 	
 	void DetectKeys(){
 
-		if(velocity <= velocityUpperBounds[0])
-		velocity += velocityIncrement * Time.deltaTime;
-		waitingCount = 0;
+		if(walkable){
+			if(velocity <= velocityUpperBounds[0])
+			velocity += velocityIncrement * Time.deltaTime;
+			waitingCount = 0;
+		}
 
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;

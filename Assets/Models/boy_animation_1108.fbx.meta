@@ -1,0 +1,1310 @@
+fileFormatVersion: 2
+guid: 98e467a2bac76ad43b81c4988a500758
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Boy_Ctrl_ChestEndEffector
+    100004: Boy_Ctrl_ChestOriginEffector
+    100006: Boy_Ctrl_Head
+    100008: Boy_Ctrl_HeadEffector
+    100010: Boy_Ctrl_Hips
+    100012: Boy_Ctrl_HipsEffector
+    100014: Boy_Ctrl_LeftAnkleEffector
+    100016: Boy_Ctrl_LeftArm
+    100018: Boy_Ctrl_LeftElbowEffector
+    100020: Boy_Ctrl_LeftFoot
+    100022: Boy_Ctrl_LeftFootEffector
+    100024: Boy_Ctrl_LeftForeArm
+    100026: Boy_Ctrl_LeftHand
+    100028: Boy_Ctrl_LeftHandRing1
+    100030: Boy_Ctrl_LeftHandRing2
+    100032: Boy_Ctrl_LeftHandRing3
+    100034: Boy_Ctrl_LeftHandRing4
+    100036: Boy_Ctrl_LeftHandRingEffector
+    100038: Boy_Ctrl_LeftHipEffector
+    100040: Boy_Ctrl_LeftKneeEffector
+    100042: Boy_Ctrl_LeftLeg
+    100044: Boy_Ctrl_LeftShoulder
+    100046: Boy_Ctrl_LeftShoulderEffector
+    100048: Boy_Ctrl_LeftToeBase
+    100050: Boy_Ctrl_LeftUpLeg
+    100052: Boy_Ctrl_LeftWristEffector
+    100054: Boy_Ctrl_Neck
+    100056: Boy_Ctrl_Reference
+    100058: Boy_Ctrl_RightAnkleEffector
+    100060: Boy_Ctrl_RightArm
+    100062: Boy_Ctrl_RightElbowEffector
+    100064: Boy_Ctrl_RightFoot
+    100066: Boy_Ctrl_RightFootEffector
+    100068: Boy_Ctrl_RightForeArm
+    100070: Boy_Ctrl_RightHand
+    100072: Boy_Ctrl_RightHandRing1
+    100074: Boy_Ctrl_RightHandRing2
+    100076: Boy_Ctrl_RightHandRing3
+    100078: Boy_Ctrl_RightHandRing4
+    100080: Boy_Ctrl_RightHandRingEffector
+    100082: Boy_Ctrl_RightHipEffector
+    100084: Boy_Ctrl_RightKneeEffector
+    100086: Boy_Ctrl_RightLeg
+    100088: Boy_Ctrl_RightShoulder
+    100090: Boy_Ctrl_RightShoulderEffector
+    100092: Boy_Ctrl_RightToeBase
+    100094: Boy_Ctrl_RightUpLeg
+    100096: Boy_Ctrl_RightWristEffector
+    100098: Boy_Ctrl_Spine
+    100100: Boy_Ctrl_Spine1
+    100102: Boy_Ctrl_Spine2
+    100104: Boy_Head
+    100106: Boy_Hips
+    100108: Boy_LeftArm
+    100110: Boy_LeftFoot
+    100112: Boy_LeftForeArm
+    100114: Boy_LeftHand
+    100116: Boy_LeftHandRing1
+    100118: Boy_LeftHandRing2
+    100120: Boy_LeftHandRing3
+    100122: Boy_LeftHandRing4
+    100124: Boy_LeftLeg
+    100126: Boy_LeftShoulder
+    100128: Boy_LeftToeBase
+    100130: Boy_LeftUpLeg
+    100132: boy_modeling___afterTexture:boy
+    100134: boy_modeling___afterTexture:face1
+    100136: boy_modeling___afterTexture:hair
+    100138: boy_modeling___afterTexture:lower_body
+    100140: boy_modeling___afterTexture:polySurface9
+    100142: boy_modeling___afterTexture:upper_body
+    100144: Boy_Neck
+    100146: Boy_Reference
+    100148: Boy_RightArm
+    100150: Boy_RightFoot
+    100152: Boy_RightForeArm
+    100154: Boy_RightHand
+    100156: Boy_RightHandRing1
+    100158: Boy_RightHandRing2
+    100160: Boy_RightHandRing3
+    100162: Boy_RightHandRing4
+    100164: Boy_RightLeg
+    100166: Boy_RightShoulder
+    100168: Boy_RightToeBase
+    100170: Boy_RightUpLeg
+    100172: Boy_Spine
+    100174: Boy_Spine1
+    100176: Boy_Spine2
+    100178: Character1_Reference
+    100180: Character2_Reference
+    100182: Character3_Reference
+    400000: //RootNode
+    400002: Boy_Ctrl_ChestEndEffector
+    400004: Boy_Ctrl_ChestOriginEffector
+    400006: Boy_Ctrl_Head
+    400008: Boy_Ctrl_HeadEffector
+    400010: Boy_Ctrl_Hips
+    400012: Boy_Ctrl_HipsEffector
+    400014: Boy_Ctrl_LeftAnkleEffector
+    400016: Boy_Ctrl_LeftArm
+    400018: Boy_Ctrl_LeftElbowEffector
+    400020: Boy_Ctrl_LeftFoot
+    400022: Boy_Ctrl_LeftFootEffector
+    400024: Boy_Ctrl_LeftForeArm
+    400026: Boy_Ctrl_LeftHand
+    400028: Boy_Ctrl_LeftHandRing1
+    400030: Boy_Ctrl_LeftHandRing2
+    400032: Boy_Ctrl_LeftHandRing3
+    400034: Boy_Ctrl_LeftHandRing4
+    400036: Boy_Ctrl_LeftHandRingEffector
+    400038: Boy_Ctrl_LeftHipEffector
+    400040: Boy_Ctrl_LeftKneeEffector
+    400042: Boy_Ctrl_LeftLeg
+    400044: Boy_Ctrl_LeftShoulder
+    400046: Boy_Ctrl_LeftShoulderEffector
+    400048: Boy_Ctrl_LeftToeBase
+    400050: Boy_Ctrl_LeftUpLeg
+    400052: Boy_Ctrl_LeftWristEffector
+    400054: Boy_Ctrl_Neck
+    400056: Boy_Ctrl_Reference
+    400058: Boy_Ctrl_RightAnkleEffector
+    400060: Boy_Ctrl_RightArm
+    400062: Boy_Ctrl_RightElbowEffector
+    400064: Boy_Ctrl_RightFoot
+    400066: Boy_Ctrl_RightFootEffector
+    400068: Boy_Ctrl_RightForeArm
+    400070: Boy_Ctrl_RightHand
+    400072: Boy_Ctrl_RightHandRing1
+    400074: Boy_Ctrl_RightHandRing2
+    400076: Boy_Ctrl_RightHandRing3
+    400078: Boy_Ctrl_RightHandRing4
+    400080: Boy_Ctrl_RightHandRingEffector
+    400082: Boy_Ctrl_RightHipEffector
+    400084: Boy_Ctrl_RightKneeEffector
+    400086: Boy_Ctrl_RightLeg
+    400088: Boy_Ctrl_RightShoulder
+    400090: Boy_Ctrl_RightShoulderEffector
+    400092: Boy_Ctrl_RightToeBase
+    400094: Boy_Ctrl_RightUpLeg
+    400096: Boy_Ctrl_RightWristEffector
+    400098: Boy_Ctrl_Spine
+    400100: Boy_Ctrl_Spine1
+    400102: Boy_Ctrl_Spine2
+    400104: Boy_Head
+    400106: Boy_Hips
+    400108: Boy_LeftArm
+    400110: Boy_LeftFoot
+    400112: Boy_LeftForeArm
+    400114: Boy_LeftHand
+    400116: Boy_LeftHandRing1
+    400118: Boy_LeftHandRing2
+    400120: Boy_LeftHandRing3
+    400122: Boy_LeftHandRing4
+    400124: Boy_LeftLeg
+    400126: Boy_LeftShoulder
+    400128: Boy_LeftToeBase
+    400130: Boy_LeftUpLeg
+    400132: boy_modeling___afterTexture:boy
+    400134: boy_modeling___afterTexture:face1
+    400136: boy_modeling___afterTexture:hair
+    400138: boy_modeling___afterTexture:lower_body
+    400140: boy_modeling___afterTexture:polySurface9
+    400142: boy_modeling___afterTexture:upper_body
+    400144: Boy_Neck
+    400146: Boy_Reference
+    400148: Boy_RightArm
+    400150: Boy_RightFoot
+    400152: Boy_RightForeArm
+    400154: Boy_RightHand
+    400156: Boy_RightHandRing1
+    400158: Boy_RightHandRing2
+    400160: Boy_RightHandRing3
+    400162: Boy_RightHandRing4
+    400164: Boy_RightLeg
+    400166: Boy_RightShoulder
+    400168: Boy_RightToeBase
+    400170: Boy_RightUpLeg
+    400172: Boy_Spine
+    400174: Boy_Spine1
+    400176: Boy_Spine2
+    400178: Character1_Reference
+    400180: Character2_Reference
+    400182: Character3_Reference
+    2300000: boy_modeling___afterTexture:polySurface9
+    3300000: boy_modeling___afterTexture:polySurface9
+    4300000: boy_modeling___afterTexture:upper_body
+    4300002: boy_modeling___afterTexture:face1
+    4300004: boy_modeling___afterTexture:lower_body
+    4300006: boy_modeling___afterTexture:hair
+    4300008: boy_modeling___afterTexture:polySurface9
+    7400000: Take 001
+    7400002: Idle
+    7400004: Run
+    7400006: Jump
+    7400008: Nothing
+    9500000: //RootNode
+    13700000: boy_modeling___afterTexture:face1
+    13700002: boy_modeling___afterTexture:hair
+    13700004: boy_modeling___afterTexture:lower_body
+    13700006: boy_modeling___afterTexture:upper_body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy_Ctrl_Reference
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HeadEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot/Boy_Ctrl_LeftToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot/Boy_Ctrl_RightToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3/Boy_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck/Boy_Ctrl_Head
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3/Boy_Ctrl_RightHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector/boy_modeling___afterTexture:polySurface9
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightWristEffector
+        weight: 1
+      - path: boy_modeling___afterTexture:boy
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:face1
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:hair
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:lower_body
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:upper_body
+        weight: 1
+      - path: Boy_Reference
+        weight: 1
+      - path: Boy_Reference/Boy_Hips
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot/Boy_LeftToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot/Boy_RightToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3/Boy_LeftHandRing4
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck/Boy_Head
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3/Boy_RightHandRing4
+        weight: 1
+      - path: Character1_Reference
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character3_Reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy_Ctrl_Reference
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HeadEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot/Boy_Ctrl_LeftToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot/Boy_Ctrl_RightToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3/Boy_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck/Boy_Ctrl_Head
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3/Boy_Ctrl_RightHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector/boy_modeling___afterTexture:polySurface9
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightWristEffector
+        weight: 1
+      - path: boy_modeling___afterTexture:boy
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:face1
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:hair
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:lower_body
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:upper_body
+        weight: 1
+      - path: Boy_Reference
+        weight: 1
+      - path: Boy_Reference/Boy_Hips
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot/Boy_LeftToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot/Boy_RightToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3/Boy_LeftHandRing4
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck/Boy_Head
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3/Boy_RightHandRing4
+        weight: 1
+      - path: Character1_Reference
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character3_Reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 32
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy_Ctrl_Reference
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HeadEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot/Boy_Ctrl_LeftToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot/Boy_Ctrl_RightToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3/Boy_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck/Boy_Ctrl_Head
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3/Boy_Ctrl_RightHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector/boy_modeling___afterTexture:polySurface9
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightWristEffector
+        weight: 1
+      - path: boy_modeling___afterTexture:boy
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:face1
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:hair
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:lower_body
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:upper_body
+        weight: 1
+      - path: Boy_Reference
+        weight: 1
+      - path: Boy_Reference/Boy_Hips
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot/Boy_LeftToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot/Boy_RightToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3/Boy_LeftHandRing4
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck/Boy_Head
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3/Boy_RightHandRing4
+        weight: 1
+      - path: Character1_Reference
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character3_Reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy_Ctrl_Reference
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HeadEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot/Boy_Ctrl_LeftToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot/Boy_Ctrl_RightToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3/Boy_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck/Boy_Ctrl_Head
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3/Boy_Ctrl_RightHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector/boy_modeling___afterTexture:polySurface9
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightWristEffector
+        weight: 1
+      - path: boy_modeling___afterTexture:boy
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:face1
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:hair
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:lower_body
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:upper_body
+        weight: 1
+      - path: Boy_Reference
+        weight: 1
+      - path: Boy_Reference/Boy_Hips
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot/Boy_LeftToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot/Boy_RightToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3/Boy_LeftHandRing4
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck/Boy_Head
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3/Boy_RightHandRing4
+        weight: 1
+      - path: Character1_Reference
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character3_Reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Nothing
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1.10000002
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Boy_Ctrl_Reference
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HeadEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_LeftUpLeg/Boy_Ctrl_LeftLeg/Boy_Ctrl_LeftFoot/Boy_Ctrl_LeftToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_RightUpLeg/Boy_Ctrl_RightLeg/Boy_Ctrl_RightFoot/Boy_Ctrl_RightToeBase
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_LeftShoulder/Boy_Ctrl_LeftArm/Boy_Ctrl_LeftForeArm/Boy_Ctrl_LeftHand/Boy_Ctrl_LeftHandRing1/Boy_Ctrl_LeftHandRing2/Boy_Ctrl_LeftHandRing3/Boy_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_Neck/Boy_Ctrl_Head
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_Hips/Boy_Ctrl_Spine/Boy_Ctrl_Spine1/Boy_Ctrl_Spine2/Boy_Ctrl_RightShoulder/Boy_Ctrl_RightArm/Boy_Ctrl_RightForeArm/Boy_Ctrl_RightHand/Boy_Ctrl_RightHandRing1/Boy_Ctrl_RightHandRing2/Boy_Ctrl_RightHandRing3/Boy_Ctrl_RightHandRing4
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_HipsEffector/boy_modeling___afterTexture:polySurface9
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightFootEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightHipEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Boy_Ctrl_Reference/Boy_Ctrl_RightWristEffector
+        weight: 1
+      - path: boy_modeling___afterTexture:boy
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:face1
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:hair
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:lower_body
+        weight: 1
+      - path: boy_modeling___afterTexture:boy/boy_modeling___afterTexture:upper_body
+        weight: 1
+      - path: Boy_Reference
+        weight: 1
+      - path: Boy_Reference/Boy_Hips
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_LeftUpLeg/Boy_LeftLeg/Boy_LeftFoot/Boy_LeftToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_RightUpLeg/Boy_RightLeg/Boy_RightFoot/Boy_RightToeBase
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_LeftShoulder/Boy_LeftArm/Boy_LeftForeArm/Boy_LeftHand/Boy_LeftHandRing1/Boy_LeftHandRing2/Boy_LeftHandRing3/Boy_LeftHandRing4
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_Neck/Boy_Head
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3
+        weight: 1
+      - path: Boy_Reference/Boy_Hips/Boy_Spine/Boy_Spine1/Boy_Spine2/Boy_RightShoulder/Boy_RightArm/Boy_RightForeArm/Boy_RightHand/Boy_RightHandRing1/Boy_RightHandRing2/Boy_RightHandRing3/Boy_RightHandRing4
+        weight: 1
+      - path: Character1_Reference
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character3_Reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
