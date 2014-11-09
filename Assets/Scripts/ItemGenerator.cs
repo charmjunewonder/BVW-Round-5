@@ -5,6 +5,7 @@ public class ItemGenerator : MonoBehaviour {
 
 	public Controller controller;
 	public GameObject item;
+	public float[] pathOffsets;
 
 	// Use this for initialization
 	void Start () {

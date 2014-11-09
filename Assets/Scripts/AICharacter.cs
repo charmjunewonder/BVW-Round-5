@@ -1,8 +1,7 @@
-//#define DEBUG
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class Controller : MonoBehaviour {
+public class AICharacter : MonoBehaviour {
 
 	public Transform[] controlPath;
 	public Transform character;
@@ -73,8 +72,8 @@ public class Controller : MonoBehaviour {
 	
 	
 	void Update(){
-		rigidbody.WakeUp ();
 		DetectKeys();
+		rigidbody.WakeUp ();
 		FindFloorAndRotation();
 		MoveCharacter();
 		//CheckCollectedItemCount();
@@ -82,47 +81,15 @@ public class Controller : MonoBehaviour {
 	
 	
 	void DetectKeys(){
-		if(walkable){
-			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-				if(velocity <= velocityUpperBounds[0])
-				velocity += velocityIncrement * Time.deltaTime;
-				waitingCount = 0;
-			} else{
-				waitingCount += Time.deltaTime;
-			}
-		}
+
+		if(velocity <= velocityUpperBounds[0])
+		velocity += velocityIncrement * Time.deltaTime;
+		waitingCount = 0;
+
 		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
-		if(waitingCount > 10){
-			waitingCount = 0;
-			walkable = false;
-			StartCoroutine(LookBack());
-		}
-		if(lookingBack){
-			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-				waitingCount = 0;
-				lookingBack = false;
-				StartCoroutine(LookForward());
-			}
-		}
-		//jump:
-		if (Input.GetKeyDown("space") && jumpState==0) {
-			StartCoroutine(Jump());
-			jumpState=1;
-		}
-	}
 
-	IEnumerator LookBack(){
-		animator.SetTrigger("LookBack");
-		yield return new WaitForSeconds(0.6f);
-		lookingBack = true;
-	}
-
-	IEnumerator LookForward(){
-		animator.SetTrigger("LookForward");
-		yield return new WaitForSeconds(0.95f);
-		walkable = true;
 	}
 
 	IEnumerator Jump(){
@@ -193,47 +160,6 @@ public class Controller : MonoBehaviour {
 		return iTween.PointOnPath(controlPath,percent);
 	}
 
-	public void ModifyLookAtDirection(GameObject other, float percent){
-		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,percent);
-		Vector3 lookTarget;
-		Vector3 direction;
-		lookTarget = iTween.PointOnPath(controlPath,percent+lookAheadAmount);
-		direction = lookTarget - coordinateOnPath;
-
-		int layerOfPath = 1 << 8;
-
-		Vector3 directionA = new Vector3(-direction.y, direction.x, 0);
-		float minDistance = Mathf.Infinity;
-		Vector3 vectorWithMinDistance = directionA;
-		Vector3 positionVector = other.transform.position;
-		for(int i = 0; i < 8; i++){
-			directionA = Quaternion.AngleAxis(-45, direction) * directionA;
-			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, 10.0f, layerOfPath)){
-
-				if(hit.distance < minDistance){
-					minDistance = hit.distance;
-					vectorWithMinDistance = directionA;
-					positionVector = hit.point;
-					
-				}
-			}
-		}
-		for(int i = 0; i < 9; i++){
-			directionA = Quaternion.AngleAxis(-45+10*i, direction) * vectorWithMinDistance;
-
-			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, 10.0f, layerOfPath)){
-
-				if(hit.distance < minDistance){
-					minDistance = hit.distance;
-					vectorWithMinDistance = directionA;
-					positionVector = hit.point;
-				}
-			}
-		}
-		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
-		other.transform.position = positionVector;
-	}
-
 	private Vector3 GetNormal(Vector3 v)
 	{
 		normals.Enqueue(v);
@@ -250,5 +176,4 @@ public class Controller : MonoBehaviour {
 		average /= normals.Count;
 		return average;
 	}
-
 }
