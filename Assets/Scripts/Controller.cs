@@ -190,6 +190,39 @@ public class Controller : MonoBehaviour {
 		return iTween.PointOnPath(controlPath,percent);
 	}
 
+	public void ModifyLookAtDirection(GameObject other, float percent){
+		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,percent);
+		Vector3 lookTarget;
+		Vector3 direction;
+		lookTarget = iTween.PointOnPath(controlPath,percent+lookAheadAmount);
+		direction = lookTarget - coordinateOnPath;
+
+		int layerOfPath = 1 << 8;
+
+		Vector3 direction1 = new Vector3(-direction.y, direction.x, 0);
+		float minDistance = Mathf.Infinity;
+		Vector3 vectorWithMinDistance = direction1;
+		for(int i = 0; i < 8; i++){
+			Vector3 directionA = Quaternion.AngleAxis(-45, direction) * direction1;
+			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, rayLength, layerOfPath)){
+				if(hit.distance < minDistance){
+					minDistance = hit.distance;
+					vectorWithMinDistance = directionA;
+				}
+			}
+		}
+		for(int i = 0; i < 9; i++){
+			Vector3 directionA = Quaternion.AngleAxis(-45+10*i, direction) * vectorWithMinDistance;
+			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, rayLength, layerOfPath)){
+				if(hit.distance < minDistance){
+					minDistance = hit.distance;
+					vectorWithMinDistance = directionA;
+				}
+			}
+		}
+		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
+	}
+
 	private Vector3 GetNormal(Vector3 v)
 	{
 		normals.Enqueue(v);

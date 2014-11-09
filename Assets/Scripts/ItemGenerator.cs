@@ -14,7 +14,7 @@ public class ItemGenerator : MonoBehaviour {
 	void GenerateItemAtFirstTime(){
 		int modeOfCharacter = controller.characterMode;
 		float emptyPercent = 0.01f;
-		float increment = (1 - emptyPercent) / 120;
+		float increment = (1 - emptyPercent) / 30;
 		float previousPercent = emptyPercent;
 		for(int i = 0; i < 12; i++){
 			GameObject itemClone = Instantiate(item) as GameObject;
@@ -25,6 +25,7 @@ public class ItemGenerator : MonoBehaviour {
 			float percent = Random.Range(previousPercent+increment, previousPercent+increment*2);
 			previousPercent = previousPercent+increment*2;
 			itemClone.transform.position = controller.GetPositionWithPercent(percent);
+			controller.ModifyLookAtDirection(itemClone, percent);
 		}
 	}
 }

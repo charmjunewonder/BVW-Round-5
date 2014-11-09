@@ -5,7 +5,8 @@ public class Item : MonoBehaviour {
 	public Controller controller;
 	public float pathPosition;
 	public GameObject[] models;
-	
+	public LifeProgressBar lifeBar;
+
 	void Start(){
 		StartCoroutine(CheckValid());
 	}
@@ -14,7 +15,7 @@ public class Item : MonoBehaviour {
 		while(true){
 			float pathPositionOfCharacter = controller.pathPosition;
 			if(pathPositionOfCharacter - pathPosition > 0.5f){
-				Destroy(gameObject);
+				//Destroy(gameObject);
 			}
 			yield return new WaitForSeconds(1.0f);
 		}
@@ -23,6 +24,7 @@ public class Item : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
+			lifeBar.changeToNextState();
 			Destroy(gameObject);
 			Debug.Log(other.gameObject.GetComponent<Controller>().collectedItemCount);
 		}
