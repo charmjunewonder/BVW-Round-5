@@ -9,7 +9,7 @@ public class AICharacter : MonoBehaviour {
 	public int collectedItemCount = 0;
 	public GameObject[] models;
 	public int characterMode = 0;
-
+	public ParticleSystem TransitionEffect;
 	public float pathPosition=0.001f;
 	public float pathOffset = 0;
 
@@ -19,12 +19,12 @@ public class AICharacter : MonoBehaviour {
 	private float lookAheadAmount = .001f;
 	private float ySpeed=0;
 	private float gravity=.1f;
-	private float jumpForce=2.15f;
+	private float jumpForce=10f;
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
 	private float velocity = 0;
 	private float velocityDecrement = 0.0001f;
-	private float velocityIncrement = 0.003f;
+	private float velocityIncrement = 0.0002f;
 
 	private float[] velocityUpperBounds;
 	//private float cameraOffset = 0.01f;
@@ -53,8 +53,9 @@ public class AICharacter : MonoBehaviour {
 		animator = models[0].GetComponent<Animator>();
 
 		velocityUpperBounds = new float[4];
-		velocityUpperBounds [0] = 0.00004f;
-
+		velocityUpperBounds [0] = 0.00001f;
+		velocityUpperBounds [1] = 0.00008f; 
+		velocityUpperBounds [2] = 0.0003f;
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
 		foreach (Transform child in character) {
@@ -77,15 +78,14 @@ public class AICharacter : MonoBehaviour {
 		rigidbody.WakeUp ();
 		FindFloorAndRotation();
 		MoveCharacter();
-		//CheckCollectedItemCount();
+		CheckCollectedItemCount();
 	}
 	
 	
 	void DetectKeys(){
 
-		if(walkable && moveCount%3 == 0){
-			if(velocity <= velocityUpperBounds[0])
-			velocity += velocityIncrement * Time.deltaTime;
+		if(walkable && moveCount%1 == 0){
+			velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 			waitingCount = 0;
 		}
 		moveCount++;
@@ -146,17 +146,26 @@ public class AICharacter : MonoBehaviour {
 			collectedItemCount = 0;
 			models[characterMode].SetActive(false);
 
-			//destroy previous items
-			// GameObject[] items = GameObject.FindGameObjectsWithTag(tagsForItems[characterMode]);
-			// int num = items.Length;
-			// for(int i = 0; i < num; i++){
-			// 	Destroy(items[i]);
-			// }
+			TransitionEffect.gameObject.SetActive(true);
+
 			characterMode = ++characterMode % 4;
-			models[characterMode].SetActive(true);
 			animator = models[characterMode].GetComponent<Animator>();
+			animator.SetTrigger("Idle");
+			walkable = false;
+			Invoke("SetNextModelActive", 1);
+			Invoke("SetWalkableTrue", 1.7f);
 
 		}
+	}
+
+	private void SetNextModelActive()
+	{
+		models[characterMode].SetActive(true);
+	}
+
+	private void SetWalkableTrue()
+	{
+		walkable = true;
 	}
 
 	public Vector3 GetPositionWithPercent(float percent){
