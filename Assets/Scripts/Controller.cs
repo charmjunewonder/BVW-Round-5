@@ -1,8 +1,11 @@
 //#define DEBUG
 using UnityEngine;
 using System.Collections;
+using System.IO.Ports;
 
 public class Controller : MonoBehaviour {
+
+	public static SerialPort spsp;
 
 	public Transform[] controlPath;
 	public Transform character;
@@ -49,12 +52,16 @@ public class Controller : MonoBehaviour {
 	private int[] speedAngles = {30, 90, 190, 360};
 	private int[] speedNums = {10, 30, 100, 200};
 
+	private SerialPort spUnity;
+
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
 	
 	
 	void Start(){
+		spUnity = Controller.spsp;
+
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
@@ -83,13 +90,67 @@ public class Controller : MonoBehaviour {
 	
 	
 	void Update(){
+		//--------------------------x----------------------------
+		if (spUnity != null) {
+			if (spUnity.IsOpen) {
+				try {
+					DetectKeysArduino ();
+				} catch (System.Exception) {
+
+				}
+			}
+			//DetectKeys();
+		}
+		//------------------------------------------------------
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
 		CheckCollectedItemCount();
 	}
 	
-	
+	void DetectKeysArduino(){
+
+		int arduinoValue = spUnity.ReadByte ();
+		Debug.Log (arduinoValue);
+		if(walkable){
+			if(arduinoValue == 1) {
+				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
+			} else{
+				waitingCount += Time.deltaTime;
+			}
+		}
+		if(characterMode == 0){
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(LookBack());
+			}
+			if(lookingBack){
+				if(arduinoValue == 1) {
+					waitingCount = 0;
+					lookingBack = false;
+					StartCoroutine(LookForward());
+				}
+			}
+		} else{
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(Idle());
+			}
+			//jump:
+			if (arduinoValue == 2 && jumpState==0) {
+				animator.SetTrigger("Jump");
+				StartCoroutine(Jump());
+				jumpState=1;
+			}
+		}
+		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+		pathPosition += velocity;
+		animator.SetFloat("Speed", velocity);
+		
+	}
+
 	void DetectKeys(){
 		if(walkable){
 			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
