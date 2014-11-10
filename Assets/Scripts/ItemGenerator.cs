@@ -8,13 +8,17 @@ public class ItemGenerator : MonoBehaviour {
 
 	public float[] ItemOffset;
 	public GameObject[] items;
+	public GameObject[] Obstacles;
+	public float ObstacleOffset;
+	public float ObstacleOffsetVariation;
 
 	public static int itemCount;
-
+	public static int obstacleCount;
 	private Transform[] controlPath;
 	// Use this for initialization
 	void Start () {
 		itemCount = 0;
+		obstacleCount = 0;
 		GenerateItemAtFirstTime();
 		controlPath = GameObject.Find ("Character1").GetComponent<Controller> ().controlPath;
 	}
@@ -25,15 +29,32 @@ public class ItemGenerator : MonoBehaviour {
 			itemCount++;
 			Invoke ("GenerateItem", 0.5f);
 		}
+		if (controller.characterMode > 0 && obstacleCount < 1) {
+			obstacleCount++;
+			Debug.Log (controller.characterMode);
+			GenerateObstacle();
+		}
 	}
 
+	private void GenerateObstacle()
+	{
+		int modeOfCharacter = controller.characterMode;
+		float characterPosition = controller.pathPosition;
+		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
+		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
+		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, characterPosition + ItemOffset[modeOfCharacter] + offset, true);
+		obstacleClone.tag = "Obstacle";
+		obstacleClone.transform.parent = transform;
+		obstacleClone.GetComponent<Obstacle>().obstaclePosition = characterPosition + ItemOffset[modeOfCharacter] + offset;
+
+	}
 
 	private void GenerateItem()
 	{
 		int modeOfCharacter = controller.characterMode;
 		float characterPosition = controller.pathPosition;
 		GameObject itemClone = Instantiate(items[modeOfCharacter]) as GameObject;
-		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, characterPosition + ItemOffset[modeOfCharacter]);
+		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, characterPosition + ItemOffset[modeOfCharacter], false);
 		itemClone.tag = "Item";
 		itemClone.transform.parent = transform;
 		itemClone.GetComponent<Item>().itemPosition = characterPosition + ItemOffset[modeOfCharacter];
@@ -55,7 +76,7 @@ public class ItemGenerator : MonoBehaviour {
 
 	}
 
-	public void ModifyLookAtDirection(GameObject other, float percent){
+	public void ModifyLookAtDirection(GameObject other, float percent, bool onGround){
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,percent);
 		Vector3 lookTarget;
 		Vector3 direction;
@@ -94,7 +115,13 @@ public class ItemGenerator : MonoBehaviour {
 			}
 		}
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
-		other.transform.position = positionVector + 10 * vectorWithMinDistance.normalized;
+		if (!onGround) {
+			other.transform.position = positionVector + 10 * vectorWithMinDistance.normalized;
+		}
+		else
+		{
+			other.transform.position = positionVector + vectorWithMinDistance.normalized;
+		}
 	}
 }
 

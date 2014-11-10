@@ -4,7 +4,6 @@ using System.Collections;
 public class Item : MonoBehaviour {
 	public Controller controller;
 	public float itemPosition;
-	public GameObject[] models;
 
 	private LifeProgressBar lifeBar;
 

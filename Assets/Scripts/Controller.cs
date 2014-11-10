@@ -49,6 +49,9 @@ public class Controller : MonoBehaviour {
 
 	private float rotAngle = -90;
 
+	private bool bouncedBack;
+
+
 	private int[] speedAngles = {30, 90, 190, 360};
 	private int[] speedNums = {10, 30, 100, 200};
 
@@ -80,6 +83,7 @@ public class Controller : MonoBehaviour {
 
 		normals = new Queue ();
 		StartCoroutine(look());
+		bouncedBack = false;
 	}
 
 	IEnumerator look(){
@@ -91,16 +95,16 @@ public class Controller : MonoBehaviour {
 	
 	void Update(){
 		//--------------------------x----------------------------
-		if (spUnity != null) {
-			if (spUnity.IsOpen) {
-				try {
-					DetectKeysArduino ();
-				} catch (System.Exception) {
-
-				}
-			}
-			//DetectKeys();
-		}
+//		if (spUnity != null) {
+//			if (spUnity.IsOpen) {
+//				try {
+//					DetectKeysArduino ();
+//				} catch (System.Exception) {
+//
+//				}
+//			}
+//			//DetectKeys();
+//		}
 		//------------------------------------------------------
 		DetectKeys();
 		FindFloorAndRotation();
@@ -111,7 +115,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeysArduino(){
 
 		int arduinoValue = spUnity.ReadByte ();
-		Debug.Log (arduinoValue);
+
 		if(walkable){
 			if(arduinoValue == 1) {
 				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
@@ -152,44 +156,55 @@ public class Controller : MonoBehaviour {
 	}
 
 	void DetectKeys(){
-		if(walkable){
-			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
-				waitingCount = 0;
-			} else{
-				waitingCount += Time.deltaTime;
-			}
-		}
-		if(characterMode == 0){
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(LookBack());
-			}
-			if(lookingBack){
+		if (!bouncedBack) {
+			if(walkable){
 				if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+					velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 					waitingCount = 0;
-					lookingBack = false;
-					StartCoroutine(LookForward());
+				} else{
+					waitingCount += Time.deltaTime;
 				}
 			}
-		} else{
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(Idle());
+			if(characterMode == 0){
+				if(waitingCount > 5){
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine(LookBack());
+				}
+				if(lookingBack){
+					if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+						waitingCount = 0;
+						lookingBack = false;
+						StartCoroutine(LookForward());
+					}
+				}
+			} else{
+				if(waitingCount > 5){
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine(Idle());
+				}
+				//jump:
+				if (Input.GetKeyDown("space") && jumpState==0) {
+					animator.SetTrigger("Jump");
+					StartCoroutine(Jump());
+					jumpState=1;
+				}
 			}
-			//jump:
-			if (Input.GetKeyDown("space") && jumpState==0) {
-				animator.SetTrigger("Jump");
-				StartCoroutine(Jump());
-				jumpState=1;
+			velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+			pathPosition += velocity;
+			animator.SetFloat("Speed", velocity);
+		}
+		else
+		{
+			velocity = Mathf.Clamp(velocity + velocityDecrement * Time.deltaTime, -1, 0);
+			Debug.Log (velocityDecrement * Time.deltaTime);
+			pathPosition += velocity;
+			if(velocity >= 0)
+			{
+				bouncedBack = false;
 			}
 		}
-		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
-		pathPosition += velocity;
-		animator.SetFloat("Speed", velocity);
-
 	}
 
 	IEnumerator Idle(){
@@ -279,9 +294,24 @@ public class Controller : MonoBehaviour {
 		models[characterMode].SetActive(true);
 	}
 
-	private void SetWalkableTrue()
+	public void SetWalkableTrue()
 	{
 		walkable = true;
+	}
+
+	public void SetWalkableFalse()
+	{
+		walkable = false;
+	}
+
+	public void SetVelocity(float vol)
+	{
+		velocity = vol;
+	}
+
+	public void SetBouncedBackTrue()
+	{
+		bouncedBack = true;
 	}
 
 	public Vector3 GetPositionWithPercent(float percent){
@@ -356,7 +386,7 @@ public class Controller : MonoBehaviour {
 		rotAngle = -90 + ratio * speedAngles[characterMode];
 		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
 		int speedNum =  Mathf.CeilToInt(speedNums[characterMode] * ratio);
-		Debug.Log(characterMode + " " + speedAngles[characterMode]);
+		speedNum = Mathf.Clamp (speedNum, 0, 300);
 		int num1 = speedNum / 100;
 		int remainder = speedNum - num1 * 100;
 		int num2 = remainder / 10;
@@ -378,5 +408,10 @@ public class Controller : MonoBehaviour {
         GUI.DrawTexture(new Rect(Screen.width * 0.665f+46*0.7f, Screen.height * 0.625f+160*0.7f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
         
     }
+
+	public Animator GetAnimator()
+	{
+		return animator;
+	}
 
 }
