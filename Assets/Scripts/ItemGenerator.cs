@@ -86,7 +86,6 @@ public class ItemGenerator : MonoBehaviour {
 			directionA = Quaternion.AngleAxis(-45+10*i, direction) * vectorWithMinDistance;
 			
 			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, 10.0f, layerOfPath)){
-				
 				if(hit.distance < minDistance){
 					minDistance = hit.distance;
 					vectorWithMinDistance = directionA;
@@ -95,7 +94,7 @@ public class ItemGenerator : MonoBehaviour {
 			}
 		}
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
-		other.transform.position = positionVector + 1 * vectorWithMinDistance;
+		other.transform.position = positionVector + 10 * vectorWithMinDistance.normalized;
 	}
 }
 
