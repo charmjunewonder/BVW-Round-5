@@ -3,21 +3,33 @@ using System.Collections;
 
 public class Item : MonoBehaviour {
 	public Controller controller;
-	public float pathPosition;
+	public float itemPosition;
 	public GameObject[] models;
-	public LifeProgressBar lifeBar;
+
+
+	private LifeProgressBar lifeBar;
 
 	void Start(){
-		StartCoroutine(CheckValid());
+		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
+		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 	}
 
-	IEnumerator CheckValid(){
-		while(true){
+	void Update()
+	{
+		transform.Rotate (0, 3f, 0, Space.Self);
+		CheckValid ();
+	}
+
+	void CheckValid(){
+
+		if(true){
 			float pathPositionOfCharacter = controller.pathPosition;
-			if(pathPositionOfCharacter - pathPosition > 0.5f){
-				//Destroy(gameObject);
+			Debug.Log (pathPositionOfCharacter - itemPosition);
+			if(pathPositionOfCharacter - itemPosition > 0.001f){
+
+				Destroy(gameObject);
+				ItemGenerator.itemCount--;
 			}
-			yield return new WaitForSeconds(1.0f);
 		}
 	}
 
@@ -26,7 +38,7 @@ public class Item : MonoBehaviour {
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
 			lifeBar.changeToNextState();
 			Destroy(gameObject);
-			Debug.Log(other.gameObject.GetComponent<Controller>().collectedItemCount);
+			ItemGenerator.itemCount--;
 		}
 	}
 }

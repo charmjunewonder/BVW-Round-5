@@ -4,44 +4,51 @@ using System.Collections;
 public class ItemGenerator : MonoBehaviour {
 
 	public Controller controller;
-	public GameObject item;
 	public float[] pathOffsets;
 
+	public float[] ItemOffset;
+	public GameObject[] items;
+
+	public static int itemCount;
 	// Use this for initialization
 	void Start () {
+		itemCount = 0;
 		GenerateItemAtFirstTime();
 	}
 
-	void GenerateItemAtFirstTime(){
-		// int modeOfCharacter = controller.characterMode;
-		// float emptyPercent = 0.01f;
-		// float increment = (1 - emptyPercent) / 30;
-		// float previousPercent = emptyPercent;
-		// for(int i = 0; i < 12; i++){
-		// 	GameObject itemClone = Instantiate(item) as GameObject;
-		// 	itemClone.transform.parent = transform;
-		// 	itemClone.SetActive(true);
-		// 	itemClone.GetComponent<Item>().models[modeOfCharacter].SetActive(true);
-		// 	itemClone.tag = "Item";
-		// 	float percent = Random.Range(previousPercent+increment, previousPercent+increment*2);
-		// 	previousPercent = previousPercent+increment*2;
-		// 	itemClone.transform.position = controller.GetPositionWithPercent(percent);
-		// 	controller.ModifyLookAtDirection(itemClone, percent);
-		// }
-		int modeOfCharacter = controller.characterMode;
-		float emptyPercent = 0f;
-		float increment = (1 - emptyPercent) / 60;
-		float previousPercent = emptyPercent;
-		for(int i = 0; i < 12; i++){
-			GameObject itemClone = Instantiate(item) as GameObject;
-			itemClone.transform.parent = transform;
-			itemClone.SetActive(true);
-			itemClone.GetComponent<Item>().models[modeOfCharacter].SetActive(true);
-			itemClone.tag = "Item";
-			float percent = Random.Range(previousPercent, previousPercent+increment);
-			previousPercent = previousPercent+increment;
-			itemClone.transform.position = controller.GetPositionWithPercent(percent);
-			controller.ModifyLookAtDirection(itemClone, percent);
+	void Update()
+	{
+		if (itemCount < 1) {
+			GenerateItem();
 		}
 	}
+
+
+	private void GenerateItem()
+	{
+		int modeOfCharacter = controller.characterMode;
+		float characterPosition = controller.pathPosition;
+		GameObject itemClone = Instantiate(items[modeOfCharacter]) as GameObject;
+		itemClone.transform.position = iTween.PointOnPath(controller.controlPath, characterPosition + ItemOffset[modeOfCharacter]);
+		itemClone.tag = "Item";
+		itemClone.transform.parent = transform;
+		itemClone.GetComponent<Item>().itemPosition = characterPosition + ItemOffset[modeOfCharacter];
+		itemCount++;
+
+	}
+
+	void GenerateItemAtFirstTime(){
+		for(int i = 0; i < 4; i++)
+		{
+			float characterPosition = 0;
+			GameObject itemClone = Instantiate(items[0], iTween.PointOnPath(controller.controlPath, characterPosition + (i + 2) * ItemOffset[0]), transform.rotation) as GameObject;
+			//itemClone.transform.position = iTween.PointOnPath(controller.controlPath, characterPosition + (i + 1) * ItemOffset[0]);
+			itemClone.tag = "Item";
+			itemClone.transform.parent = transform;
+			itemClone.GetComponent<Item>().itemPosition = characterPosition + (i + 2) * ItemOffset[0];
+			itemCount++;
+		}
+
+	}
 }
+
