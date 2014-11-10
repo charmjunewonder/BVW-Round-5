@@ -288,10 +288,26 @@ public class Controller : MonoBehaviour {
   //       Vector3 pivotPoint = new Vector2(Screen.width * 0.6912f+speed[1].width*0.65f, Screen.height * 0.76f+speed[1].height*0.65f/2);
   //       GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
   //       GUI.DrawTexture(new Rect(Screen.width * 0.6912f, Screen.height * 0.76f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
-		rotAngle = -90 + velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime) * 90 * (characterMode+1);
+		float ratio = velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime) * (characterMode+1);
+		rotAngle = -90 + ratio * 90 ;
 		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
+		int speedNum =  Mathf.CeilToInt(40 * ratio);
 
-		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), numbers[0]);
+		int num1 = speedNum / 100;
+		int remainder = speedNum - num1 * 100;
+		int num2 = remainder / 10;
+		remainder = remainder - num2 * 10;
+
+		if(num1 != 0){
+			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 160, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num1]);
+		}
+		if(num2 != 0){
+			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 193, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num2]);
+		}
+
+		GUI.DrawTexture(new Rect(Screen.width * 0.665f + 226, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[remainder]);
+		GUI.DrawTexture(new Rect(Screen.width * 0.665f + 260, Screen.height * 0.625f + 160, 84*0.9f, 46*0.9f), speed[2]);
+
         Vector3 pivotPoint = new Vector2(Screen.width * 0.665f+159*0.7f, Screen.height * 0.625f+166*0.7f);
         GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
         //GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.width * 0.665f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
