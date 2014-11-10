@@ -14,7 +14,8 @@ public class Controller : MonoBehaviour {
 	public float pathOffset = 0;
 	public ParticleSystem TransitionEffect;
 	public Texture[] speed;
-
+	public Texture[] numbers;
+	
 	private RaycastHit hit;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
@@ -290,6 +291,7 @@ public class Controller : MonoBehaviour {
 		rotAngle = -90 + velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime) * 90 * (characterMode+1);
 		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
 
+		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), numbers[0]);
         Vector3 pivotPoint = new Vector2(Screen.width * 0.665f+159*0.7f, Screen.height * 0.625f+166*0.7f);
         GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
         //GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.width * 0.665f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
