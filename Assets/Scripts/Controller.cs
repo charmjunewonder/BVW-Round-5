@@ -365,7 +365,7 @@ public class Controller : MonoBehaviour {
 		if(num1 != 0){
 			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 160, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num1]);
 		}
-		if(num2 != 0){
+		if(num1 != 0 || num2 != 0){
 			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 193, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num2]);
 		}
 
