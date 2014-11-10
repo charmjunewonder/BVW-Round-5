@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour {
 	public float pathPosition=0.001f;
 	public float pathOffset = 0;
 	public ParticleSystem TransitionEffect;
-
+	public Texture[] speed;
 
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -42,6 +42,9 @@ public class Controller : MonoBehaviour {
 	private float waitingCount = 0;
 	private bool lookingBack = false;
 	private Vector3 offsetVector;
+
+	private float rotAngle = -90;
+
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -86,8 +89,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		if(walkable){
 			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
-				if(velocity <= velocityUpperBounds[characterMode % 4])
-				velocity += velocityIncrement * Time.deltaTime;
+				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 				waitingCount = 0;
 			} else{
 				waitingCount += Time.deltaTime;
@@ -278,5 +280,21 @@ public class Controller : MonoBehaviour {
 		average /= normals.Count;
 		return average;
 	}
+
+	void OnGUI() {
+		// GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
+
+  //       Vector3 pivotPoint = new Vector2(Screen.width * 0.6912f+speed[1].width*0.65f, Screen.height * 0.76f+speed[1].height*0.65f/2);
+  //       GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
+  //       GUI.DrawTexture(new Rect(Screen.width * 0.6912f, Screen.height * 0.76f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
+		rotAngle = -90 + velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime) * 90 * (characterMode+1);
+		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
+
+        Vector3 pivotPoint = new Vector2(Screen.width * 0.665f+159*0.7f, Screen.height * 0.625f+166*0.7f);
+        GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
+        //GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.width * 0.665f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
+        GUI.DrawTexture(new Rect(Screen.width * 0.665f+46*0.7f, Screen.height * 0.625f+160*0.7f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
+        
+    }
 
 }
