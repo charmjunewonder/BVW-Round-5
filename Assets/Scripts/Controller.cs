@@ -46,6 +46,9 @@ public class Controller : MonoBehaviour {
 
 	private float rotAngle = -90;
 
+	private int[] speedAngles = {30, 90, 190, 360};
+	private int[] speedNums = {10, 30, 100, 200};
+
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -288,11 +291,11 @@ public class Controller : MonoBehaviour {
   //       Vector3 pivotPoint = new Vector2(Screen.width * 0.6912f+speed[1].width*0.65f, Screen.height * 0.76f+speed[1].height*0.65f/2);
   //       GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
   //       GUI.DrawTexture(new Rect(Screen.width * 0.6912f, Screen.height * 0.76f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
-		float ratio = velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime) * (characterMode+1);
-		rotAngle = -90 + ratio * 90 ;
+		float ratio = velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime);
+		rotAngle = -90 + ratio * speedAngles[characterMode];
 		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
-		int speedNum =  Mathf.CeilToInt(40 * ratio);
-
+		int speedNum =  Mathf.CeilToInt(speedNums[characterMode] * ratio);
+		Debug.Log(characterMode + " " + speedAngles[characterMode]);
 		int num1 = speedNum / 100;
 		int remainder = speedNum - num1 * 100;
 		int num2 = remainder / 10;
