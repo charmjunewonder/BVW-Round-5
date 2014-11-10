@@ -9,7 +9,7 @@ public class ItemGenerator : MonoBehaviour {
 	public float[] ItemOffset;
 	public GameObject[] items;
 	public GameObject[] Obstacles;
-	public float ObstacleOffset;
+	public float[] ObstacleOffset;
 	public float ObstacleOffsetVariation;
 
 	public static int itemCount;
@@ -42,10 +42,10 @@ public class ItemGenerator : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
-		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, characterPosition + ItemOffset[modeOfCharacter] + offset, true);
+		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, characterPosition + ObstacleOffset[modeOfCharacter] + offset, true);
 		obstacleClone.tag = "Obstacle";
 		obstacleClone.transform.parent = transform;
-		obstacleClone.GetComponent<Obstacle>().obstaclePosition = characterPosition + ItemOffset[modeOfCharacter] + offset;
+		obstacleClone.GetComponent<Obstacle>().obstaclePosition = characterPosition + ObstacleOffset[modeOfCharacter] + offset;
 
 	}
 

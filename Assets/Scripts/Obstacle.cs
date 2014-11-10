@@ -18,9 +18,9 @@ public class Obstacle : MonoBehaviour {
 	}
 
 
-	void CheckValid(){
+	IEnumerator CheckValid(){
+		yield return new WaitForSeconds (0.02f);
 		if(true){
-			Debug.Log (controller.pathPosition + " " + obstaclePosition);
 			float pathPositionOfCharacter = controller.pathPosition;
 			if(pathPositionOfCharacter - obstaclePosition > 0.001f){
 				
