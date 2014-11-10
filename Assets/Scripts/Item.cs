@@ -6,7 +6,6 @@ public class Item : MonoBehaviour {
 	public float itemPosition;
 	public GameObject[] models;
 
-
 	private LifeProgressBar lifeBar;
 
 	void Start(){
@@ -24,7 +23,6 @@ public class Item : MonoBehaviour {
 
 		if(true){
 			float pathPositionOfCharacter = controller.pathPosition;
-			Debug.Log (pathPositionOfCharacter - itemPosition);
 			if(pathPositionOfCharacter - itemPosition > 0.001f){
 
 				Destroy(gameObject);
@@ -41,4 +39,6 @@ public class Item : MonoBehaviour {
 			ItemGenerator.itemCount--;
 		}
 	}
+
+
 }
