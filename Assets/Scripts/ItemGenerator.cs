@@ -29,12 +29,11 @@ public class ItemGenerator : MonoBehaviour {
 	{
 		if (itemCount < 1) {
 			itemCount++;
-			Invoke ("GenerateItem", 0.5f);
+			Invoke ("GenerateItem", 0.1f);
 		}
 		if (controller.characterMode > 0 && obstacleCount < 1) {
 			obstacleCount++;
-			Debug.Log (controller.characterMode);
-			GenerateObstacle();
+			Invoke("GenerateObstacle", 0.1f);
 		}
 	}
 
@@ -45,8 +44,10 @@ public class ItemGenerator : MonoBehaviour {
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
 		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, characterPosition + ObstacleOffset[modeOfCharacter] + offset, true);
-		obstacleClone.tag = "Obstacle";
 		obstacleClone.transform.parent = transform;
+		if (modeOfCharacter == 2) {
+			obstacleClone.transform.Rotate(-75, 0, 90, Space.Self);
+		}
 		obstacleClone.GetComponent<Obstacle>().obstaclePosition = characterPosition + ObstacleOffset[modeOfCharacter] + offset;
 
 	}
@@ -56,9 +57,12 @@ public class ItemGenerator : MonoBehaviour {
 		int modeOfCharacter = controller.characterMode;
 		float characterPosition = controller.pathPosition;
 		GameObject itemClone = Instantiate(items[modeOfCharacter]) as GameObject;
+
 		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, characterPosition + ItemOffset[modeOfCharacter], false);
 		itemClone.tag = "Item";
 		itemClone.transform.parent = transform;
+		itemClone.transform.Rotate (90, 0, 0);
+		itemClone.GetComponent<Item> ().modeOfCharacter = modeOfCharacter;
 		itemClone.GetComponent<Item>().itemPosition = characterPosition + ItemOffset[modeOfCharacter];
 
 
@@ -124,7 +128,7 @@ public class ItemGenerator : MonoBehaviour {
 		}
 		else
 		{
-			other.transform.position = positionVector + vectorWithMinDistance.normalized
+			other.transform.position = positionVector + 2.5f * vectorWithMinDistance.normalized
 				+ offsetVector.normalized * characterOffset;
 		}
 	}

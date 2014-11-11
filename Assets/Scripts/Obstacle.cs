@@ -13,28 +13,33 @@ public class Obstacle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (0, 3f, 0, Space.Self);
 		CheckValid ();
 	}
 
 
-	IEnumerator CheckValid(){
-		yield return new WaitForSeconds (0.02f);
-		if(true){
-			float pathPositionOfCharacter = controller.pathPosition;
-			if(pathPositionOfCharacter - obstaclePosition > 0.001f){
-				
-				Destroy(gameObject);
-				ItemGenerator.obstacleCount--;
-			}
+	void CheckValid(){
+
+		float pathPositionOfCharacter = controller.pathPosition;
+		transform.LookAt (iTween.PointOnPath(controller.controlPath, pathPositionOfCharacter - 0.001f));
+		if(pathPositionOfCharacter - obstaclePosition > 0.001f){
+
+			Destroy(gameObject);
+			ItemGenerator.obstacleCount--;
 		}
 	}
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "RunMan") {
-
 			controller.SetBouncedBackTrue();
-			controller.SetVelocity(-0.00008f);
+			if(controller.characterMode == 1)
+			{
+				controller.SetVelocity(-0.00008f);
+			}
+			else if(controller.characterMode == 2)
+			{
+				controller.SetVelocity(-0.00025f);
+			}
+
 		}
 	}
 }

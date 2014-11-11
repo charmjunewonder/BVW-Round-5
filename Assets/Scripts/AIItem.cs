@@ -25,7 +25,6 @@ public class AIItem : MonoBehaviour {
 		if(true){
 			float pathPositionOfCharacter = controller.pathPosition;
 			if(pathPositionOfCharacter - itemPosition > 0.001f){
-
 				Destroy(gameObject);
 				ItemGenerator.itemCount--;
 			}

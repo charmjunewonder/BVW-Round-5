@@ -5,6 +5,7 @@ public class Item : MonoBehaviour {
 	public Controller controller;
 	public float itemPosition;
 
+	public int modeOfCharacter;
 	private LifeProgressBar lifeBar;
 
 	void Start(){
@@ -14,19 +15,24 @@ public class Item : MonoBehaviour {
 
 	void Update()
 	{
-		transform.Rotate (0, 3f, 0, Space.Self);
+		if (modeOfCharacter > 0) {
+			transform.Rotate (0, 0, -3, Space.Self);
+		}
+		else
+		{
+			transform.Rotate (0, 3, 0, Space.Self);
+		}
 		CheckValid ();
 	}
 
 	void CheckValid(){
 
-		if(true){
-			float pathPositionOfCharacter = controller.pathPosition;
-			if(pathPositionOfCharacter - itemPosition > 0.001f){
+		float pathPositionOfCharacter = controller.pathPosition;
+		if(pathPositionOfCharacter - itemPosition > 0.001f){
 
-				Destroy(gameObject);
-				ItemGenerator.itemCount--;
-			}
+			Destroy(gameObject);
+			ItemGenerator.itemCount--;
+
 		}
 	}
 
@@ -36,6 +42,11 @@ public class Item : MonoBehaviour {
 			lifeBar.changeToNextState();
 			Destroy(gameObject);
 			ItemGenerator.itemCount--;
+			if(modeOfCharacter == 0)
+			{
+				controller.soundEffectPlayer.clip = controller.soundEffects[0];
+				controller.soundEffectPlayer.Play();
+			}
 		}
 	}
 

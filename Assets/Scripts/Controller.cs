@@ -18,7 +18,13 @@ public class Controller : MonoBehaviour {
 	public ParticleSystem TransitionEffect;
 	public Texture[] speed;
 	public Texture[] numbers;
-	
+
+	public AudioSource BGMPlayer;
+	public AudioSource soundEffectPlayer;
+
+	public AudioClip[] BGMs;
+	public AudioClip[] soundEffects;
+
 	private RaycastHit hit;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
@@ -29,8 +35,8 @@ public class Controller : MonoBehaviour {
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
 	private float velocity = 0;
-	private float velocityDecrement = 0.0001f;
-	private float velocityIncrement = 0.0002f;
+	private float velocityDecrement = 0.0006f;
+	private float velocityIncrement = 0.005f;
 
 	private float[] velocityUpperBounds;
 	//private float cameraOffset = 0.01f;
@@ -71,9 +77,9 @@ public class Controller : MonoBehaviour {
 		animator = models[0].GetComponent<Animator>();
 
 		velocityUpperBounds = new float[4];
-		velocityUpperBounds [0] = 0.00001f;
-		velocityUpperBounds [1] = 0.00008f; 
-		velocityUpperBounds [2] = 0.0003f;
+		velocityUpperBounds [0] = 0.00004f;
+		velocityUpperBounds [1] = 0.0001f; 
+		velocityUpperBounds [2] = 0.0005f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -84,6 +90,9 @@ public class Controller : MonoBehaviour {
 		normals = new Queue ();
 		StartCoroutine(look());
 		bouncedBack = false;
+
+		BGMPlayer.clip = BGMs [0];
+		BGMPlayer.Play();
 	}
 
 	IEnumerator look(){
@@ -95,16 +104,16 @@ public class Controller : MonoBehaviour {
 	
 	void Update(){
 		//--------------------------x----------------------------
-//		if (spUnity != null) {
-//			if (spUnity.IsOpen) {
-//				try {
-//					DetectKeysArduino ();
-//				} catch (System.Exception) {
-//
-//				}
-//			}
-//			//DetectKeys();
-//		}
+		if (spUnity != null) {
+			if (spUnity.IsOpen) {
+				try {
+					DetectKeysArduino ();
+				} catch (System.Exception) {
+
+				}
+			}
+			//DetectKeys();
+		}
 		//------------------------------------------------------
 		DetectKeys();
 		FindFloorAndRotation();
@@ -158,7 +167,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		if (!bouncedBack) {
 			if(walkable){
-				if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+				if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) {
 					velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 					waitingCount = 0;
 				} else{
@@ -198,7 +207,6 @@ public class Controller : MonoBehaviour {
 		else
 		{
 			velocity = Mathf.Clamp(velocity + velocityDecrement * Time.deltaTime, -1, 0);
-			Debug.Log (velocityDecrement * Time.deltaTime);
 			pathPosition += velocity;
 			if(velocity >= 0)
 			{
@@ -256,10 +264,7 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				if(pathPosition > 0.2979513f && pathPosition < 0.4){
-				} else{
-					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
-				}
+				character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
 				offsetVector = Vector3.Cross(previousNormal, diretion);
 			}
 		}
@@ -276,7 +281,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	void CheckCollectedItemCount(){
-		if(collectedItemCount >= 4){
+		if(collectedItemCount >= 4 && characterMode <= 3){
 
 			collectedItemCount = 0;
 			models[characterMode].SetActive(false);
@@ -287,6 +292,12 @@ public class Controller : MonoBehaviour {
 			animator = models[characterMode].GetComponent<Animator>();
 			animator.SetTrigger("Idle");
 			walkable = false;
+
+			soundEffectPlayer.clip = soundEffects[1];
+			soundEffectPlayer.Play();
+
+			BGMPlayer.clip = BGMs[characterMode];
+			BGMPlayer.Play ();
 			Invoke("SetNextModelActive", 1);
 			Invoke("SetWalkableTrue", 1.7f);
 		}
@@ -299,6 +310,9 @@ public class Controller : MonoBehaviour {
 
 	public void SetWalkableTrue()
 	{
+		soundEffectPlayer.clip = soundEffects [2];
+		soundEffectPlayer.loop = true;
+		TransitionEffect.gameObject.SetActive(false);
 		walkable = true;
 	}
 
