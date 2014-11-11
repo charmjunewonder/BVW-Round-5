@@ -56,7 +56,7 @@ public class Controller : MonoBehaviour {
 	private float rotAngle = -90;
 
 	private bool bouncedBack;
-
+	private bool isDropping;
 
 	private int[] speedAngles = {30, 90, 190, 360};
 	private int[] speedNums = {10, 30, 100, 200};
@@ -152,7 +152,7 @@ public class Controller : MonoBehaviour {
 				StartCoroutine(Idle());
 			}
 			//jump:
-			if (arduinoValue == 2 && jumpState==0) {
+			if (walkable && arduinoValue == 2 && jumpState==0) {
 				animator.SetTrigger("Jump");
 				StartCoroutine(Jump());
 				jumpState=1;
@@ -194,7 +194,7 @@ public class Controller : MonoBehaviour {
 					StartCoroutine(Idle());
 				}
 				//jump:
-				if (Input.GetKeyDown("space") && jumpState==0) {
+				if (walkable && Input.GetKeyDown("space") && jumpState==0) {
 					animator.SetTrigger("Jump");
 					StartCoroutine(Jump());
 					jumpState=1;
@@ -264,7 +264,11 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+				if(pathPosition > 0.02017882f && pathPosition < 0.04894194){
+					//Debug.Log("fjlas");
+				} else{
+					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+				}
 				offsetVector = Vector3.Cross(previousNormal, diretion);
 			}
 		}
@@ -272,12 +276,33 @@ public class Controller : MonoBehaviour {
 	
 	
 	void MoveCharacter(){
+		if(isDropping) return;
 		prevPosition = character.position;
 		// set offset for each player
 		character.position = floorPosition + previousNormal.normalized * ySpeed
+		Vector3 nextPosition = floorPosition + previousNormal.normalized * ySpeed
 			+ offsetVector.normalized * pathOffset;// * 0.2f + prevPosition * 0.8f;
 		//Debug.Log (character.transform.position);
+		if(character.position.y - nextPosition.y > 40){
+			StartCoroutine(DropWithGravity(nextPosition));
+		} else{
+			character.position = nextPosition;
+		}
 
+	}
+
+	IEnumerator DropWithGravity(Vector3 destination){
+		walkable = false;
+		isDropping = true;
+		while(character.position.y - destination.y > 0.1f){
+			Vector3 position = character.position;
+			position.y -= 3f;
+			character.position = position;
+			yield return new WaitForSeconds(0.01f);
+		}
+		character.position = destination;
+		walkable = true;
+		isDropping = false;
 	}
 
 	void CheckCollectedItemCount(){
@@ -290,7 +315,7 @@ public class Controller : MonoBehaviour {
 
 			characterMode = ++characterMode % 4;
 			animator = models[characterMode].GetComponent<Animator>();
-			animator.SetTrigger("Idle");
+			//animator.SetTrigger("Idle");
 			walkable = false;
 
 			soundEffectPlayer.clip = soundEffects[1];
@@ -306,6 +331,7 @@ public class Controller : MonoBehaviour {
 	private void SetNextModelActive()
 	{
 		models[characterMode].SetActive(true);
+		animator = models[characterMode].GetComponent<Animator>();
 	}
 
 	public void SetWalkableTrue()
