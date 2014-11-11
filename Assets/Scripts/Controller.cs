@@ -256,7 +256,10 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+				if(pathPosition > 0.2979513f && pathPosition < 0.4){
+				} else{
+					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+				}
 				offsetVector = Vector3.Cross(previousNormal, diretion);
 			}
 		}
