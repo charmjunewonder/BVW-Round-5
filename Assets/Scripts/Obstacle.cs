@@ -20,8 +20,8 @@ public class Obstacle : MonoBehaviour {
 	void CheckValid(){
 
 		float pathPositionOfCharacter = controller.pathPosition;
-		transform.LookAt (iTween.PointOnPath(controller.controlPath, pathPositionOfCharacter - 0.001f));
-		if(pathPositionOfCharacter - obstaclePosition > 0.001f){
+		//transform.LookAt (iTween.PointOnPath(controller.controlPath, pathPositionOfCharacter - 0.001f));
+		if(pathPositionOfCharacter - obstaclePosition > 0.005f){
 
 			Destroy(gameObject);
 			ItemGenerator.obstacleCount--;

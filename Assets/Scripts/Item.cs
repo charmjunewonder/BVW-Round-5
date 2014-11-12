@@ -28,7 +28,7 @@ public class Item : MonoBehaviour {
 	void CheckValid(){
 
 		float pathPositionOfCharacter = controller.pathPosition;
-		if(pathPositionOfCharacter - itemPosition > 0.001f){
+		if(pathPositionOfCharacter - itemPosition > 0.005f){
 
 			Destroy(gameObject);
 			ItemGenerator.itemCount--;

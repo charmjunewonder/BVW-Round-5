@@ -115,6 +115,8 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
+		animator = models[characterMode].GetComponent<Animator>();
+
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
@@ -167,7 +169,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		if (!bouncedBack) {
 			if(walkable){
-				if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) {
+				if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
 					velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 					waitingCount = 0;
 				} else{
@@ -264,10 +266,11 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				if(pathPosition > 0.02017882f && pathPosition < 0.04894194){
-					//Debug.Log("fjlas");
+				if(pathPercent > 0.2971284f && pathPercent < 0.319461f){
+					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
 				} else{
 					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+					//Debug.Log("fjlas " + pathPosition);
 				}
 				offsetVector = Vector3.Cross(previousNormal, diretion);
 			}
@@ -279,9 +282,8 @@ public class Controller : MonoBehaviour {
 		if(isDropping) return;
 		prevPosition = character.position;
 		// set offset for each player
-		character.position = floorPosition + previousNormal.normalized * ySpeed
-		Vector3 nextPosition = floorPosition + previousNormal.normalized * ySpeed
-			+ offsetVector.normalized * pathOffset;// * 0.2f + prevPosition * 0.8f;
+		//character.position = floorPosition + previousNormal.normalized * ySpeed;
+		Vector3 nextPosition = floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;// * 0.2f + prevPosition * 0.8f;
 		//Debug.Log (character.transform.position);
 		if(character.position.y - nextPosition.y > 40){
 			StartCoroutine(DropWithGravity(nextPosition));
