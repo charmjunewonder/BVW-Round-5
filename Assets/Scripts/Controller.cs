@@ -7,6 +7,10 @@ public class Controller : MonoBehaviour {
 
 	public static SerialPort spsp;
 
+	public KeyCode key1;
+	public KeyCode key2;
+	public KeyCode jumpKey;
+
 	public Transform[] controlPath;
 	public Transform character;
 	public Transform camera;
@@ -169,7 +173,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		if (!bouncedBack) {
 			if(walkable){
-				if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+				if(Input.GetKey(key1) || Input.GetKey(key2)) {
 					velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
 					waitingCount = 0;
 				} else{
@@ -183,7 +187,7 @@ public class Controller : MonoBehaviour {
 					StartCoroutine(LookBack());
 				}
 				if(lookingBack){
-					if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+					if(Input.GetKey(key1) || Input.GetKey(key2)) {
 						waitingCount = 0;
 						lookingBack = false;
 						StartCoroutine(LookForward());
@@ -196,7 +200,7 @@ public class Controller : MonoBehaviour {
 					StartCoroutine(Idle());
 				}
 				//jump:
-				if (walkable && Input.GetKeyDown("space") && jumpState==0) {
+				if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
 					animator.SetTrigger("Jump");
 					StartCoroutine(Jump());
 					jumpState=1;

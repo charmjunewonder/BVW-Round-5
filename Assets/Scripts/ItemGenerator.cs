@@ -21,8 +21,9 @@ public class ItemGenerator : MonoBehaviour {
 		characterOffset = controller.pathOffset;
 		itemCount = 0;
 		obstacleCount = 0;
-		GenerateItemAtFirstTime();
 		controlPath = controller.controlPath;
+		
+		GenerateItemAtFirstTime();
 	}
 
 	void Update()
@@ -80,6 +81,7 @@ public class ItemGenerator : MonoBehaviour {
 			float characterPosition = 0;
 			GameObject itemClone = Instantiate(items[0], iTween.PointOnPath(controller.controlPath, characterPosition + (i + 2) * ItemOffset[0]), transform.rotation) as GameObject;
 			//itemClone.transform.position = iTween.PointOnPath(controller.controlPath, characterPosition + (i + 1) * ItemOffset[0]);
+			ModifyLookAtDirection(itemClone, characterPosition + (i + 2) * ItemOffset[0], true);
 			itemClone.tag = "Item";
 			itemClone.transform.parent = transform;
 			itemClone.GetComponent<Item>().itemPosition = characterPosition + (i + 2) * ItemOffset[0];
