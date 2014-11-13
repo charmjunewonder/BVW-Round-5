@@ -39,8 +39,8 @@ public class Controller : MonoBehaviour {
 	private uint jumpState=0; //0=grounded 1=jumping
 	private Vector3 previousNormal;
 	private float velocity = 0;
-	private float velocityDecrement = 0.0006f;
-	private float velocityIncrement = 0.005f;
+	private float velocityDecrement = 0.00004f;
+	private float velocityIncrement = 0.0006f;
 
 	private float[] velocityUpperBounds;
 	//private float cameraOffset = 0.01f;
@@ -59,7 +59,6 @@ public class Controller : MonoBehaviour {
 
 	private float rotAngle = -90;
 
-	private bool bouncedBack;
 	private bool isDropping;
 
 	private int[] speedAngles = {30, 90, 190, 360};
@@ -81,9 +80,9 @@ public class Controller : MonoBehaviour {
 		animator = models[0].GetComponent<Animator>();
 
 		velocityUpperBounds = new float[4];
-		velocityUpperBounds [0] = 0.00004f;
-		velocityUpperBounds [1] = 0.0001f; 
-		velocityUpperBounds [2] = 0.0005f;
+		velocityUpperBounds [0] = 0.00003f;
+		velocityUpperBounds [1] = 0.00008f; 
+		velocityUpperBounds [2] = 0.00025f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -93,7 +92,6 @@ public class Controller : MonoBehaviour {
 
 		normals = new Queue ();
 		StartCoroutine(look());
-		bouncedBack = false;
 
 		BGMPlayer.clip = BGMs [0];
 		BGMPlayer.Play();
@@ -171,55 +169,47 @@ public class Controller : MonoBehaviour {
 	}
 
 	void DetectKeys(){
-		if (!bouncedBack) {
-			if(walkable){
-				if(Input.GetKey(key1) || Input.GetKey(key2)) {
-					velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
-					waitingCount = 0;
-				} else{
-					waitingCount += Time.deltaTime;
-				}
-			}
-			if(characterMode == 0){
-				if(waitingCount > 5){
-					waitingCount = 0;
-					walkable = false;
-					StartCoroutine(LookBack());
-				}
-				if(lookingBack){
-					if(Input.GetKey(key1) || Input.GetKey(key2)) {
-						waitingCount = 0;
-						lookingBack = false;
-						StartCoroutine(LookForward());
-					}
-				}
+
+		if(walkable){
+			if(Input.GetKeyDown(key1) || Input.GetKeyDown(key2)) {
+				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
+				waitingCount = 0;
 			} else{
-				if(waitingCount > 5){
+				waitingCount += Time.deltaTime;
+			}
+		}
+		if(characterMode == 0){
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(LookBack());
+			}
+			if(lookingBack){
+				if(Input.GetKey(key1) || Input.GetKey(key2)) {
 					waitingCount = 0;
-					walkable = false;
-					StartCoroutine(Idle());
-				}
-				//jump:
-				if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
-					animator.SetTrigger("Jump");
-					StartCoroutine(Jump());
-					jumpState=1;
+					lookingBack = false;
+					StartCoroutine(LookForward());
 				}
 			}
-			velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
-			pathPosition += velocity;
-			animator.SetFloat("Speed", velocity);
-		}
-		else
-		{
-			velocity = Mathf.Clamp(velocity + velocityDecrement * Time.deltaTime, -1, 0);
-			pathPosition += velocity;
-			if(velocity >= 0)
-			{
-				bouncedBack = false;
+		} else{
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(Idle());
+			}
+			//jump:
+			if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
+				animator.SetTrigger("Jump");
+				StartCoroutine(Jump());
+				jumpState=1;
 			}
 		}
+		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+		pathPosition += velocity;
+		animator.SetFloat("Speed", velocity);
 	}
+
+
 
 	IEnumerator Idle(){
 		animator.SetTrigger("Idle");
@@ -241,13 +231,13 @@ public class Controller : MonoBehaviour {
 
 	IEnumerator Jump(){
 		float jumpIncrement = jumpForce/5;
-		for(int i = 0; i < 10; i++){
-			ySpeed += jumpIncrement;
+		for(int i = 0; i < 18; i++){
+			ySpeed += jumpIncrement / 1.8f;
 			yield return new WaitForSeconds(0.01f);
 		}
-		yield return new WaitForSeconds(0.05f);
-		for(int i = 0; i < 10; i++){
-			ySpeed -= jumpIncrement;
+		//yield return new WaitForSeconds(0.01f);
+		for(int i = 0; i < 15; i++){
+			ySpeed -= jumpIncrement / 1.5f;
 			yield return new WaitForSeconds(0.01f);
 		}
 		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);	
@@ -322,7 +312,7 @@ public class Controller : MonoBehaviour {
 			characterMode = ++characterMode % 4;
 			animator = models[characterMode].GetComponent<Animator>();
 			//animator.SetTrigger("Idle");
-			walkable = false;
+			//walkable = false;
 
 			soundEffectPlayer.clip = soundEffects[1];
 			soundEffectPlayer.Play();
@@ -357,10 +347,9 @@ public class Controller : MonoBehaviour {
 	{
 		velocity = vol;
 	}
-
-	public void SetBouncedBackTrue()
+	public float GetVelocity()
 	{
-		bouncedBack = true;
+		return velocity;
 	}
 
 	public Vector3 GetPositionWithPercent(float percent){

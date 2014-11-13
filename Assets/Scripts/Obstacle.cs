@@ -30,16 +30,9 @@ public class Obstacle : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "RunMan") {
-			controller.SetBouncedBackTrue();
-			if(controller.characterMode == 1)
-			{
-				controller.SetVelocity(-0.00008f);
-			}
-			else if(controller.characterMode == 2)
-			{
-				controller.SetVelocity(-0.00025f);
-			}
-
+			controller.SetVelocity(controller.GetVelocity() / 3);
+			ItemGenerator.obstacleCount--;
+			Destroy(gameObject);
 		}
 	}
 }

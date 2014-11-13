@@ -47,7 +47,7 @@ public class ItemGenerator : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
-		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, characterPosition + ObstacleOffset[modeOfCharacter] + offset, true);
+		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
 		obstacleClone.transform.Rotate (0, 180, 0);
 
 		obstacleClone.transform.parent = transform;
@@ -65,10 +65,10 @@ public class ItemGenerator : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject itemClone = Instantiate(items[modeOfCharacter]) as GameObject;
 
-		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, characterPosition + ItemOffset[modeOfCharacter], false);
+		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, (characterPosition + ItemOffset[modeOfCharacter]) % 1, false);
 		itemClone.tag = "Item";
 		itemClone.transform.parent = transform;
-		itemClone.transform.Rotate (90, 0, 0);
+		itemClone.transform.Rotate (45, 0, 0);
 		itemClone.GetComponent<Item> ().modeOfCharacter = modeOfCharacter;
 		itemClone.GetComponent<Item>().itemPosition = characterPosition + ItemOffset[modeOfCharacter];
 
@@ -79,7 +79,7 @@ public class ItemGenerator : MonoBehaviour {
 		for(int i = 0; i < 4; i++)
 		{
 			float characterPosition = 0;
-			GameObject itemClone = Instantiate(items[0], iTween.PointOnPath(controller.controlPath, characterPosition + (i + 2) * ItemOffset[0]), transform.rotation) as GameObject;
+			GameObject itemClone = Instantiate(items[0], iTween.PointOnPath(controller.controlPath, (characterPosition + (i + 2) * ItemOffset[0]) % 1), transform.rotation) as GameObject;
 			//itemClone.transform.position = iTween.PointOnPath(controller.controlPath, characterPosition + (i + 1) * ItemOffset[0]);
 			ModifyLookAtDirection(itemClone, characterPosition + (i + 2) * ItemOffset[0], true);
 			itemClone.tag = "Item";
@@ -133,12 +133,12 @@ public class ItemGenerator : MonoBehaviour {
 		//other.transform.up = vectorWithMinDistance;
 		//Debug.DrawRay (coordinateOnPath, -vectorWithMinDistance, Color.red, 1000);
 		if (!onGround) {
-			other.transform.position = positionVector + 10 * vectorWithMinDistance.normalized
+			other.transform.position = positionVector + 12 * vectorWithMinDistance.normalized
 				+ offsetVector.normalized * characterOffset;
 		}
 		else
 		{
-			other.transform.position = positionVector + 2.5f * vectorWithMinDistance.normalized
+			other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
 				+ offsetVector.normalized * characterOffset;
 		}
 	}
