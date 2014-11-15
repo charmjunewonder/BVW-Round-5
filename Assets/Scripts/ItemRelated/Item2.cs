@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour {
-	public Controller controller;
+public class Item2 : MonoBehaviour {
+
 	public float itemPosition;
-
-	private ItemGenerator itemGenerator;
 	public int modeOfCharacter;
+	
+	private ItemGenerator2 itemGenerator;
+	private Controller controller;
 	private LifeProgressBar lifeBar;
-
+	
 	void Start(){
-		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
-		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
+		itemGenerator = GameObject.Find ("ItemsGenerator2").GetComponent<ItemGenerator2> ();
+		controller = GameObject.Find ("Character2").GetComponent<Controller> ();
 		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 	}
-
+	
 	void Update()
 	{
 		if (modeOfCharacter > 0) {
@@ -26,21 +27,21 @@ public class Item : MonoBehaviour {
 		}
 		CheckValid ();
 	}
-
+	
 	void CheckValid(){
-
+		
 		float pathPositionOfCharacter = controller.pathPosition;
 		if(pathPositionOfCharacter - itemPosition > 0.005f){
 			if(itemGenerator.itemQueue.Count > 0)
 			{
 				itemGenerator.itemQueue.Dequeue();
 			}
-
-			ItemGenerator.itemCount--;
+			
+			itemGenerator.itemCount--;
 			Destroy(gameObject);
 		}
 	}
-
+	
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
@@ -49,16 +50,14 @@ public class Item : MonoBehaviour {
 			{
 				itemGenerator.itemQueue.Dequeue();
 			}
-
-			ItemGenerator.itemCount--;
+			
+			itemGenerator.itemCount--;
 			if(modeOfCharacter == 0)
 			{
-				controller.soundEffectPlayer.clip = controller.soundEffects[0];
-				controller.soundEffectPlayer.Play();
+				GameObject.Find ("SoundManager").GetComponent<SoundManager>().PlaySoundEffect(0, false);
 			}
+
 			Destroy(gameObject);
 		}
 	}
-
-
 }

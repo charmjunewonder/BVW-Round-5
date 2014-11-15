@@ -23,11 +23,7 @@ public class Controller : MonoBehaviour {
 	public Texture[] speed;
 	public Texture[] numbers;
 
-	public AudioSource BGMPlayer;
-	public AudioSource soundEffectPlayer;
-
-	public AudioClip[] BGMs;
-	public AudioClip[] soundEffects;
+	public SoundManager sm;
 
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -96,9 +92,7 @@ public class Controller : MonoBehaviour {
 
 		normals = new Queue ();
 		StartCoroutine(look());
-
-		BGMPlayer.clip = BGMs [0];
-		BGMPlayer.Play();
+		
 	}
 
 	IEnumerator look(){
@@ -340,14 +334,10 @@ public class Controller : MonoBehaviour {
 
 			characterMode = ++characterMode % 4;
 			animator = models[characterMode].GetComponent<Animator>();
-			//animator.SetTrigger("Idle");
-			//walkable = false;
 
-			soundEffectPlayer.clip = soundEffects[1];
-			soundEffectPlayer.Play();
+			sm.PlaySoundEffect(2, false);
+			sm.PlayBGM(characterMode);
 
-			BGMPlayer.clip = BGMs[characterMode];
-			BGMPlayer.Play ();
 			Invoke("SetNextModelActive", 1);
 			Invoke("SetWalkableTrue", 1.7f);
 		}
@@ -361,8 +351,7 @@ public class Controller : MonoBehaviour {
 
 	public void SetWalkableTrue()
 	{
-		soundEffectPlayer.clip = soundEffects [2];
-		soundEffectPlayer.loop = true;
+		sm.PlaySoundEffect (1, true);
 		TransitionEffect.gameObject.SetActive(false);
 		walkable = true;
 	}

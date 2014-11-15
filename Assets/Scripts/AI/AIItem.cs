@@ -26,7 +26,7 @@ public class AIItem : MonoBehaviour {
 			float pathPositionOfCharacter = controller.pathPosition;
 			if(pathPositionOfCharacter - itemPosition > 0.001f){
 				Destroy(gameObject);
-				ItemGenerator.itemCount--;
+				//ItemGenerator.itemCount--;
 			}
 		}
 	}
@@ -35,7 +35,7 @@ public class AIItem : MonoBehaviour {
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<AICharacter>().collectedItemCount++;
 			Destroy(gameObject);
-			AIItemGenerator.itemCount--;
+			//AIItemGenerator.itemCount--;
 		}
 	}
 }

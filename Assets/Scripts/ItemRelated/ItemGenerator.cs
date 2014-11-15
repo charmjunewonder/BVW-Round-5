@@ -4,7 +4,6 @@ using System.Collections;
 public class ItemGenerator : MonoBehaviour {
 
 	public Controller controller;
-	public float[] pathOffsets;
 
 	public float[] ItemOffset;
 	public GameObject[] items;
@@ -12,8 +11,8 @@ public class ItemGenerator : MonoBehaviour {
 	public float[] ObstacleOffset;
 	public float ObstacleOffsetVariation;
 
-	public static int itemCount;
-	public static int obstacleCount;
+	public int itemCount;
+	public int obstacleCount;
 
 	public Queue itemQueue;
 	public Queue obstacleQueue;
@@ -53,7 +52,6 @@ public class ItemGenerator : MonoBehaviour {
 
 	private void GenerateObstacle()
 	{
-		Debug.Log ("@@!!!!!");
 		int modeOfCharacter = controller.characterMode;
 		if (modeOfCharacter > 3) {
 			return;

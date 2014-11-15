@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Obstacle : MonoBehaviour {
-
+public class Obstacle2 : MonoBehaviour {
+	
 	public float obstaclePosition;
-	private ItemGenerator itemGenerator;
+	private ItemGenerator2 itemGenerator;
 	private Controller controller;
 	// Use this for initialization
 	void Start () {
-		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
-		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
+		itemGenerator = GameObject.Find ("ItemsGenerator2").GetComponent<ItemGenerator2> ();
+		controller = GameObject.Find ("Character2").GetComponent<Controller> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		CheckValid ();
 	}
-
-
+	
+	
 	void CheckValid(){
-
+		
 		float pathPositionOfCharacter = controller.pathPosition;
 		if(pathPositionOfCharacter - obstaclePosition > 0.005f)
 		{
@@ -27,15 +27,15 @@ public class Obstacle : MonoBehaviour {
 			{
 				itemGenerator.obstacleQueue.Dequeue();
 			}
-			ItemGenerator.obstacleCount--;
+			itemGenerator.obstacleCount--;
 			Destroy(gameObject);
 		}
 	}
-
+	
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "RunMan") {
 			controller.SetVelocity(controller.GetVelocity() / 3);
-			ItemGenerator.obstacleCount--;
+			itemGenerator.obstacleCount--;
 			if(itemGenerator.obstacleQueue.Count > 0)
 			{
 				itemGenerator.obstacleQueue.Dequeue();

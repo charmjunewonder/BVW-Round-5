@@ -16,7 +16,6 @@ public class JumpPadCollider : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "RunMan"){
-			Debug.Log("fsdlk");
 			jumpPadAnimator.SetTrigger("Jump");
 			other.gameObject.GetComponent<Controller>().SetIsJumpingTrue();
 		}
