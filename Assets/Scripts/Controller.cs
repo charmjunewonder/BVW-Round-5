@@ -66,6 +66,7 @@ public class Controller : MonoBehaviour {
 
 	private SerialPort spUnity;
 	private bool isOnRollerCoaster;
+	private bool isPadJumping;
 
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
@@ -174,7 +175,7 @@ public class Controller : MonoBehaviour {
 	void DetectKeys(){
 		if (!isOnRollerCoaster) {
 			if(walkable){
-				if(Input.GetKeyDown(key1) || Input.GetKeyDown(key2)) {
+				if(Input.GetKey(key1) || Input.GetKeyDown(key2)) {
 					if(velocity < velocityUpperBounds[characterMode % 4])
 					{
 						velocity += velocityIncrement * Time.deltaTime;
@@ -265,6 +266,7 @@ public class Controller : MonoBehaviour {
 	
 	
 	void FindFloorAndRotation(){
+		if(isPadJumping) return;
 		float pathPercent = pathPosition%1f;
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
@@ -296,6 +298,14 @@ public class Controller : MonoBehaviour {
 		prevPosition = character.position;
 		// set offset for each player
 		//character.position = floorPosition + previousNormal.normalized * ySpeed;
+		if(isPadJumping){
+			pathPosition += 0.001f;
+			float pathPercent = pathPosition%1f;
+			Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
+			character.position = coordinateOnPath;
+			return;
+		}
+
 		Vector3 nextPosition = floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;// * 0.2f + prevPosition * 0.8f;
 		//Debug.Log (character.transform.position);
 		if(character.position.y - nextPosition.y > 40){
@@ -478,5 +488,12 @@ public class Controller : MonoBehaviour {
 			velocity = 0.0005f;
 		}
 	}
-
+	public void SetIsJumpingTrue(){
+		isPadJumping = true;
+		walkable = false;
+	}
+	public void SetIsJumpingFalse(){
+		isPadJumping = false;
+		walkable = true;
+	}
 }
