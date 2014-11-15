@@ -14,32 +14,46 @@ public class ItemGenerator : MonoBehaviour {
 
 	public static int itemCount;
 	public static int obstacleCount;
+
+	public Queue itemQueue;
+	public Queue obstacleQueue;
+
 	private float characterOffset;
 	private Transform[] controlPath;
+	private bool isOnRollerCoaster;
 	// Use this for initialization
 	void Start () {
+		isOnRollerCoaster = false;
 		characterOffset = controller.pathOffset;
 		itemCount = 0;
 		obstacleCount = 0;
 		controlPath = controller.controlPath;
-		
+
+		itemQueue = new Queue ();
+		obstacleQueue = new Queue ();
+
 		GenerateItemAtFirstTime();
 	}
 
 	void Update()
 	{
-		if (itemCount < 1) {
-			itemCount++;
-			Invoke ("GenerateItem", 0.1f);
+		if (!isOnRollerCoaster) {
+			Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount);
+			if (itemCount < 1) {
+				itemCount++;
+				Invoke ("GenerateItem", 0.1f);
+			}
+			if (controller.characterMode > 0 && obstacleCount < 1) {
+				obstacleCount++;
+				Invoke("GenerateObstacle", 0.1f);
+			}
 		}
-		if (controller.characterMode > 0 && obstacleCount < 1) {
-			obstacleCount++;
-			Invoke("GenerateObstacle", 0.1f);
-		}
+
 	}
 
 	private void GenerateObstacle()
 	{
+		Debug.Log ("@@!!!!!");
 		int modeOfCharacter = controller.characterMode;
 		if (modeOfCharacter > 3) {
 			return;
@@ -47,31 +61,31 @@ public class ItemGenerator : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
-		/*itemClone.transform.position = */ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
+		ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
 		obstacleClone.transform.Rotate (0, 180, 0);
 
 		obstacleClone.transform.parent = transform;
 
 		obstacleClone.GetComponent<Obstacle>().obstaclePosition = characterPosition + ObstacleOffset[modeOfCharacter] + offset;
-
+		obstacleQueue.Enqueue (obstacleClone);
 	}
 
 	private void GenerateItem()
 	{
+
 		int modeOfCharacter = controller.characterMode;
 		if (modeOfCharacter > 3) {
 			return;
 		}
 		float characterPosition = controller.pathPosition;
 		GameObject itemClone = Instantiate(items[modeOfCharacter]) as GameObject;
-
-		/*itemClone.transform.position = */ModifyLookAtDirection(itemClone, (characterPosition + ItemOffset[modeOfCharacter]) % 1, false);
+		ModifyLookAtDirection(itemClone, (characterPosition + ItemOffset[modeOfCharacter]) % 1, false);
 		itemClone.tag = "Item";
 		itemClone.transform.parent = transform;
 		itemClone.transform.Rotate (45, 0, 0);
 		itemClone.GetComponent<Item> ().modeOfCharacter = modeOfCharacter;
 		itemClone.GetComponent<Item>().itemPosition = characterPosition + ItemOffset[modeOfCharacter];
-
+		itemQueue.Enqueue (itemClone);
 
 	}
 
@@ -80,7 +94,6 @@ public class ItemGenerator : MonoBehaviour {
 		{
 			float characterPosition = 0;
 			GameObject itemClone = Instantiate(items[0], iTween.PointOnPath(controller.controlPath, (characterPosition + (i + 2) * ItemOffset[0]) % 1), transform.rotation) as GameObject;
-			//itemClone.transform.position = iTween.PointOnPath(controller.controlPath, characterPosition + (i + 1) * ItemOffset[0]);
 			ModifyLookAtDirection(itemClone, characterPosition + (i + 2) * ItemOffset[0], true);
 			itemClone.tag = "Item";
 			itemClone.transform.parent = transform;
@@ -141,6 +154,11 @@ public class ItemGenerator : MonoBehaviour {
 			other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
 				+ offsetVector.normalized * characterOffset;
 		}
+	}
+
+	public void SetIsOnRollerCoaster(bool t)
+	{
+		isOnRollerCoaster = t;
 	}
 }
 

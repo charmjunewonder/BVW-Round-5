@@ -4,10 +4,11 @@ using System.Collections;
 public class Obstacle : MonoBehaviour {
 
 	public float obstaclePosition;
-
+	private ItemGenerator itemGenerator;
 	private Controller controller;
 	// Use this for initialization
 	void Start () {
+		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
 	}
 	
@@ -20,11 +21,14 @@ public class Obstacle : MonoBehaviour {
 	void CheckValid(){
 
 		float pathPositionOfCharacter = controller.pathPosition;
-		//transform.LookAt (iTween.PointOnPath(controller.controlPath, pathPositionOfCharacter - 0.001f));
-		if(pathPositionOfCharacter - obstaclePosition > 0.005f){
-
-			Destroy(gameObject);
+		if(pathPositionOfCharacter - obstaclePosition > 0.005f)
+		{
+			if(itemGenerator.obstacleQueue.Count > 0)
+			{
+				itemGenerator.obstacleQueue.Dequeue();
+			}
 			ItemGenerator.obstacleCount--;
+			Destroy(gameObject);
 		}
 	}
 
@@ -32,6 +36,10 @@ public class Obstacle : MonoBehaviour {
 		if (other.gameObject.tag == "RunMan") {
 			controller.SetVelocity(controller.GetVelocity() / 3);
 			ItemGenerator.obstacleCount--;
+			if(itemGenerator.obstacleQueue.Count > 0)
+			{
+				itemGenerator.obstacleQueue.Dequeue();
+			}
 			Destroy(gameObject);
 		}
 	}

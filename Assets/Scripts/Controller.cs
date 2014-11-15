@@ -65,6 +65,7 @@ public class Controller : MonoBehaviour {
 	private int[] speedNums = {10, 30, 100, 200};
 
 	private SerialPort spUnity;
+	private bool isOnRollerCoaster;
 
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
@@ -89,6 +90,8 @@ public class Controller : MonoBehaviour {
 		foreach (Transform child in character) {
 			child.gameObject.layer=2;
 		}
+
+		isOnRollerCoaster = false;
 
 		normals = new Queue ();
 		StartCoroutine(look());
@@ -169,42 +172,58 @@ public class Controller : MonoBehaviour {
 	}
 
 	void DetectKeys(){
-
-		if(walkable){
-			if(Input.GetKeyDown(key1) || Input.GetKeyDown(key2)) {
-				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
-				waitingCount = 0;
-			} else{
-				waitingCount += Time.deltaTime;
-			}
-		}
-		if(characterMode == 0){
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(LookBack());
-			}
-			if(lookingBack){
-				if(Input.GetKey(key1) || Input.GetKey(key2)) {
+		if (!isOnRollerCoaster) {
+			if(walkable){
+				if(Input.GetKeyDown(key1) || Input.GetKeyDown(key2)) {
+					if(velocity < velocityUpperBounds[characterMode % 4])
+					{
+						velocity += velocityIncrement * Time.deltaTime;
+					}
 					waitingCount = 0;
-					lookingBack = false;
-					StartCoroutine(LookForward());
+				} else{
+					waitingCount += Time.deltaTime;
 				}
 			}
-		} else{
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(Idle());
+			if(characterMode == 0){
+				if(waitingCount > 5){
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine(LookBack());
+				}
+				if(lookingBack){
+					if(Input.GetKey(key1) || Input.GetKey(key2)) {
+						waitingCount = 0;
+						lookingBack = false;
+						StartCoroutine(LookForward());
+					}
+				}
+			} else{
+				if(waitingCount > 5){
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine(Idle());
+				}
+				//jump:
+				if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
+					animator.SetTrigger("Jump");
+					StartCoroutine(Jump());
+					jumpState=1;
+				}
 			}
-			//jump:
-			if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
-				animator.SetTrigger("Jump");
-				StartCoroutine(Jump());
-				jumpState=1;
+			if(velocity > velocityUpperBounds[characterMode % 4])
+			{
+				velocity = Mathf.Clamp(velocity - 5 * velocityDecrement * Time.deltaTime, 0, 1f);
 			}
+			else
+			{
+				velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+			}
+
 		}
-		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+		else
+		{
+			velocity = 0.0005f;
+		}
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
 	}
@@ -450,6 +469,14 @@ public class Controller : MonoBehaviour {
 	public Animator GetAnimator()
 	{
 		return animator;
+	}
+
+	public void SetOnRollerCoaster(bool t)
+	{
+		isOnRollerCoaster = t;
+		if (t) {
+			velocity = 0.0005f;
+		}
 	}
 
 }

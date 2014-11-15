@@ -5,10 +5,12 @@ public class Item : MonoBehaviour {
 	public Controller controller;
 	public float itemPosition;
 
+	private ItemGenerator itemGenerator;
 	public int modeOfCharacter;
 	private LifeProgressBar lifeBar;
 
 	void Start(){
+		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
 		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 	}
@@ -16,11 +18,11 @@ public class Item : MonoBehaviour {
 	void Update()
 	{
 		if (modeOfCharacter > 0) {
-			transform.Rotate (0, 0, -3, Space.Self);
+			transform.Rotate (0, -3, 0, Space.World);
 		}
 		else
 		{
-			transform.Rotate (0, 3, 0, Space.Self);
+			transform.Rotate (0, 3, 0, Space.World);
 		}
 		CheckValid ();
 	}
@@ -29,10 +31,13 @@ public class Item : MonoBehaviour {
 
 		float pathPositionOfCharacter = controller.pathPosition;
 		if(pathPositionOfCharacter - itemPosition > 0.005f){
+			if(itemGenerator.itemQueue.Count > 0)
+			{
+				itemGenerator.itemQueue.Dequeue();
+			}
 
-			Destroy(gameObject);
 			ItemGenerator.itemCount--;
-
+			Destroy(gameObject);
 		}
 	}
 
@@ -40,13 +45,18 @@ public class Item : MonoBehaviour {
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
 			lifeBar.changeToNextState();
-			Destroy(gameObject);
+			if(itemGenerator.itemQueue.Count > 0)
+			{
+				itemGenerator.itemQueue.Dequeue();
+			}
+
 			ItemGenerator.itemCount--;
 			if(modeOfCharacter == 0)
 			{
 				controller.soundEffectPlayer.clip = controller.soundEffects[0];
 				controller.soundEffectPlayer.Play();
 			}
+			Destroy(gameObject);
 		}
 	}
 
