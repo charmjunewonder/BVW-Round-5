@@ -446,9 +446,10 @@ public class Controller : MonoBehaviour {
 				}
 			}
 		}
+		Vector3 offsetVector1 = Vector3.Cross(vectorWithMinDistance, direction);
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
 		other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
-				+ offsetVector.normalized * pathOffset;
+				+ offsetVector1.normalized * pathOffset;
 	}
 
 	private Vector3 GetNormal(Vector3 v)
