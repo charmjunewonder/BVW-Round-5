@@ -117,7 +117,6 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
-		characterMode = 1;
 		animator = models[characterMode].GetComponent<Animator>();
 		DetectKeys();
 		FindFloorAndRotation();
@@ -329,7 +328,7 @@ public class Controller : MonoBehaviour {
 			pathPosition += 0.001f;
 			float pathPercent = pathPosition%1f;
 			Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
-			character.position = coordinateOnPath;
+			character.position = coordinateOnPath + offsetVector.normalized * pathOffset;
 			return;
 		}
 
