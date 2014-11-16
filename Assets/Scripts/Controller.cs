@@ -117,6 +117,7 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
+		characterMode = 1;
 		animator = models[characterMode].GetComponent<Animator>();
 		DetectKeys();
 		FindFloorAndRotation();
@@ -308,7 +309,7 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				if(pathPercent > 0.2971284f && pathPercent < 0.319461f){
+				if(isDropping){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
 				} else{
 					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
@@ -321,7 +322,6 @@ public class Controller : MonoBehaviour {
 	
 	
 	void MoveCharacter(){
-		if(isDropping) return;
 		prevPosition = character.position;
 		// set offset for each player
 		//character.position = floorPosition + previousNormal.normalized * ySpeed;
@@ -333,28 +333,38 @@ public class Controller : MonoBehaviour {
 			return;
 		}
 
-		Vector3 nextPosition = floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;// * 0.2f + prevPosition * 0.8f;
-		//Debug.Log (character.transform.position);
-		if(character.position.y - nextPosition.y > 40){
-			StartCoroutine(DropWithGravity(nextPosition));
+		Vector3 nextPosition = calculateNextPosition();
+		if(character.position.y - nextPosition.y > 40 || isDropping){
+			StartCoroutine(DropWithGravityIEnumerator());
 		} else{
 			character.position = nextPosition;
 		}
-
 	}
 
-	IEnumerator DropWithGravity(Vector3 destination){
+	Vector3 calculateNextPosition(){
+		return 	floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;
+	}
+
+	public void DropWithGravity(){
+		isDropping = true;
+	}
+
+	public void DroppingExit(){
+		isDropping = false;
+	}
+
+	IEnumerator DropWithGravityIEnumerator(){
 		walkable = false;
 		isDropping = true;
+		Vector3 destination = calculateNextPosition();
 		while(character.position.y - destination.y > 0.1f){
 			Vector3 position = character.position;
-			position.y -= 3f;
+			position.y -= 0.1f;
 			character.position = position;
 			yield return new WaitForSeconds(0.01f);
 		}
 		character.position = destination;
 		walkable = true;
-		isDropping = false;
 	}
 
 	IEnumerator CheckCollectedItemCount(){
