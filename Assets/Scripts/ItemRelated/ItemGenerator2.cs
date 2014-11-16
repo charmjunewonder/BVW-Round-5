@@ -53,7 +53,7 @@ public class ItemGenerator2 : MonoBehaviour {
 	private void GenerateObstacle()
 	{
 		int modeOfCharacter = controller.characterMode;
-		if (modeOfCharacter > 3) {
+		if (modeOfCharacter >= 3) {
 			return;
 		}
 		float characterPosition = controller.pathPosition;
@@ -73,7 +73,7 @@ public class ItemGenerator2 : MonoBehaviour {
 	{
 		
 		int modeOfCharacter = controller.characterMode;
-		if (modeOfCharacter > 3) {
+		if (modeOfCharacter >= 3) {
 			return;
 		}
 		float characterPosition = controller.pathPosition;

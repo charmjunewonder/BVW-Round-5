@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour {
 
 	public void PlayBGM(int index)
 	{
-		if (BGMCount < index) {
+		if (BGMCount <= index) {
 			BGMPlayer.clip = BGMs[index];
 			BGMPlayer.Play();
 			BGMCount++;

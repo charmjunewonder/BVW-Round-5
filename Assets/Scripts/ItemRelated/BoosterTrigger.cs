@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BoosterTrigger : MonoBehaviour {
-	public CharacterLeftFeedback leftFeedback;
+
 
 	private Controller controller;
 	private ItemGenerator itemGenerator;
@@ -36,7 +36,6 @@ public class BoosterTrigger : MonoBehaviour {
 				GameObject temp = itemGenerator.itemQueue.Dequeue() as GameObject;
 				Destroy(temp);
 			}
-			leftFeedback.showGoodFeedback();
 			controller.SetOnRollerCoaster(true);
 			itemGenerator.SetIsOnRollerCoaster(true);
 		}
@@ -53,7 +52,6 @@ public class BoosterTrigger : MonoBehaviour {
 				GameObject temp = itemGenerator2.itemQueue.Dequeue() as GameObject;
 				Destroy(temp);
 			}
-			leftFeedback.showGoodFeedback();
 			controller2.SetOnRollerCoaster(true);
 			itemGenerator2.SetIsOnRollerCoaster(true);
 		}

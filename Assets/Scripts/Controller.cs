@@ -64,7 +64,7 @@ public class Controller : MonoBehaviour {
 	private SerialPort spUnity;
 	private bool isOnRollerCoaster;
 	private bool isPadJumping;
-
+	private bool isDropPath;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -95,6 +95,8 @@ public class Controller : MonoBehaviour {
 		normals = new Queue ();
 		StartCoroutine(look());
 		StartCoroutine("CheckCollectedItemCount");
+
+		sm.PlayBGM (0);
 	}
 
 	IEnumerator look(){
@@ -105,17 +107,17 @@ public class Controller : MonoBehaviour {
 	
 	
 	void Update(){
-		//--------------------------x----------------------------
-		if (spUnity != null) {
-			if (spUnity.IsOpen) {
-				try {
-					DetectKeysArduino ();
-				} catch (System.Exception) {
-
-				}
-			}
-			//DetectKeys();
-		}
+//		//--------------------------x----------------------------
+//		if (spUnity != null) {
+//			if (spUnity.IsOpen) {
+//				try {
+//					DetectKeysArduino ();
+//				} catch (System.Exception) {
+//
+//				}
+//			}
+//			//DetectKeys();
+//		}
 		//------------------------------------------------------
 		Debug.Log(isDropping);
 		//characterMode = 3;
@@ -320,9 +322,11 @@ public class Controller : MonoBehaviour {
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
 				//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, previousNormal.normalized * 10, Color.red, 10); 
-				if(isDropping){
+				if(isDropPath){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
-					character.transform.up = previousNormal.normalized;
+
+					//character.transform.LookAt(transform.position + diretion.normalized, Vector3.up);
+					//character.transform.up = previousNormal.normalized;
 				} else{
 					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
 					//Debug.Log("fjlas " + pathPosition);
@@ -350,6 +354,9 @@ public class Controller : MonoBehaviour {
 			Debug.Log("drop");
 			StartCoroutine(DropWithGravityIEnumerator());
 		} 
+		else if(isDropping){
+			character.position = new Vector3(nextPosition.x, character.position.y , nextPosition.z);
+		}
 		else{
 			Debug.Log("move");
 			character.position = nextPosition;
@@ -360,28 +367,21 @@ public class Controller : MonoBehaviour {
 		return 	floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;
 	}
 
-	public void DropWithGravity(){
-		//isDropping = true;
-	}
-
-	public void DroppingExit(){
-		isDropping = false;
-	}
-
 	IEnumerator DropWithGravityIEnumerator(){
 		walkable = false;
 		isDropping = true;
 		Vector3 destination = calculateNextPosition();
 		Debug.Log(destination);
-		int count = 0;
 		while(character.position.y - destination.y > 0.1f){
-			Debug.Log(++count + " " + character.position + " " + destination);
+			//Debug.Log(++count + " " + character.position + " " + destination);
 			Vector3 position = character.position;
 			position.y -= 3f;
 			character.position = position;
 			yield return new WaitForSeconds(0.01f);
 		}
+
 		character.position = destination;
+		isDropping = false;
 		walkable = true;
 	}
 
@@ -548,12 +548,22 @@ public class Controller : MonoBehaviour {
 		}
 	}
 	public void SetIsJumpingTrue(){
-		Debug.Log("Jump");
 		isPadJumping = true;
 		walkable = false;
 	}
 	public void SetIsJumpingFalse(){
 		isPadJumping = false;
 		walkable = true;
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "FallingEnter") {
+			isDropPath = true;
+		}
+		else if(col.gameObject.tag == "FallingExit")
+		{
+			isDropPath = false;
+		}
 	}
 }
