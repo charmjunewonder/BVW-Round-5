@@ -117,6 +117,8 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
+		Debug.Log(isDropping);
+		//characterMode = 3;
 		animator = models[characterMode].GetComponent<Animator>();
 		DetectKeys();
 		FindFloorAndRotation();
@@ -151,7 +153,17 @@ public class Controller : MonoBehaviour {
 		animator.SetTrigger("Sit");
 		yield return new WaitForSeconds(7.75f);
 		walkable = true;
+		models[3].collider.enabled = false;
+		StartCoroutine("wheelChairAutoRun");
 	}
+
+	IEnumerator wheelChairAutoRun(){
+		while(true){
+			velocity = 0.0005f;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
+
 	void DetectKeysArduino(){
 
 		int arduinoValue = spUnity.ReadByte ();
@@ -293,7 +305,6 @@ public class Controller : MonoBehaviour {
 	
 	
 	void FindFloorAndRotation(){
-		if(isPadJumping) return;
 		float pathPercent = pathPosition%1f;
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
@@ -308,8 +319,10 @@ public class Controller : MonoBehaviour {
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
+				//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, previousNormal.normalized * 10, Color.red, 10); 
 				if(isDropping){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
+					character.transform.up = previousNormal.normalized;
 				} else{
 					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
 					//Debug.Log("fjlas " + pathPosition);
@@ -333,9 +346,12 @@ public class Controller : MonoBehaviour {
 		}
 
 		Vector3 nextPosition = calculateNextPosition();
-		if(character.position.y - nextPosition.y > 40 || isDropping){
+		if(character.position.y - nextPosition.y > 40 && !isDropping){
+			Debug.Log("drop");
 			StartCoroutine(DropWithGravityIEnumerator());
-		} else{
+		} 
+		else{
+			Debug.Log("move");
 			character.position = nextPosition;
 		}
 	}
@@ -345,7 +361,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void DropWithGravity(){
-		isDropping = true;
+		//isDropping = true;
 	}
 
 	public void DroppingExit(){
@@ -356,9 +372,12 @@ public class Controller : MonoBehaviour {
 		walkable = false;
 		isDropping = true;
 		Vector3 destination = calculateNextPosition();
+		Debug.Log(destination);
+		int count = 0;
 		while(character.position.y - destination.y > 0.1f){
+			Debug.Log(++count + " " + character.position + " " + destination);
 			Vector3 position = character.position;
-			position.y -= 0.1f;
+			position.y -= 3f;
 			character.position = position;
 			yield return new WaitForSeconds(0.01f);
 		}
@@ -529,6 +548,7 @@ public class Controller : MonoBehaviour {
 		}
 	}
 	public void SetIsJumpingTrue(){
+		Debug.Log("Jump");
 		isPadJumping = true;
 		walkable = false;
 	}

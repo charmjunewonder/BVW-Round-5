@@ -16,6 +16,7 @@ public class FallingExit : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "RunMan"){
+			Debug.Log("DroppingExit");
 			other.gameObject.GetComponent<Controller>().DroppingExit();
 		}
 	}

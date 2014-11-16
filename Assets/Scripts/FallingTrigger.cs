@@ -11,6 +11,7 @@ public class FallingTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "RunMan"){
+			Debug.Log("DroppingTrigger");
 			other.gameObject.GetComponent<Controller>().DropWithGravity();
 		}
 	}
