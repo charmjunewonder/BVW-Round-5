@@ -59,6 +59,7 @@ public class ItemGenerator2 : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
+		Debug.Log(modeOfCharacter);
 		ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
 		obstacleClone.transform.Rotate (0, 180, 0);
 		

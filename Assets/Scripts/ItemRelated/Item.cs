@@ -5,7 +5,8 @@ public class Item : MonoBehaviour {
 
 	public float itemPosition;
 	public int modeOfCharacter;
-
+	
+	private CharacterFeedback feedback;
 	private ItemGenerator itemGenerator;
 	private Controller controller;
 	private LifeProgressBar lifeBar;
@@ -14,6 +15,7 @@ public class Item : MonoBehaviour {
 		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
 		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
+		feedback = GameObject.Find ("Feedback1").GetComponent<CharacterFeedback> ();
 	}
 
 	void Update()
@@ -46,6 +48,7 @@ public class Item : MonoBehaviour {
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
 			lifeBar.changeToNextState();
+			feedback.showFeedbackNumber(other.gameObject.GetComponent<Controller>().collectedItemCount);
 			if(itemGenerator.itemQueue.Count > 0)
 			{
 				itemGenerator.itemQueue.Dequeue();

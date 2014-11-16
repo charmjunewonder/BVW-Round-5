@@ -22,6 +22,7 @@ public class Controller : MonoBehaviour {
 	public ParticleSystem TransitionEffect;
 	public Texture[] speed;
 	public Texture[] numbers;
+	public GameObject wheelChair;
 
 	public SoundManager sm;
 
@@ -81,6 +82,7 @@ public class Controller : MonoBehaviour {
 		velocityUpperBounds [0] = 0.00003f;
 		velocityUpperBounds [1] = 0.00008f; 
 		velocityUpperBounds [2] = 0.00025f;
+		velocityUpperBounds [3] = 0.00025f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -92,7 +94,8 @@ public class Controller : MonoBehaviour {
 
 		normals = new Queue ();
 		StartCoroutine(look());
-		
+		StartCoroutine("seniorAutoWalk");
+
 	}
 
 	IEnumerator look(){
@@ -115,21 +118,49 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
+		characterMode = 3;
 		animator = models[characterMode].GetComponent<Animator>();
-
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
 		CheckCollectedItemCount();
 	}
+
+	IEnumerator seniorAutoWalk(){
+		walkable = false;
+		GameObject wheelChairClone = Instantiate(wheelChair) as GameObject;
+		wheelChairClone.transform.localScale = new Vector3(100, 100, 100);
+		wheelChairClone.AddComponent<WheelChairCollider>();
+		BoxCollider bc = wheelChairClone.AddComponent<BoxCollider>();
+		bc.size = new Vector3(0.05f, 0.05f, 0.05f);
+		bc.isTrigger = true;
+		wheelChairClone.SetActive(true);
+
+		ModifyLookAtDirection(wheelChairClone, pathPosition+0.01f);
+		while(true){
+			velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, 0.00003f);
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
 	
+	public void seniorSit(){
+		StartCoroutine(seniorSitIEnumerator());
+	}
+
+	IEnumerator seniorSitIEnumerator(){
+		wheelChair.SetActive(true);
+		StopCoroutine("seniorAutoWalk");
+		animator.SetTrigger("Sit");
+		yield return new WaitForSeconds(7.75f);
+		walkable = true;
+	}
 	void DetectKeysArduino(){
 
 		int arduinoValue = spUnity.ReadByte ();
 
 		if(walkable){
 			if(arduinoValue == 1) {
-				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, velocityUpperBounds[characterMode % 4]);
+				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, 0.00005f);
 			} else{
 				waitingCount += Time.deltaTime;
 			}
@@ -147,6 +178,8 @@ public class Controller : MonoBehaviour {
 					StartCoroutine(LookForward());
 				}
 			}
+		} else if(characterMode == 3){
+
 		} else{
 			if(waitingCount > 5){
 				waitingCount = 0;
@@ -192,6 +225,8 @@ public class Controller : MonoBehaviour {
 						StartCoroutine(LookForward());
 					}
 				}
+			} else if(characterMode == 3){
+
 			} else{
 				if(waitingCount > 5){
 					waitingCount = 0;
@@ -412,7 +447,8 @@ public class Controller : MonoBehaviour {
 			}
 		}
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
-		other.transform.position = positionVector;
+		other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
+				+ offsetVector.normalized * pathOffset;
 	}
 
 	private Vector3 GetNormal(Vector3 v)

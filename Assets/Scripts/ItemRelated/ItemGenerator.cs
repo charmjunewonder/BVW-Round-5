@@ -37,7 +37,7 @@ public class ItemGenerator : MonoBehaviour {
 	void Update()
 	{
 		if (!isOnRollerCoaster) {
-			Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount);
+			//Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount);
 			if (itemCount < 1) {
 				itemCount++;
 				Invoke ("GenerateItem", 0.1f);

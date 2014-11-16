@@ -5,11 +5,13 @@ public class Obstacle2 : MonoBehaviour {
 	
 	public float obstaclePosition;
 	private ItemGenerator2 itemGenerator;
+	private CharacterLeftFeedback leftFeedback;
 	private Controller controller;
 	// Use this for initialization
 	void Start () {
 		itemGenerator = GameObject.Find ("ItemsGenerator2").GetComponent<ItemGenerator2> ();
 		controller = GameObject.Find ("Character2").GetComponent<Controller> ();
+		leftFeedback = GameObject.Find ("LeftFeedback2").GetComponent<CharacterLeftFeedback> ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +38,7 @@ public class Obstacle2 : MonoBehaviour {
 		if (other.gameObject.tag == "RunMan") {
 			controller.SetVelocity(controller.GetVelocity() / 3);
 			itemGenerator.obstacleCount--;
+			leftFeedback.showBadFeedback();
 			if(itemGenerator.obstacleQueue.Count > 0)
 			{
 				itemGenerator.obstacleQueue.Dequeue();
