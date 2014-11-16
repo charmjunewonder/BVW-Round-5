@@ -322,10 +322,14 @@ public class Controller : MonoBehaviour {
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
 				//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, previousNormal.normalized * 10, Color.red, 10); 
-				if(isDropPath){
+				if(isDropPath || isPadJumping){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
+					Vector3 v1 = Vector3.Cross(previousNormal, diretion);
+					Vector3 v2 = Vector3.Cross(v1, previousNormal);
 
-					//character.transform.LookAt(transform.position + diretion.normalized, Vector3.up);
+					Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, v2.normalized * 10, Color.red, 10); 
+
+					character.transform.LookAt(transform.position + v2.normalized, previousNormal);
 					//character.transform.up = previousNormal.normalized;
 				} else{
 					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
@@ -352,10 +356,15 @@ public class Controller : MonoBehaviour {
 		Vector3 nextPosition = calculateNextPosition();
 		if(character.position.y - nextPosition.y > 40 && !isDropping){
 			Debug.Log("drop");
-			StartCoroutine(DropWithGravityIEnumerator());
+			walkable = false;
+			isDropping = true;
 		} 
 		else if(isDropping){
-			character.position = new Vector3(nextPosition.x, character.position.y , nextPosition.z);
+			character.position = new Vector3(nextPosition.x, character.position.y - 3 , nextPosition.z);
+			if(character.position.y - nextPosition.y < 0.1f){
+				isDropping = false;
+				walkable = true;
+			}
 		}
 		else{
 			Debug.Log("move");
