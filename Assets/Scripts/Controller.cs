@@ -22,6 +22,8 @@ public class Controller : MonoBehaviour {
 	public ParticleSystem TransitionEffect;
 	public Texture[] speed;
 	public Texture[] numbers;
+	public Texture[] readyGo;
+	public GameObject readyGoGUI;
 	public GameObject wheelChair;
 
 	public SoundManager sm;
@@ -102,6 +104,12 @@ public class Controller : MonoBehaviour {
 	IEnumerator look(){
 		animator.SetTrigger("Look");
 		yield return new WaitForSeconds(1.5f);
+		readyGoGUI.SetActive(true);
+		readyGoGUI.guiTexture.texture = readyGo[0];
+		yield return new WaitForSeconds(0.8f);
+		readyGoGUI.guiTexture.texture = readyGo[1];
+		yield return new WaitForSeconds(0.8f);
+		readyGoGUI.SetActive(false);
 		walkable = true;
 	}
 	
@@ -119,7 +127,7 @@ public class Controller : MonoBehaviour {
 //			//DetectKeys();
 //		}
 		//------------------------------------------------------
-		Debug.Log(isDropping);
+		//Debug.Log(isDropping);
 		//characterMode = 3;
 		animator = models[characterMode].GetComponent<Animator>();
 		DetectKeys();
