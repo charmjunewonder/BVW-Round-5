@@ -94,8 +94,7 @@ public class Controller : MonoBehaviour {
 
 		normals = new Queue ();
 		StartCoroutine(look());
-		StartCoroutine("seniorAutoWalk");
-
+		StartCoroutine("CheckCollectedItemCount");
 	}
 
 	IEnumerator look(){
@@ -118,12 +117,11 @@ public class Controller : MonoBehaviour {
 			//DetectKeys();
 		}
 		//------------------------------------------------------
-		characterMode = 3;
 		animator = models[characterMode].GetComponent<Animator>();
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
-		CheckCollectedItemCount();
+		//CheckCollectedItemCount();
 	}
 
 	IEnumerator seniorAutoWalk(){
@@ -359,22 +357,29 @@ public class Controller : MonoBehaviour {
 		isDropping = false;
 	}
 
-	void CheckCollectedItemCount(){
-		if(collectedItemCount >= 4 && characterMode <= 3){
+	IEnumerator CheckCollectedItemCount(){
+		while(true){
+			if(collectedItemCount >= 4 && characterMode <= 3){
 
-			collectedItemCount = 0;
-			models[characterMode].SetActive(false);
+				collectedItemCount = 0;
+				models[characterMode].SetActive(false);
 
-			TransitionEffect.gameObject.SetActive(true);
+				TransitionEffect.gameObject.SetActive(true);
 
-			characterMode = ++characterMode % 4;
-			animator = models[characterMode].GetComponent<Animator>();
+				characterMode = ++characterMode % 4;
+				animator = models[characterMode].GetComponent<Animator>();
 
-			sm.PlaySoundEffect(2, false);
-			sm.PlayBGM(characterMode);
+				sm.PlaySoundEffect(2, false);
+				sm.PlayBGM(characterMode);
 
-			Invoke("SetNextModelActive", 1);
-			Invoke("SetWalkableTrue", 1.7f);
+				Invoke("SetNextModelActive", 1);
+				Invoke("SetWalkableTrue", 1.7f);
+			}
+			if(characterMode == 3){
+				StartCoroutine("seniorAutoWalk");
+				break;
+			}
+			yield return new WaitForSeconds(0.1f);
 		}
 	}
 

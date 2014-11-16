@@ -12,7 +12,7 @@ public class LifeProgressBar : MonoBehaviour {
 	}
 
 	public void changeToNextState(){
-		currentState++;
+		currentState = Mathf.Clamp(++currentState, 0, 12);
 		guiTexture.texture = progressImages[currentState];
 	}
 
