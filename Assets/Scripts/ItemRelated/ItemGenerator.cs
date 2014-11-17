@@ -158,5 +158,21 @@ public class ItemGenerator : MonoBehaviour {
 	{
 		isOnRollerCoaster = t;
 	}
+
+	public void Clear()
+	{
+		if(obstacleQueue.Count > 0)
+		{
+			GameObject temp = obstacleQueue.Dequeue() as GameObject;
+			Destroy(temp);
+		}
+		
+		if(itemQueue.Count > 0)
+		{
+			GameObject temp = itemQueue.Dequeue() as GameObject;
+			Destroy(temp);
+		}
+		SetIsOnRollerCoaster (true);
+	}
 }
 

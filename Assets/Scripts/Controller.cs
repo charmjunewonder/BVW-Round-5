@@ -445,8 +445,18 @@ public class Controller : MonoBehaviour {
 				{
 					leadingNum = Number;
 					finalLapCount = lapCount + 1;
-
 				}
+
+				if(Number == 0)
+				{
+					GameObject.Find("ItemsGenerator").GetComponent<ItemGenerator>().Clear();
+				}
+				else
+				{
+					GameObject.Find("ItemsGenerator2").GetComponent<ItemGenerator2>().Clear();
+				}
+
+
 
 				StartCoroutine("seniorAutoWalk");
 				break;
@@ -655,9 +665,11 @@ public class Controller : MonoBehaviour {
 				if(Number == 0)
 				{
 					GameObject.Find("Character2").GetComponent<Controller>().CountDown();
+					GameObject.Find("Camera1").GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("UI"));
 				}
 				else
 				{
+					GameObject.Find("Camera2").GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("UI"));
 					GameObject.Find("Character1").GetComponent<Controller>().CountDown();
 				}
 
@@ -667,6 +679,11 @@ public class Controller : MonoBehaviour {
 			walkable = false;
 			models[characterMode].SetActive(false);
 			Invoke("BeAngel", 1);
+		}
+		else if(col.gameObject.tag == "HellGate")
+		{
+			velocity = 0;
+			walkable = false;
 		}
 	}
 
@@ -691,6 +708,8 @@ public class Controller : MonoBehaviour {
 			yield return new WaitForSeconds(1f);
 		}
 		readyGoGUI.SetActive (false);
+		tomb.SetActive (false);
+		hellgate.SetActive (true);
 
 	}
 }

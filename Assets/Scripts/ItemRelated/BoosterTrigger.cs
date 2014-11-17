@@ -25,35 +25,13 @@ public class BoosterTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.name == "Character1") {
-			if(itemGenerator.obstacleQueue.Count > 0)
-			{
-				GameObject temp = itemGenerator.obstacleQueue.Dequeue() as GameObject;
-				Destroy(temp);
-			}
-
-			if(itemGenerator.itemQueue.Count > 0)
-			{
-				GameObject temp = itemGenerator.itemQueue.Dequeue() as GameObject;
-				Destroy(temp);
-			}
+			itemGenerator.Clear ();
 			controller.SetOnRollerCoaster(true);
-			itemGenerator.SetIsOnRollerCoaster(true);
 		}
 
 		if (col.name == "Character2") {
-			if(itemGenerator2.obstacleQueue.Count > 0)
-			{
-				GameObject temp = itemGenerator2.obstacleQueue.Dequeue() as GameObject;
-				Destroy(temp);
-			}
-			
-			if(itemGenerator2.itemQueue.Count > 0)
-			{
-				GameObject temp = itemGenerator2.itemQueue.Dequeue() as GameObject;
-				Destroy(temp);
-			}
 			controller2.SetOnRollerCoaster(true);
-			itemGenerator2.SetIsOnRollerCoaster(true);
+			itemGenerator2.Clear ();
 		}
 	}
 }
