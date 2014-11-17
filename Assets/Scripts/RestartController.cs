@@ -8,12 +8,20 @@ public class RestartController : MonoBehaviour {
 	public int restartButtonIndex = 1;
 	public int quitButtonIndex = 3;
 	public Font myFont;
+	private bool isStartedDisplay = false;
+	private int[] times;
+	private string[] names;
+	private int newRecordTime1, newRecordTime2;
+	private string newRecordName1 = "", newRecordName2 = "";
+	private int newRecordIndex1 = -1, newRecordIndex2 =-1;
 	// Use this for initialization
 	void Start () {
-	
+		//PlayerPrefs.DeleteAll();
+		StartToDisplay(100, 101);
 	}
 
 	void Update(){
+		if(!isStartedDisplay) return;
 		bool clickRestart = false;
 		bool clickQuit = false;
 
@@ -49,7 +57,7 @@ public class RestartController : MonoBehaviour {
 		} else {
 			quitButtonIndex = 3;
 		}
-		if (Input.GetButtonDown("Fire1")) {
+		if(Input.GetButtonDown("Fire1")) {
 			if(clickRestart){
 				Debug.Log("Restart");
 			}
@@ -57,9 +65,23 @@ public class RestartController : MonoBehaviour {
 				Debug.Log("Quit");
 			}			
 		}
+		if(Input.GetKeyDown(KeyCode.Return)){
+			Debug.Log("fjsdkl");
+			if(newRecordName1.Length > 0 && newRecordIndex1 != -1){
+				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex1, times[newRecordIndex1]);
+				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex1, newRecordName1);
+				names[newRecordIndex1] = newRecordName1;
+			}
+			if(newRecordName2.Length > 0 && newRecordIndex2 != -1){
+				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex2, times[newRecordIndex2]);
+				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex2, newRecordName2);
+				names[newRecordIndex2] = newRecordName2;				
+			}
+		}
 	}
 
 	void OnGUI() {
+		if(!isStartedDisplay) return;
 		int defaultWidth = 1600;
 		float widthRatio = Screen.width * 1.0f/ defaultWidth;
 		int rightOffset = 0;
@@ -81,12 +103,107 @@ public class RestartController : MonoBehaviour {
 		style.font = myFont;
 		style.fontSize = Mathf.FloorToInt(30*widthRatio);
 		style.normal.textColor = Color.white;
-		width = 150*widthRatio;
-		height = 150*widthRatio;
-
 		for(int i = 0; i < 5; ++i){
-			GUI.Label(new Rect(rightOffset + 150*widthRatio, (270+66*i)*widthRatio, 300, 50), "Elizabeth", style);
-			GUI.Label(new Rect(rightOffset + 530*widthRatio, (270+66*i)*widthRatio, 300, 50), "01 : 30", style);
+			if(names[i] == "Unknown"){
+				if(newRecordIndex1 == i){
+					newRecordName1 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250, 28), newRecordName1, 25);
+				} else if(newRecordIndex2 == i){
+					newRecordName2 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250, 28), newRecordName2, 25);
+				}
+			} else if(names[i] == "NotExisted"){
+				continue;
+			} else {
+				GUI.Label(new Rect(rightOffset + 150*widthRatio, (270+66*i)*widthRatio, 300, 50), names[i], style);
+
+			}
+			int gameTime = times[i];
+			int minutes = gameTime / 60;
+			int seconds = gameTime - minutes * 60;
+			int second1 = seconds / 10;
+			int second2 = seconds - second1 * 10;
+			int minute1 = minutes / 10;
+			int minute2 = minutes - minute1 * 10;
+			GUI.Label(new Rect(rightOffset + 530*widthRatio, (270+66*i)*widthRatio, 300, 50), 
+				minute1 + "" + minute2 + " : " + second1 + "" + second2, style);
+		}
+		//Debug.Log(names[newRecordIndex1] + "|" + names[newRecordIndex2] + "|" + times[newRecordIndex1] + "|" + times[newRecordIndex2]);
+    }
+
+    public void StartToDisplay(int playertime1, int playertime2){
+    	times = new int[5];
+    	names = new string[5];
+    	int time1, time2;
+    	if(playertime1 < playertime2){
+    		time1 = playertime1;
+    		time2 = playertime2;
+    	} else{
+    		time1 = playertime2;
+    		time2 = playertime1;
+    	}
+    	int count = 0;
+		for(int i = 0; i < 5; i++){
+			int leaderTime = PlayerPrefs.GetInt ("ScorePlayer" + i, int.MaxValue);
+			names[i] = "NotExisted";
+			times[i] = leaderTime;
+			if(leaderTime != int.MaxValue){
+				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
+			}
+		}
+		for(int i = 0; i < 5; i++){
+			if(time1 < times[i]){
+				for(int j = 4; j > i; j--){
+					times[j] = times[j-1];
+					names[j] = names[j-1];
+				}
+				times[i] = time1;
+				names[i] = "Unknown";
+				newRecordIndex1 = i;
+				break;
+			}
+		}
+		for(int i = 0; i < 5; i++){
+			if(time2 < times[i]){
+				for(int j = 4; j > i; j--){
+					times[j] = times[j-1];
+					names[j] = names[j-1];
+				}
+				times[i] = time2;
+				names[i] = "Unknown";
+				newRecordIndex2 = i;
+				break;
+			}
+			
+		}
+//    	for(int i = 0; i < 5; i++){
+//    		int leaderTime = PlayerPrefs.GetInt ("ScorePlayer" + i, int.MaxValue);
+//    		names[i] = "NotExisted";
+//    		if(leaderTime <= time1 || count > 1){
+//    			if(leaderTime == int.MaxValue) continue;
+//    			times[i] = leaderTime;
+//    			names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
+//    		} else {
+//    			times[i] = time1;
+//    			names[i] = "Unknown";
+//    			time1 = time2;
+//    			if(count == 0){
+//    				newRecordIndex1 = i;
+//    			} else{
+//    				newRecordIndex2 = i;
+//    			}
+//    			count++;
+//    		}
+//    	}
+    	isStartedDisplay = true;
+    }
+
+    public void refresh(){
+    	for(int i = 0; i < 5; i++){
+			int leaderTime = PlayerPrefs.GetInt ("ScorePlayer" + i, int.MaxValue);
+			names[i] = "NotExisted";
+			times[i] = leaderTime;
+			if(leaderTime != int.MaxValue){
+				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
+			}
 		}
     }
 }

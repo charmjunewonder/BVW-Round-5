@@ -38,7 +38,7 @@ public class Controller : MonoBehaviour {
 	public Animator jumpPadAnimator;
 	public GameObject wheelChairFlare;
 	public GameObject SeniorToBeLookedAt;
-
+	public Font myFont;
 	private RaycastHit hit;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
@@ -84,7 +84,7 @@ public class Controller : MonoBehaviour {
 	private bool lookAtSenior;
 	private int lapCount = 0;
 
-
+	private int startTime;
 	public static int finalLapCount = -1;
 	public static int leadingNum = -1;
 	public static int winningNum = -1;
@@ -97,7 +97,7 @@ public class Controller : MonoBehaviour {
 	
 	void Start(){
 		spUnity = Controller.spsp;
-
+		startTime = (int)Time.time;
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
@@ -581,7 +581,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		int defaultWidth = 1600;
+				int defaultWidth = 1600;
 		float widthRatio = Screen.width * 1.0f/ defaultWidth;
 		int rightOffset = 0;
 		
@@ -619,6 +619,21 @@ public class Controller : MonoBehaviour {
         GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.03f, Screen.height * 0.87f, width, height), 
         	progressBar[(characterMode * 4 + collectedItemCount)%13]);
 
+        //Time
+    	int gameTime = (int)Time.time - startTime;
+		int minutes = gameTime / 60;
+		int seconds = gameTime - minutes * 60;
+		int second1 = seconds / 10;
+		int second2 = seconds - second1 * 10;
+		int minute1 = minutes / 10;
+		int minute2 = minutes - minute1 * 10;
+        GUIStyle style = new GUIStyle();
+		style.font = myFont;
+		style.fontSize = Mathf.FloorToInt(50*widthRatio);
+		style.normal.textColor = Color.white;
+		GUI.Label(new Rect(rightOffset + 310*widthRatio, 10*widthRatio, 300, 50), 
+			minute1 + "" + minute2 + " : " + second1 + "" + second2, style);
+
 		//Rotate
 		width = speed[1].width*0.4f*widthRatio;
       	height = speed[1].height*0.4f*widthRatio;
@@ -626,7 +641,6 @@ public class Controller : MonoBehaviour {
         GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
         //GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.width * 0.665f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
         GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.392f - width, Screen.height * 0.868f, width, height), speed[1]);
-        
     }
 
 	public Animator GetAnimator()
