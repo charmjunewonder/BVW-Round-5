@@ -91,7 +91,7 @@ public class Controller : MonoBehaviour {
 	public static int leadingNum = -1;
 	public static int winningNum = -1;
 	private int countDown;
-
+	private bool isFinished = false;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}
@@ -379,26 +379,50 @@ public class Controller : MonoBehaviour {
 
 		int layerOfPath = 1 << 8;
 //
-		if (Physics.Raycast(coordinateOnPath,-previousNormal,out hit, rayLength, layerOfPath)){
+		// if (Physics.Raycast(coordinateOnPath,-previousNormal,out hit, rayLength, layerOfPath)){
+		// 	previousNormal = GetNormal(hit.normal);
+
+		// 	if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
+		// 		floorPosition=hit.point;
+		// 		//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, previousNormal.normalized * 10, Color.red, 10); 
+		// 		if(isDropPath || isPadJumping){
+		// 			//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
+		// 			Vector3 v1 = Vector3.Cross(previousNormal, diretion);
+		// 			Vector3 v2 = Vector3.Cross(v1, previousNormal);
+
+		// 			Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, v2.normalized * 10, Color.red, 10); 
+
+		// 			character.transform.LookAt(transform.position + v2.normalized, previousNormal);
+		// 			//character.transform.up = previousNormal.normalized;
+		// 		} else{
+		// 			character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+		// 			//Debug.Log("fjlas " + pathPosition);
+		// 		}
+		// 		offsetVector = Vector3.Cross(previousNormal, diretion);
+		// 	}
+		// }
+		//Test
+		offsetVector = Vector3.Cross(previousNormal, diretion);
+		if (Physics.Raycast(coordinateOnPath+offsetVector.normalized * pathOffset + previousNormal.normalized * 3,-previousNormal,out hit, rayLength, layerOfPath)){
 			previousNormal = GetNormal(hit.normal);
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, previousNormal.normalized * 10, Color.red, 10); 
+				Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset + previousNormal.normalized * 3, -previousNormal.normalized * 10, Color.red, 10); 
 				if(isDropPath || isPadJumping){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
 					Vector3 v1 = Vector3.Cross(previousNormal, diretion);
 					Vector3 v2 = Vector3.Cross(v1, previousNormal);
 
 					Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, v2.normalized * 10, Color.red, 10); 
+					//Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, v2.normalized * 10, Color.red, 10); 
 
 					character.transform.LookAt(transform.position + v2.normalized, previousNormal);
 					//character.transform.up = previousNormal.normalized;
-				} else{
-					character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
-					//Debug.Log("fjlas " + pathPosition);
-				}
-				offsetVector = Vector3.Cross(previousNormal, diretion);
+				}else{
+		 			character.transform.LookAt(transform.position + diretion.normalized, previousNormal);
+		 			//Debug.Log("fjlas " + pathPosition);
+		 		}
 			}
 		}
 	}
@@ -434,7 +458,8 @@ public class Controller : MonoBehaviour {
 	}
 
 	Vector3 calculateNextPosition(){
-		return 	floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;
+		return 	floorPosition + previousNormal.normalized * ySpeed;
+		//return 	floorPosition + previousNormal.normalized * ySpeed + offsetVector.normalized * pathOffset;
 	}
 
 	IEnumerator DropWithGravityIEnumerator(){
@@ -638,7 +663,8 @@ public class Controller : MonoBehaviour {
         	progressBar[(characterMode * 4 + collectedItemCount)%13]);
 
         //Time
-    	gameTime = (int)Time.time - startTime;
+        if(!isFinished)
+    		gameTime = (int)Time.time - startTime;
 		int minutes = gameTime / 60;
 		int seconds = gameTime - minutes * 60;
 		int second1 = seconds / 10;
@@ -724,6 +750,7 @@ public class Controller : MonoBehaviour {
 			else
 			{
 				arrivedOnTime = true;
+				showLeaderBoard();
 				StopCoroutine("CountDownIEnumerator");
 			}
 			velocity = 0;
@@ -735,6 +762,7 @@ public class Controller : MonoBehaviour {
 		{
 			velocity = 0;
 			walkable = false;
+			showLeaderBoard();
 		}
 	}
 

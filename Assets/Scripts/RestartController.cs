@@ -13,13 +13,13 @@ public class RestartController : MonoBehaviour {
 	private string[] names;
 	private int newRecordTime1, newRecordTime2;
 	private string newRecordName1 = "", newRecordName2 = "";
-	private int newRecordIndex1 = -1, newRecordIndex2 =-1;
+	private int newRecordIndex1 = int.MaxValue, newRecordIndex2 =int.MaxValue;
 	private int newRecordCount = 0;
 	// Use this for initialization
 	void Start () {
 		//PlayerPrefs.DeleteAll();
-		StartToDisplay(100, 101);
-		StartCoroutine(refreshAuto());
+		//StartToDisplay(140, 141);
+		//StartCoroutine(refreshAuto());
 	}
 
 	void Update(){
@@ -62,20 +62,24 @@ public class RestartController : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1")) {
 			if(clickRestart){
 				Debug.Log("Restart");
+				deleteUnknown();
+				Application.LoadLevel("Path");
 			}
 			if(clickQuit){
 				Debug.Log("Quit");
+				deleteUnknown();
+				Application.Quit();
 			}			
 		}
 		if(Input.GetKeyDown(KeyCode.Return)){
 			Debug.Log("fjsdkl");
-			if(newRecordName1.Length > 0 && newRecordIndex1 != -1){
+			if(newRecordName1.Length > 0 && newRecordIndex1 != int.MaxValue){
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex1, times[newRecordIndex1]);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex1, newRecordName1);
 				names[newRecordIndex1] = newRecordName1;
 				newRecordCount--;
 			}
-			if(newRecordName2.Length > 0 && newRecordIndex2 != -1){
+			if(newRecordName2.Length > 0 && newRecordIndex2 != int.MaxValue){
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex2, times[newRecordIndex2]);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex2, newRecordName2);
 				names[newRecordIndex2] = newRecordName2;
@@ -151,14 +155,10 @@ public class RestartController : MonoBehaviour {
 			times[i] = leaderTime;
 			if(leaderTime != int.MaxValue){
 				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
-				if(names[i] == "Unknown"){
-					PlayerPrefs.SetInt ("ScorePlayer" + i, int.MaxValue);
-					PlayerPrefs.SetString ("NamePlayer" + i, "NotExisted");
-					names[i] = "NotExisted";
-					times[i] = int.MaxValue;
-				}
 			}
 		}
+		newRecordIndex1 = PlayerPrefs.GetInt ("newRecordIndex1", int.MaxValue);
+		if(newRecordIndex1 == int.MaxValue){
 		for(int i = 0; i < 5; i++){
 			if(time1 < times[i]){
 				for(int j = 4; j > i; j--){
@@ -170,10 +170,14 @@ public class RestartController : MonoBehaviour {
 				newRecordIndex1 = i;
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex1, time1);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex1, "Unknown");
+				PlayerPrefs.SetInt ("newRecordIndex1", i);
 				newRecordCount++;
 				break;
 			}
 		}
+		}
+		newRecordIndex2 = PlayerPrefs.GetInt ("newRecordIndex2", int.MaxValue);
+		if(newRecordIndex2 == int.MaxValue){
 		for(int i = 0; i < 5; i++){
 			if(time2 < times[i]){
 				for(int j = 4; j > i; j--){
@@ -185,10 +189,13 @@ public class RestartController : MonoBehaviour {
 				newRecordIndex2 = i;
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex2, time2);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex2, "Unknown");
+				PlayerPrefs.SetInt ("newRecordIndex2", i);
+				
 				newRecordCount++;
 				break;
 			}
 			
+		}
 		}
 //    	for(int i = 0; i < 5; i++){
 //    		int leaderTime = PlayerPrefs.GetInt ("ScorePlayer" + i, int.MaxValue);
@@ -210,6 +217,7 @@ public class RestartController : MonoBehaviour {
 //    		}
 //    	}
     	isStartedDisplay = true;
+    	StartCoroutine(refreshAuto());
     }
 
     public void refresh(){
@@ -221,6 +229,9 @@ public class RestartController : MonoBehaviour {
 				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
 			}
 		}
+		newRecordIndex1 = PlayerPrefs.GetInt ("newRecordIndex1");
+		newRecordIndex2 = PlayerPrefs.GetInt ("newRecordIndex2");
+		
     }
 
     IEnumerator refreshAuto(){
@@ -228,5 +239,25 @@ public class RestartController : MonoBehaviour {
     		refresh();
     		yield return new WaitForSeconds(0.2f);
     	}
+    }
+    
+	public void deleteUnknown(){
+		for(int i = 0; i < 5; i++){
+			int leaderTime = PlayerPrefs.GetInt ("ScorePlayer" + i, int.MaxValue);
+			names[i] = "NotExisted";
+			times[i] = leaderTime;
+			if(leaderTime != int.MaxValue){
+				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
+				if(names[i] == "Unknown"){
+					PlayerPrefs.SetInt ("ScorePlayer" + i, int.MaxValue);
+					PlayerPrefs.SetString ("NamePlayer" + i, "NotExisted");
+					names[i] = "NotExisted";
+					times[i] = int.MaxValue;
+				}
+			}
+		}
+		PlayerPrefs.SetInt ("newRecordIndex1", int.MaxValue);
+		PlayerPrefs.SetInt ("newRecordIndex2", int.MaxValue);
+		Debug.Log("delete");
     }
 }
