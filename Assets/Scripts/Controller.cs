@@ -146,17 +146,17 @@ public class Controller : MonoBehaviour {
 	
 	
 	void Update(){
-//		//--------------------------x----------------------------
-//		if (spUnity != null) {
-//			if (spUnity.IsOpen) {
-//				try {
-//					DetectKeysArduino ();
-//				} catch (System.Exception) {
-//
-//				}
-//			}
-//			//DetectKeys();
-//		}
+		//--------------------------x----------------------------
+		if (spUnity != null) {
+			if (spUnity.IsOpen) {
+				try {
+					DetectKeysArduino ();
+				} catch (System.Exception) {
+
+				}
+			}
+			//DetectKeys();
+		}
 		//------------------------------------------------------
 		//Debug.Log(isDropping);
 		//characterMode = 3;
@@ -214,48 +214,61 @@ public class Controller : MonoBehaviour {
 
 		int arduinoValue = spUnity.ReadByte ();
 
-		if(walkable){
-			if(arduinoValue == 1) {
-				velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, 0.00005f);
-			} else{
-				waitingCount += Time.deltaTime;
-			}
-		}
-		if(characterMode == 0){
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(LookBack());
-			}
-			if(lookingBack){
-				if(arduinoValue == 1) {
+		if (!isOnRollerCoaster) {
+			if (walkable) {
+				if (arduinoValue == 1) {
+					if(velocity < velocityUpperBounds[characterMode % 4])
+					{
+						velocity += velocityIncrement * Time.deltaTime;
+					}
 					waitingCount = 0;
-					lookingBack = false;
-					StartCoroutine(LookForward());
+				} else{
+					waitingCount += Time.deltaTime;
+				} 
+			}
+			if (characterMode == 0) {
+				if (waitingCount > 5) {
+						waitingCount = 0;
+						walkable = false;
+						StartCoroutine (LookBack ());
+				}
+				if (lookingBack) {
+						if (arduinoValue == 1) {
+							waitingCount = 0;
+							lookingBack = false;
+							StartCoroutine (LookForward ());
+						}
+				}
+			} else if (characterMode == 3) {
+
+			} else {
+				if (waitingCount > 5) {
+						waitingCount = 0;
+						walkable = false;
+						StartCoroutine (Idle ());
+				}
+				//jump:
+				if (walkable && arduinoValue == 2 && jumpState == 0) {
+						animator.SetTrigger ("Jump");
+						StartCoroutine (Jump ());
+						jumpState = 1;
 				}
 			}
-		} else if(characterMode == 3){
-			if(velocity > 0.00008f)
+			if(velocity > velocityUpperBounds[characterMode % 4])
 			{
-				wheelChairFlare.SetActive(true);
+				velocity = Mathf.Clamp(velocity - 5 * velocityDecrement * Time.deltaTime, 0, 1f);
 			}
-		} else{
-			if(waitingCount > 5){
-				waitingCount = 0;
-				walkable = false;
-				StartCoroutine(Idle());
-			}
-			//jump:
-			if (walkable && arduinoValue == 2 && jumpState==0) {
-				animator.SetTrigger("Jump");
-				StartCoroutine(Jump());
-				jumpState=1;
+			else
+			{
+				velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 			}
 		}
-		velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+		else
+		{
+			velocity = 0.0005f;
+		}
 		pathPosition += velocity;
-		animator.SetFloat("Speed", velocity);
-		
+		animator.SetFloat ("Speed", velocity);
 	}
 
 	void DetectKeys(){
