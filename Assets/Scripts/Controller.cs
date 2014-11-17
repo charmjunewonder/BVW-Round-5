@@ -25,14 +25,15 @@ public class Controller : MonoBehaviour {
 	public Texture[] speed;
 	public Texture[] numbers;
 	public Texture[] readyGo;
+	public Texture[] progressBar;
 	public GameObject readyGoGUI;
 	public GameObject wheelChair;
 	public GameObject tomb;
 	public GameObject hellgate;
-
+	public bool rightPlayer;
 	public SoundManager sm;
-
-
+	public GameObject leaderBoard;
+	public Animator jumpPadAnimator;
 
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -178,10 +179,11 @@ public class Controller : MonoBehaviour {
 	}
 
 	IEnumerator seniorSitIEnumerator(){
+		walkable = false;
 		wheelChair.SetActive(true);
 		StopCoroutine("seniorAutoWalk");
 		animator.SetTrigger("Sit");
-		yield return new WaitForSeconds(7.75f);
+		yield return new WaitForSeconds(7.15f);
 		walkable = true;
 		models[3].collider.enabled = false;
 //		StartCoroutine("wheelChairAutoRun");
@@ -555,35 +557,51 @@ public class Controller : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		// GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
+		int defaultWidth = 1600;
+		float widthRatio = Screen.width * 1.0f/ defaultWidth;
+		int rightOffset = 0;
+		
+		if(rightPlayer) rightOffset = Screen.width/2;
+		//Debug.Log(widthRatio);
 
-  //       Vector3 pivotPoint = new Vector2(Screen.width * 0.6912f+speed[1].width*0.65f, Screen.height * 0.76f+speed[1].height*0.65f/2);
-  //       GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
-  //       GUI.DrawTexture(new Rect(Screen.width * 0.6912f, Screen.height * 0.76f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
+		float width = speed[0].width*0.4f*widthRatio, height = speed[0].height*0.4f*widthRatio;
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.475f - width, Screen.height * 0.8f, width, height), speed[0]);
+
 		float ratio = velocity / (velocityUpperBounds[characterMode]- velocityDecrement * Time.deltaTime);
 		rotAngle = -90 + ratio * speedAngles[characterMode];
-		GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.height * 0.625f, 498*0.7f, 320*0.7f), speed[0]);
 		int speedNum =  Mathf.CeilToInt(speedNums[characterMode] * ratio);
 		speedNum = Mathf.Clamp (speedNum, 0, 300);
 		int num1 = speedNum / 100;
 		int remainder = speedNum - num1 * 100;
 		int num2 = remainder / 10;
 		remainder = remainder - num2 * 10;
-
+		width = numbers[0].width*0.4f*widthRatio;
+      	height = numbers[0].height*0.40f*widthRatio;
 		if(num1 != 0){
-			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 160, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num1]);
+			GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.427f - width, Screen.height * 0.885f, width, height), numbers[num1]);
 		}
 		if(num1 != 0 || num2 != 0){
-			GUI.DrawTexture(new Rect(Screen.width * 0.665f + 193, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[num2]);
+			GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.439f - width, Screen.height * 0.885f, width, height), numbers[num2]);
 		}
 
-		GUI.DrawTexture(new Rect(Screen.width * 0.665f + 226, Screen.height * 0.625f + 137, 76*0.75f, 92*0.75f), numbers[remainder]);
-		GUI.DrawTexture(new Rect(Screen.width * 0.665f + 260, Screen.height * 0.625f + 160, 84*0.9f, 46*0.9f), speed[2]);
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.451f - width, Screen.height * 0.885f, width, height), numbers[remainder]);
+		width = speed[2].width*0.47f*widthRatio;
+      	height = speed[2].height*0.47f*widthRatio;
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.469f - width, Screen.height * 0.9f, width, height), speed[2]);
 
-        Vector3 pivotPoint = new Vector2(Screen.width * 0.665f+159*0.7f, Screen.height * 0.625f+166*0.7f);
+		//progress bar
+      	width = progressBar[0].width*0.47f*widthRatio;
+      	height = progressBar[0].height*0.47f*widthRatio;
+        GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.03f, Screen.height * 0.87f, width, height), 
+        	progressBar[(characterMode * 4 + collectedItemCount)%13]);
+
+		//Rotate
+		width = speed[1].width*0.4f*widthRatio;
+      	height = speed[1].height*0.4f*widthRatio;
+        Vector3 pivotPoint = new Vector2(rightOffset + Screen.width * 0.390f, Screen.height * 0.872f);
         GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
         //GUI.DrawTexture(new Rect(Screen.width * 0.665f, Screen.width * 0.665f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
-        GUI.DrawTexture(new Rect(Screen.width * 0.665f+46*0.7f, Screen.height * 0.625f+160*0.7f, speed[1].width*0.65f, speed[1].height*0.65f), speed[1]);
+        GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.392f - width, Screen.height * 0.868f, width, height), speed[1]);
         
     }
 
@@ -622,6 +640,13 @@ public class Controller : MonoBehaviour {
 				hellgate.SetActive (false);
 			}
 		} 
+		else if (col.gameObject.tag == "JumpPadTrigger"){
+			jumpPadAnimator.SetTrigger("Jump");
+			SetIsJumpingTrue();
+		}
+		else if (col.gameObject.tag == "JumpPadExit"){
+			SetIsJumpingFalse();
+		}
 		else if (col.gameObject.tag == "Tomb") 
 		{
 			if(winningNum == -1)
@@ -652,10 +677,14 @@ public class Controller : MonoBehaviour {
 		animator.SetBool ("Fly", true);
 	}
 
-	public IEnumerator CountDown()
+	public void CountDown(){
+		StartCoroutine(CountDownIEnumerator());
+	}
+
+	IEnumerator CountDownIEnumerator()
 	{
 		readyGoGUI.SetActive(true);
-		for (int i = 10; i >= 0; i--) 
+		for (int i = 10; i >= 1; i--) 
 		{
 			countDown--;
 			readyGoGUI.guiTexture.texture = numbers[countDown];

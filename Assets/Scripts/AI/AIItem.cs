@@ -10,7 +10,7 @@ public class AIItem : MonoBehaviour {
 	private LifeProgressBar lifeBar;
 
 	void Start(){
-		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
+		//lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 		controller = GameObject.Find ("AICharacter1").GetComponent<AICharacter> ();
 	}
 

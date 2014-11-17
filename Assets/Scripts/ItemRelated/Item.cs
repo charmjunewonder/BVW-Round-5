@@ -9,12 +9,12 @@ public class Item : MonoBehaviour {
 	private CharacterFeedback feedback;
 	private ItemGenerator itemGenerator;
 	private Controller controller;
-	private LifeProgressBar lifeBar;
+	//private LifeProgressBar lifeBar;
 
 	void Start(){
 		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
-		lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
+		//lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 		feedback = GameObject.Find ("Feedback1").GetComponent<CharacterFeedback> ();
 	}
 
@@ -47,7 +47,7 @@ public class Item : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
-			lifeBar.changeToNextState();
+			//lifeBar.changeToNextState();
 			feedback.showFeedbackNumber(other.gameObject.GetComponent<Controller>().collectedItemCount);
 			if(itemGenerator.itemQueue.Count > 0)
 			{
