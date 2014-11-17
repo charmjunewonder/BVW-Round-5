@@ -14,10 +14,12 @@ public class RestartController : MonoBehaviour {
 	private int newRecordTime1, newRecordTime2;
 	private string newRecordName1 = "", newRecordName2 = "";
 	private int newRecordIndex1 = -1, newRecordIndex2 =-1;
+	private int newRecordCount = 0;
 	// Use this for initialization
 	void Start () {
 		//PlayerPrefs.DeleteAll();
 		StartToDisplay(100, 101);
+		StartCoroutine(refreshAuto());
 	}
 
 	void Update(){
@@ -71,11 +73,13 @@ public class RestartController : MonoBehaviour {
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex1, times[newRecordIndex1]);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex1, newRecordName1);
 				names[newRecordIndex1] = newRecordName1;
+				newRecordCount--;
 			}
 			if(newRecordName2.Length > 0 && newRecordIndex2 != -1){
 				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex2, times[newRecordIndex2]);
 				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex2, newRecordName2);
-				names[newRecordIndex2] = newRecordName2;				
+				names[newRecordIndex2] = newRecordName2;
+				newRecordCount--;				
 			}
 		}
 	}
@@ -147,6 +151,12 @@ public class RestartController : MonoBehaviour {
 			times[i] = leaderTime;
 			if(leaderTime != int.MaxValue){
 				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
+				if(names[i] == "Unknown"){
+					PlayerPrefs.SetInt ("ScorePlayer" + i, int.MaxValue);
+					PlayerPrefs.SetString ("NamePlayer" + i, "NotExisted");
+					names[i] = "NotExisted";
+					times[i] = int.MaxValue;
+				}
 			}
 		}
 		for(int i = 0; i < 5; i++){
@@ -158,6 +168,9 @@ public class RestartController : MonoBehaviour {
 				times[i] = time1;
 				names[i] = "Unknown";
 				newRecordIndex1 = i;
+				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex1, time1);
+				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex1, "Unknown");
+				newRecordCount++;
 				break;
 			}
 		}
@@ -170,6 +183,9 @@ public class RestartController : MonoBehaviour {
 				times[i] = time2;
 				names[i] = "Unknown";
 				newRecordIndex2 = i;
+				PlayerPrefs.SetInt ("ScorePlayer" + newRecordIndex2, time2);
+				PlayerPrefs.SetString ("NamePlayer" + newRecordIndex2, "Unknown");
+				newRecordCount++;
 				break;
 			}
 			
@@ -205,5 +221,12 @@ public class RestartController : MonoBehaviour {
 				names[i] = PlayerPrefs.GetString ("NamePlayer" + i);
 			}
 		}
+    }
+
+    IEnumerator refreshAuto(){
+    	while(true){
+    		refresh();
+    		yield return new WaitForSeconds(0.2f);
+    	}
     }
 }

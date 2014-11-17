@@ -39,6 +39,7 @@ public class Controller : MonoBehaviour {
 	public GameObject wheelChairFlare;
 	public GameObject SeniorToBeLookedAt;
 	public Font myFont;
+
 	private RaycastHit hit;
 	private float rayLength = 100;
 	private Vector3 floorPosition;	
@@ -84,6 +85,7 @@ public class Controller : MonoBehaviour {
 	private bool lookAtSenior;
 	private int lapCount = 0;
 
+	public int gameTime;
 	private int startTime;
 	public static int finalLapCount = -1;
 	public static int leadingNum = -1;
@@ -581,7 +583,7 @@ public class Controller : MonoBehaviour {
 	}
 
 	void OnGUI() {
-				int defaultWidth = 1600;
+		int defaultWidth = 1600;
 		float widthRatio = Screen.width * 1.0f/ defaultWidth;
 		int rightOffset = 0;
 		
@@ -620,7 +622,7 @@ public class Controller : MonoBehaviour {
         	progressBar[(characterMode * 4 + collectedItemCount)%13]);
 
         //Time
-    	int gameTime = (int)Time.time - startTime;
+    	gameTime = (int)Time.time - startTime;
 		int minutes = gameTime / 60;
 		int seconds = gameTime - minutes * 60;
 		int second1 = seconds / 10;
@@ -754,5 +756,12 @@ public class Controller : MonoBehaviour {
 		{
 			camera.transform.LookAt(SeniorToBeLookedAt.transform.position);
 		}
+	}
+
+	private void showLeaderBoard(){
+		leaderBoard.SetActive(true);
+		int time1 = GameObject.Find ("Character1").GetComponent<Controller> ().gameTime;
+		int time2 = GameObject.Find ("Character2").GetComponent<Controller> ().gameTime;
+		leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
 	}
 }
