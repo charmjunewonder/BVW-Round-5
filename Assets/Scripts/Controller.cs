@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour {
 
 	public static SerialPort spsp;
 
+	public int Number;
+
 	public KeyCode key1;
 	public KeyCode key2;
 	public KeyCode jumpKey;
@@ -25,8 +27,12 @@ public class Controller : MonoBehaviour {
 	public Texture[] readyGo;
 	public GameObject readyGoGUI;
 	public GameObject wheelChair;
+	public GameObject tomb;
+	public GameObject hellgate;
 
 	public SoundManager sm;
+
+
 
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -67,6 +73,15 @@ public class Controller : MonoBehaviour {
 	private bool isOnRollerCoaster;
 	private bool isPadJumping;
 	private bool isDropPath;
+
+	private bool wheelchairRun;
+
+	private int lapCount = 0;
+	public static int finalLapCount = -1;
+	public static int leadingNum = -1;
+	public static int winningNum = -1;
+	private int countDown;
+
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}	
@@ -84,7 +99,7 @@ public class Controller : MonoBehaviour {
 		velocityUpperBounds [0] = 0.00003f;
 		velocityUpperBounds [1] = 0.00008f; 
 		velocityUpperBounds [2] = 0.00025f;
-		velocityUpperBounds [3] = 0.00025f;
+		velocityUpperBounds [3] = 0.0005f;
 
 		previousNormal = Vector3.up;
 		//plop the character pieces in the "Ignore Raycast" layer so we don't have false raycast data:	
@@ -93,6 +108,10 @@ public class Controller : MonoBehaviour {
 		}
 
 		isOnRollerCoaster = false;
+		tomb.SetActive (false);
+		hellgate.SetActive (false);
+		wheelchairRun = false;
+		countDown = 10;
 
 		normals = new Queue ();
 		StartCoroutine(look());
@@ -144,9 +163,10 @@ public class Controller : MonoBehaviour {
 		BoxCollider bc = wheelChairClone.AddComponent<BoxCollider>();
 		bc.size = new Vector3(0.05f, 0.05f, 0.05f);
 		bc.isTrigger = true;
-		wheelChairClone.SetActive(true);
 
 		ModifyLookAtDirection(wheelChairClone, pathPosition+0.01f);
+		wheelChairClone.SetActive(true);
+
 		while(true){
 			velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, 0.00003f);
 			yield return new WaitForSeconds(0.1f);
@@ -164,15 +184,15 @@ public class Controller : MonoBehaviour {
 		yield return new WaitForSeconds(7.75f);
 		walkable = true;
 		models[3].collider.enabled = false;
-		StartCoroutine("wheelChairAutoRun");
+//		StartCoroutine("wheelChairAutoRun");
 	}
 
-	IEnumerator wheelChairAutoRun(){
-		while(true){
-			velocity = 0.0005f;
-			yield return new WaitForSeconds(0.1f);
-		}
-	}
+//	IEnumerator wheelChairAutoRun(){
+//		while(true){
+//			velocity = 0.0005f;
+//			yield return new WaitForSeconds(0.1f);
+//		}
+//	}
 
 	void DetectKeysArduino(){
 
@@ -363,7 +383,6 @@ public class Controller : MonoBehaviour {
 
 		Vector3 nextPosition = calculateNextPosition();
 		if(character.position.y - nextPosition.y > 40 && !isDropping){
-			Debug.Log("drop");
 			walkable = false;
 			isDropping = true;
 		} 
@@ -375,7 +394,6 @@ public class Controller : MonoBehaviour {
 			}
 		}
 		else{
-			Debug.Log("move");
 			character.position = nextPosition;
 		}
 	}
@@ -421,6 +439,13 @@ public class Controller : MonoBehaviour {
 				Invoke("SetWalkableTrue", 1.7f);
 			}
 			if(characterMode == 3){
+				if(leadingNum == -1)
+				{
+					leadingNum = Number;
+					finalLapCount = lapCount + 1;
+
+				}
+
 				StartCoroutine("seniorAutoWalk");
 				break;
 			}
@@ -460,20 +485,25 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void ModifyLookAtDirection(GameObject other, float percent){
-		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,percent);
+		float pathPercent = percent%1f;
+		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
 		Vector3 direction;
-		lookTarget = iTween.PointOnPath(controlPath,percent+lookAheadAmount);
+		lookTarget = iTween.PointOnPath(controlPath,pathPercent+lookAheadAmount);
 		direction = lookTarget - coordinateOnPath;
 
 		int layerOfPath = 1 << 8;
+		Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, direction.normalized * 100, Color.yellow, 100); 
 
 		Vector3 directionA = new Vector3(-direction.y, direction.x, 0);
 		float minDistance = Mathf.Infinity;
 		Vector3 vectorWithMinDistance = directionA;
 		Vector3 positionVector = other.transform.position;
+		Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, directionA.normalized * 100, Color.green, 100); 
+
 		for(int i = 0; i < 8; i++){
 			directionA = Quaternion.AngleAxis(-45, direction) * directionA;
+
 			if (Physics.Raycast(coordinateOnPath,-directionA,out hit, 10.0f, layerOfPath)){
 
 				if(hit.distance < minDistance){
@@ -483,6 +513,8 @@ public class Controller : MonoBehaviour {
 					
 				}
 			}
+			Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, directionA.normalized * 10, Color.red, 100); 
+
 		}
 		for(int i = 0; i < 9; i++){
 			directionA = Quaternion.AngleAxis(-45+10*i, direction) * vectorWithMinDistance;
@@ -495,11 +527,14 @@ public class Controller : MonoBehaviour {
 					positionVector = hit.point;
 				}
 			}
+			Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset, directionA.normalized * 10, Color.red, 100); 
+
 		}
 		Vector3 offsetVector1 = Vector3.Cross(vectorWithMinDistance, direction);
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
 		other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
 				+ offsetVector1.normalized * pathOffset;
+		Debug.Log (positionVector + " " + vectorWithMinDistance + " " + offsetVector1);
 	}
 
 	private Vector3 GetNormal(Vector3 v)
@@ -577,10 +612,56 @@ public class Controller : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "FallingEnter") {
 			isDropPath = true;
-		}
-		else if(col.gameObject.tag == "FallingExit")
-		{
+		} else if (col.gameObject.tag == "FallingExit") {
 			isDropPath = false;
+		} else if (col.gameObject.name == "NewLapCounter") {
+			lapCount++;
+			Debug.Log("Number " + Number + " now is in lap " + lapCount + " and Final Lap is " + finalLapCount);
+			if (lapCount == finalLapCount) {
+				tomb.SetActive (true);
+				hellgate.SetActive (false);
+			}
+		} 
+		else if (col.gameObject.tag == "Tomb") 
+		{
+			if(winningNum == -1)
+			{
+				winningNum = Number;
+				if(Number == 0)
+				{
+					GameObject.Find("Character2").GetComponent<Controller>().CountDown();
+				}
+				else
+				{
+					GameObject.Find("Character1").GetComponent<Controller>().CountDown();
+				}
+
+			}
+			Debug.Log("@@@@@@@@");
+			velocity = 0;
+			walkable = false;
+			models[characterMode].SetActive(false);
+			Invoke("BeAngel", 1);
 		}
+	}
+
+	private void BeAngel()
+	{
+		models[4].SetActive(true);
+		animator = models[4].GetComponent<Animator>();
+		animator.SetBool ("Fly", true);
+	}
+
+	public IEnumerator CountDown()
+	{
+		readyGoGUI.SetActive(true);
+		for (int i = 10; i >= 0; i--) 
+		{
+			countDown--;
+			readyGoGUI.guiTexture.texture = numbers[countDown];
+			yield return new WaitForSeconds(1f);
+		}
+		readyGoGUI.SetActive (false);
+
 	}
 }

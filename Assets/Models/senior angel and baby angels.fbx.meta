@@ -1,0 +1,2097 @@
+fileFormatVersion: 2
+guid: 4c03564f93b155d4a806180306d8de62
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: baby_angel_modeling_2___after_texture1:polySurface10
+    100002: baby_angel_modeling_2___after_texture1:transform2
+    100004: baby_angel_modeling_2___after_texture:polySurface10
+    100006: baby_angel_modeling_2___after_texture:transform2
+    100008: babyAngelBody
+    100010: Character2_Ctrl_ChestEndEffector
+    100012: Character2_Ctrl_ChestOriginEffector
+    100014: Character2_Ctrl_Head
+    100016: Character2_Ctrl_HeadEffector
+    100018: Character2_Ctrl_Hips
+    100020: Character2_Ctrl_HipsEffector
+    100022: Character2_Ctrl_LeftAnkleEffector
+    100024: Character2_Ctrl_LeftArm
+    100026: Character2_Ctrl_LeftElbowEffector
+    100028: Character2_Ctrl_LeftFoot
+    100030: Character2_Ctrl_LeftFootEffector
+    100032: Character2_Ctrl_LeftForeArm
+    100034: Character2_Ctrl_LeftHand
+    100036: Character2_Ctrl_LeftHandRing1
+    100038: Character2_Ctrl_LeftHandRing2
+    100040: Character2_Ctrl_LeftHandRing3
+    100042: Character2_Ctrl_LeftHandRing4
+    100044: Character2_Ctrl_LeftHandRingEffector
+    100046: Character2_Ctrl_LeftHipEffector
+    100048: Character2_Ctrl_LeftKneeEffector
+    100050: Character2_Ctrl_LeftLeg
+    100052: Character2_Ctrl_LeftShoulder
+    100054: Character2_Ctrl_LeftShoulderEffector
+    100056: Character2_Ctrl_LeftToeBase
+    100058: Character2_Ctrl_LeftUpLeg
+    100060: Character2_Ctrl_LeftWristEffector
+    100062: Character2_Ctrl_Neck
+    100064: Character2_Ctrl_Reference
+    100066: Character2_Ctrl_RightAnkleEffector
+    100068: Character2_Ctrl_RightArm
+    100070: Character2_Ctrl_RightElbowEffector
+    100072: Character2_Ctrl_RightFoot
+    100074: Character2_Ctrl_RightFootEffector
+    100076: Character2_Ctrl_RightForeArm
+    100078: Character2_Ctrl_RightHand
+    100080: Character2_Ctrl_RightHandRing1
+    100082: Character2_Ctrl_RightHandRing2
+    100084: Character2_Ctrl_RightHandRing3
+    100086: Character2_Ctrl_RightHandRing4
+    100088: Character2_Ctrl_RightHandRingEffector
+    100090: Character2_Ctrl_RightHipEffector
+    100092: Character2_Ctrl_RightKneeEffector
+    100094: Character2_Ctrl_RightLeg
+    100096: Character2_Ctrl_RightShoulder
+    100098: Character2_Ctrl_RightShoulderEffector
+    100100: Character2_Ctrl_RightToeBase
+    100102: Character2_Ctrl_RightUpLeg
+    100104: Character2_Ctrl_RightWristEffector
+    100106: Character2_Ctrl_Spine
+    100108: Character2_Ctrl_Spine1
+    100110: Character2_Ctrl_Spine2
+    100112: Character2_Head
+    100114: Character2_Hips
+    100116: Character2_LeftArm
+    100118: Character2_LeftFoot
+    100120: Character2_LeftForeArm
+    100122: Character2_LeftHand
+    100124: Character2_LeftHandRing1
+    100126: Character2_LeftHandRing2
+    100128: Character2_LeftHandRing3
+    100130: Character2_LeftHandRing4
+    100132: Character2_LeftLeg
+    100134: Character2_LeftShoulder
+    100136: Character2_LeftToeBase
+    100138: Character2_LeftUpLeg
+    100140: Character2_Neck
+    100142: Character2_Reference
+    100144: Character2_RightArm
+    100146: Character2_RightFoot
+    100148: Character2_RightForeArm
+    100150: Character2_RightHand
+    100152: Character2_RightHandRing1
+    100154: Character2_RightHandRing2
+    100156: Character2_RightHandRing3
+    100158: Character2_RightHandRing4
+    100160: Character2_RightLeg
+    100162: Character2_RightShoulder
+    100164: Character2_RightToeBase
+    100166: Character2_RightUpLeg
+    100168: Character2_Spine
+    100170: Character2_Spine1
+    100172: Character2_Spine2
+    100174: group
+    100176: group1
+    100178: group2
+    100180: pasted__babyAngelBody
+    100182: pasted__polySurface32
+    100184: pasted__polySurface33
+    100186: pCube1
+    100188: pCube4
+    100190: pCube5
+    100192: pCylinder13
+    100194: polySurface19
+    100196: polySurface23
+    100198: polySurface32
+    100200: polySurface33
+    100202: //RootNode
+    100204: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    100206: senior_1___head:adult_8___modeling__after_uv_:group
+    100208: senior_1___head:adult_8___modeling__after_uv_:group2
+    100210: senior_1___head:adult_8___modeling__after_uv_:pCube5
+    100212: senior_1___head:adult_8___modeling__after_uv_:pCube6
+    100214: senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    100216: senior_1___head:adult_8___modeling__after_uv_:transform25
+    100218: senior_1___head:adult_8___modeling__after_uv_:transform26
+    100220: senior_1___head:adult_8___modeling__after_uv_:transform27
+    100222: senior_1___head:adult_8___modeling__after_uv_:transform28
+    100224: senior_1___head:transform1
+    100226: transform1
+    100228: wheel
+    100230: wheelchair3___after_uv1:group
+    100232: wheelchair3___after_uv1:group1
+    100234: wheelchair3___after_uv1:group2
+    100236: wheelchair3___after_uv1:group3
+    100238: wheelchair3___after_uv1:group5
+    100240: wheelchair3___after_uv1:pasted__group2
+    100242: wheelchair3___after_uv1:pasted__pCube2
+    100244: wheelchair3___after_uv1:pasted__pCylinder6
+    100246: wheelchair3___after_uv1:pasted__polySurface24
+    100248: wheelchair3___after_uv1:pasted__polySurface7
+    100250: wheelchair3___after_uv1:pasted__pTorus1
+    100252: wheelchair3___after_uv1:pCone1
+    100254: wheelchair3___after_uv1:pCube2
+    100256: wheelchair3___after_uv1:pCylinder1
+    100258: wheelchair3___after_uv1:pCylinder2
+    100260: wheelchair3___after_uv1:pCylinder3
+    100262: wheelchair3___after_uv1:pCylinder4
+    100264: wheelchair3___after_uv1:pCylinder5
+    100266: wheelchair3___after_uv1:pCylinder7
+    100268: wheelchair3___after_uv1:pCylinder9
+    100270: wheelchair3___after_uv1:polySurface1
+    100272: wheelchair3___after_uv1:polySurface16
+    100274: wheelchair3___after_uv1:polySurface17
+    100276: wheelchair3___after_uv1:polySurface18
+    100278: wheelchair3___after_uv1:polySurface20
+    100280: wheelchair3___after_uv1:polySurface23
+    100282: wheelchair3___after_uv1:polySurface23 1
+    100284: wheelchair3___after_uv1:polySurface24
+    100286: wheelchair3___after_uv1:polySurface26
+    100288: wheelchair3___after_uv1:polySurface29
+    100290: wheelchair3___after_uv1:polySurface33
+    100292: wheelchair3___after_uv1:polySurface34
+    100294: wheelchair3___after_uv1:polySurface37
+    100296: wheelchair3___after_uv1:polySurface38
+    100298: wheelchair3___after_uv1:polySurface39
+    100300: wheelchair3___after_uv1:polySurface4
+    100302: wheelchair3___after_uv1:polySurface40
+    100304: wheelchair3___after_uv1:polySurface41
+    100306: wheelchair3___after_uv1:polySurface56
+    100308: wheelchair3___after_uv1:polySurface56 1
+    100310: wheelchair3___after_uv1:polySurface57
+    100312: wheelchair3___after_uv1:polySurface58
+    100314: wheelchair3___after_uv1:polySurface59
+    100316: wheelchair3___after_uv1:polySurface60
+    100318: wheelchair3___after_uv1:polySurface61
+    100320: wheelchair3___after_uv1:polySurface62
+    100322: wheelchair3___after_uv1:polySurface63
+    100324: wheelchair3___after_uv1:polySurface64
+    100326: wheelchair3___after_uv1:polySurface65
+    100328: wheelchair3___after_uv1:polySurface66
+    100330: wheelchair3___after_uv1:polySurface67
+    100332: wheelchair3___after_uv1:polySurface68
+    100334: wheelchair3___after_uv1:polySurface69
+    100336: wheelchair3___after_uv1:pTorus1
+    100338: wheelchair3___after_uv1:senior_6_1___sit:pCube1
+    100340: wheelchair3___after_uv1:senior_6_1___sit:pCylinder13
+    100342: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    100344: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+    100346: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+    100348: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+    100350: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+    100352: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    100354: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+    100356: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+    100358: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+    100360: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+    100362: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:transform1
+    100364: wheelchair3___after_uv1:senior_6_1___sit:transform1
+    100366: wheelchair3___after_uv1:transform1
+    100368: wheelchair3___after_uv1:transform10
+    100370: wheelchair3___after_uv1:transform11
+    100372: wheelchair3___after_uv1:transform12
+    100374: wheelchair3___after_uv1:transform13
+    100376: wheelchair3___after_uv1:transform14
+    100378: wheelchair3___after_uv1:transform15
+    100380: wheelchair3___after_uv1:transform16
+    100382: wheelchair3___after_uv1:transform17
+    100384: wheelchair3___after_uv1:transform18
+    100386: wheelchair3___after_uv1:transform19
+    100388: wheelchair3___after_uv1:transform2
+    100390: wheelchair3___after_uv1:transform20
+    100392: wheelchair3___after_uv1:transform21
+    100394: wheelchair3___after_uv1:transform22
+    100396: wheelchair3___after_uv1:transform23
+    100398: wheelchair3___after_uv1:transform24
+    100400: wheelchair3___after_uv1:transform25
+    100402: wheelchair3___after_uv1:transform26
+    100404: wheelchair3___after_uv1:transform27
+    100406: wheelchair3___after_uv1:transform28
+    100408: wheelchair3___after_uv1:transform29
+    100410: wheelchair3___after_uv1:transform3
+    100412: wheelchair3___after_uv1:transform30
+    100414: wheelchair3___after_uv1:transform31
+    100416: wheelchair3___after_uv1:transform4
+    100418: wheelchair3___after_uv1:transform5
+    100420: wheelchair3___after_uv1:transform6
+    100422: wheelchair3___after_uv1:transform7
+    100424: wheelchair3___after_uv1:transform8
+    100426: wheelchair3___after_uv1:transform9
+    100428: wheelchair3___after_uv:group
+    100430: wheelchair3___after_uv:group1
+    100432: wheelchair3___after_uv:group2
+    100434: wheelchair3___after_uv:group3
+    100436: wheelchair3___after_uv:group5
+    100438: wheelchair3___after_uv:pasted__group2
+    100440: wheelchair3___after_uv:pasted__pCube2
+    100442: wheelchair3___after_uv:pasted__pCylinder6
+    100444: wheelchair3___after_uv:pasted__polySurface24
+    100446: wheelchair3___after_uv:pasted__polySurface7
+    100448: wheelchair3___after_uv:pasted__pTorus1
+    100450: wheelchair3___after_uv:pCone1
+    100452: wheelchair3___after_uv:pCube2
+    100454: wheelchair3___after_uv:pCylinder1
+    100456: wheelchair3___after_uv:pCylinder2
+    100458: wheelchair3___after_uv:pCylinder3
+    100460: wheelchair3___after_uv:pCylinder4
+    100462: wheelchair3___after_uv:pCylinder5
+    100464: wheelchair3___after_uv:pCylinder7
+    100466: wheelchair3___after_uv:pCylinder9
+    100468: wheelchair3___after_uv:polySurface1
+    100470: wheelchair3___after_uv:polySurface16
+    100472: wheelchair3___after_uv:polySurface17
+    100474: wheelchair3___after_uv:polySurface18
+    100476: wheelchair3___after_uv:polySurface20
+    100478: wheelchair3___after_uv:polySurface23
+    100480: wheelchair3___after_uv:polySurface23 1
+    100482: wheelchair3___after_uv:polySurface24
+    100484: wheelchair3___after_uv:polySurface26
+    100486: wheelchair3___after_uv:polySurface29
+    100488: wheelchair3___after_uv:polySurface33
+    100490: wheelchair3___after_uv:polySurface34
+    100492: wheelchair3___after_uv:polySurface37
+    100494: wheelchair3___after_uv:polySurface38
+    100496: wheelchair3___after_uv:polySurface39
+    100498: wheelchair3___after_uv:polySurface4
+    100500: wheelchair3___after_uv:polySurface40
+    100502: wheelchair3___after_uv:polySurface41
+    100504: wheelchair3___after_uv:polySurface56
+    100506: wheelchair3___after_uv:polySurface56 1
+    100508: wheelchair3___after_uv:polySurface57
+    100510: wheelchair3___after_uv:polySurface58
+    100512: wheelchair3___after_uv:polySurface59
+    100514: wheelchair3___after_uv:polySurface60
+    100516: wheelchair3___after_uv:polySurface61
+    100518: wheelchair3___after_uv:polySurface62
+    100520: wheelchair3___after_uv:polySurface63
+    100522: wheelchair3___after_uv:polySurface64
+    100524: wheelchair3___after_uv:polySurface65
+    100526: wheelchair3___after_uv:polySurface66
+    100528: wheelchair3___after_uv:polySurface67
+    100530: wheelchair3___after_uv:polySurface68
+    100532: wheelchair3___after_uv:polySurface69
+    100534: wheelchair3___after_uv:pTorus1
+    100536: wheelchair3___after_uv:senior_6_1___sit:pCube1
+    100538: wheelchair3___after_uv:senior_6_1___sit:pCylinder13
+    100540: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    100542: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+    100544: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+    100546: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+    100548: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+    100550: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    100552: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+    100554: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+    100556: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+    100558: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+    100560: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:transform1
+    100562: wheelchair3___after_uv:senior_6_1___sit:transform1
+    100564: wheelchair3___after_uv:transform1
+    100566: wheelchair3___after_uv:transform10
+    100568: wheelchair3___after_uv:transform11
+    100570: wheelchair3___after_uv:transform12
+    100572: wheelchair3___after_uv:transform13
+    100574: wheelchair3___after_uv:transform14
+    100576: wheelchair3___after_uv:transform15
+    100578: wheelchair3___after_uv:transform16
+    100580: wheelchair3___after_uv:transform17
+    100582: wheelchair3___after_uv:transform18
+    100584: wheelchair3___after_uv:transform19
+    100586: wheelchair3___after_uv:transform2
+    100588: wheelchair3___after_uv:transform20
+    100590: wheelchair3___after_uv:transform21
+    100592: wheelchair3___after_uv:transform22
+    100594: wheelchair3___after_uv:transform23
+    100596: wheelchair3___after_uv:transform24
+    100598: wheelchair3___after_uv:transform25
+    100600: wheelchair3___after_uv:transform26
+    100602: wheelchair3___after_uv:transform27
+    100604: wheelchair3___after_uv:transform28
+    100606: wheelchair3___after_uv:transform29
+    100608: wheelchair3___after_uv:transform3
+    100610: wheelchair3___after_uv:transform30
+    100612: wheelchair3___after_uv:transform31
+    100614: wheelchair3___after_uv:transform4
+    100616: wheelchair3___after_uv:transform5
+    100618: wheelchair3___after_uv:transform6
+    100620: wheelchair3___after_uv:transform7
+    100622: wheelchair3___after_uv:transform8
+    100624: wheelchair3___after_uv:transform9
+    100626: wing1:pTorus1
+    100628: wing2:pTorus1
+    100630: wing:baby
+    100632: wing:cloth
+    100634: wing:polySurface12
+    100636: wing:polySurface13
+    100638: wing:pTorus1
+    100640: wing:transform1
+    400000: baby_angel_modeling_2___after_texture1:polySurface10
+    400002: baby_angel_modeling_2___after_texture1:transform2
+    400004: baby_angel_modeling_2___after_texture:polySurface10
+    400006: baby_angel_modeling_2___after_texture:transform2
+    400008: babyAngelBody
+    400010: Character2_Ctrl_ChestEndEffector
+    400012: Character2_Ctrl_ChestOriginEffector
+    400014: Character2_Ctrl_Head
+    400016: Character2_Ctrl_HeadEffector
+    400018: Character2_Ctrl_Hips
+    400020: Character2_Ctrl_HipsEffector
+    400022: Character2_Ctrl_LeftAnkleEffector
+    400024: Character2_Ctrl_LeftArm
+    400026: Character2_Ctrl_LeftElbowEffector
+    400028: Character2_Ctrl_LeftFoot
+    400030: Character2_Ctrl_LeftFootEffector
+    400032: Character2_Ctrl_LeftForeArm
+    400034: Character2_Ctrl_LeftHand
+    400036: Character2_Ctrl_LeftHandRing1
+    400038: Character2_Ctrl_LeftHandRing2
+    400040: Character2_Ctrl_LeftHandRing3
+    400042: Character2_Ctrl_LeftHandRing4
+    400044: Character2_Ctrl_LeftHandRingEffector
+    400046: Character2_Ctrl_LeftHipEffector
+    400048: Character2_Ctrl_LeftKneeEffector
+    400050: Character2_Ctrl_LeftLeg
+    400052: Character2_Ctrl_LeftShoulder
+    400054: Character2_Ctrl_LeftShoulderEffector
+    400056: Character2_Ctrl_LeftToeBase
+    400058: Character2_Ctrl_LeftUpLeg
+    400060: Character2_Ctrl_LeftWristEffector
+    400062: Character2_Ctrl_Neck
+    400064: Character2_Ctrl_Reference
+    400066: Character2_Ctrl_RightAnkleEffector
+    400068: Character2_Ctrl_RightArm
+    400070: Character2_Ctrl_RightElbowEffector
+    400072: Character2_Ctrl_RightFoot
+    400074: Character2_Ctrl_RightFootEffector
+    400076: Character2_Ctrl_RightForeArm
+    400078: Character2_Ctrl_RightHand
+    400080: Character2_Ctrl_RightHandRing1
+    400082: Character2_Ctrl_RightHandRing2
+    400084: Character2_Ctrl_RightHandRing3
+    400086: Character2_Ctrl_RightHandRing4
+    400088: Character2_Ctrl_RightHandRingEffector
+    400090: Character2_Ctrl_RightHipEffector
+    400092: Character2_Ctrl_RightKneeEffector
+    400094: Character2_Ctrl_RightLeg
+    400096: Character2_Ctrl_RightShoulder
+    400098: Character2_Ctrl_RightShoulderEffector
+    400100: Character2_Ctrl_RightToeBase
+    400102: Character2_Ctrl_RightUpLeg
+    400104: Character2_Ctrl_RightWristEffector
+    400106: Character2_Ctrl_Spine
+    400108: Character2_Ctrl_Spine1
+    400110: Character2_Ctrl_Spine2
+    400112: Character2_Head
+    400114: Character2_Hips
+    400116: Character2_LeftArm
+    400118: Character2_LeftFoot
+    400120: Character2_LeftForeArm
+    400122: Character2_LeftHand
+    400124: Character2_LeftHandRing1
+    400126: Character2_LeftHandRing2
+    400128: Character2_LeftHandRing3
+    400130: Character2_LeftHandRing4
+    400132: Character2_LeftLeg
+    400134: Character2_LeftShoulder
+    400136: Character2_LeftToeBase
+    400138: Character2_LeftUpLeg
+    400140: Character2_Neck
+    400142: Character2_Reference
+    400144: Character2_RightArm
+    400146: Character2_RightFoot
+    400148: Character2_RightForeArm
+    400150: Character2_RightHand
+    400152: Character2_RightHandRing1
+    400154: Character2_RightHandRing2
+    400156: Character2_RightHandRing3
+    400158: Character2_RightHandRing4
+    400160: Character2_RightLeg
+    400162: Character2_RightShoulder
+    400164: Character2_RightToeBase
+    400166: Character2_RightUpLeg
+    400168: Character2_Spine
+    400170: Character2_Spine1
+    400172: Character2_Spine2
+    400174: group
+    400176: group1
+    400178: group2
+    400180: pasted__babyAngelBody
+    400182: pasted__polySurface32
+    400184: pasted__polySurface33
+    400186: pCube1
+    400188: pCube4
+    400190: pCube5
+    400192: pCylinder13
+    400194: polySurface19
+    400196: polySurface23
+    400198: polySurface32
+    400200: polySurface33
+    400202: //RootNode
+    400204: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    400206: senior_1___head:adult_8___modeling__after_uv_:group
+    400208: senior_1___head:adult_8___modeling__after_uv_:group2
+    400210: senior_1___head:adult_8___modeling__after_uv_:pCube5
+    400212: senior_1___head:adult_8___modeling__after_uv_:pCube6
+    400214: senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    400216: senior_1___head:adult_8___modeling__after_uv_:transform25
+    400218: senior_1___head:adult_8___modeling__after_uv_:transform26
+    400220: senior_1___head:adult_8___modeling__after_uv_:transform27
+    400222: senior_1___head:adult_8___modeling__after_uv_:transform28
+    400224: senior_1___head:transform1
+    400226: transform1
+    400228: wheel
+    400230: wheelchair3___after_uv1:group
+    400232: wheelchair3___after_uv1:group1
+    400234: wheelchair3___after_uv1:group2
+    400236: wheelchair3___after_uv1:group3
+    400238: wheelchair3___after_uv1:group5
+    400240: wheelchair3___after_uv1:pasted__group2
+    400242: wheelchair3___after_uv1:pasted__pCube2
+    400244: wheelchair3___after_uv1:pasted__pCylinder6
+    400246: wheelchair3___after_uv1:pasted__polySurface24
+    400248: wheelchair3___after_uv1:pasted__polySurface7
+    400250: wheelchair3___after_uv1:pasted__pTorus1
+    400252: wheelchair3___after_uv1:pCone1
+    400254: wheelchair3___after_uv1:pCube2
+    400256: wheelchair3___after_uv1:pCylinder1
+    400258: wheelchair3___after_uv1:pCylinder2
+    400260: wheelchair3___after_uv1:pCylinder3
+    400262: wheelchair3___after_uv1:pCylinder4
+    400264: wheelchair3___after_uv1:pCylinder5
+    400266: wheelchair3___after_uv1:pCylinder7
+    400268: wheelchair3___after_uv1:pCylinder9
+    400270: wheelchair3___after_uv1:polySurface1
+    400272: wheelchair3___after_uv1:polySurface16
+    400274: wheelchair3___after_uv1:polySurface17
+    400276: wheelchair3___after_uv1:polySurface18
+    400278: wheelchair3___after_uv1:polySurface20
+    400280: wheelchair3___after_uv1:polySurface23
+    400282: wheelchair3___after_uv1:polySurface23 1
+    400284: wheelchair3___after_uv1:polySurface24
+    400286: wheelchair3___after_uv1:polySurface26
+    400288: wheelchair3___after_uv1:polySurface29
+    400290: wheelchair3___after_uv1:polySurface33
+    400292: wheelchair3___after_uv1:polySurface34
+    400294: wheelchair3___after_uv1:polySurface37
+    400296: wheelchair3___after_uv1:polySurface38
+    400298: wheelchair3___after_uv1:polySurface39
+    400300: wheelchair3___after_uv1:polySurface4
+    400302: wheelchair3___after_uv1:polySurface40
+    400304: wheelchair3___after_uv1:polySurface41
+    400306: wheelchair3___after_uv1:polySurface56
+    400308: wheelchair3___after_uv1:polySurface56 1
+    400310: wheelchair3___after_uv1:polySurface57
+    400312: wheelchair3___after_uv1:polySurface58
+    400314: wheelchair3___after_uv1:polySurface59
+    400316: wheelchair3___after_uv1:polySurface60
+    400318: wheelchair3___after_uv1:polySurface61
+    400320: wheelchair3___after_uv1:polySurface62
+    400322: wheelchair3___after_uv1:polySurface63
+    400324: wheelchair3___after_uv1:polySurface64
+    400326: wheelchair3___after_uv1:polySurface65
+    400328: wheelchair3___after_uv1:polySurface66
+    400330: wheelchair3___after_uv1:polySurface67
+    400332: wheelchair3___after_uv1:polySurface68
+    400334: wheelchair3___after_uv1:polySurface69
+    400336: wheelchair3___after_uv1:pTorus1
+    400338: wheelchair3___after_uv1:senior_6_1___sit:pCube1
+    400340: wheelchair3___after_uv1:senior_6_1___sit:pCylinder13
+    400342: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    400344: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+    400346: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+    400348: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+    400350: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+    400352: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    400354: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+    400356: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+    400358: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+    400360: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+    400362: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:transform1
+    400364: wheelchair3___after_uv1:senior_6_1___sit:transform1
+    400366: wheelchair3___after_uv1:transform1
+    400368: wheelchair3___after_uv1:transform10
+    400370: wheelchair3___after_uv1:transform11
+    400372: wheelchair3___after_uv1:transform12
+    400374: wheelchair3___after_uv1:transform13
+    400376: wheelchair3___after_uv1:transform14
+    400378: wheelchair3___after_uv1:transform15
+    400380: wheelchair3___after_uv1:transform16
+    400382: wheelchair3___after_uv1:transform17
+    400384: wheelchair3___after_uv1:transform18
+    400386: wheelchair3___after_uv1:transform19
+    400388: wheelchair3___after_uv1:transform2
+    400390: wheelchair3___after_uv1:transform20
+    400392: wheelchair3___after_uv1:transform21
+    400394: wheelchair3___after_uv1:transform22
+    400396: wheelchair3___after_uv1:transform23
+    400398: wheelchair3___after_uv1:transform24
+    400400: wheelchair3___after_uv1:transform25
+    400402: wheelchair3___after_uv1:transform26
+    400404: wheelchair3___after_uv1:transform27
+    400406: wheelchair3___after_uv1:transform28
+    400408: wheelchair3___after_uv1:transform29
+    400410: wheelchair3___after_uv1:transform3
+    400412: wheelchair3___after_uv1:transform30
+    400414: wheelchair3___after_uv1:transform31
+    400416: wheelchair3___after_uv1:transform4
+    400418: wheelchair3___after_uv1:transform5
+    400420: wheelchair3___after_uv1:transform6
+    400422: wheelchair3___after_uv1:transform7
+    400424: wheelchair3___after_uv1:transform8
+    400426: wheelchair3___after_uv1:transform9
+    400428: wheelchair3___after_uv:group
+    400430: wheelchair3___after_uv:group1
+    400432: wheelchair3___after_uv:group2
+    400434: wheelchair3___after_uv:group3
+    400436: wheelchair3___after_uv:group5
+    400438: wheelchair3___after_uv:pasted__group2
+    400440: wheelchair3___after_uv:pasted__pCube2
+    400442: wheelchair3___after_uv:pasted__pCylinder6
+    400444: wheelchair3___after_uv:pasted__polySurface24
+    400446: wheelchair3___after_uv:pasted__polySurface7
+    400448: wheelchair3___after_uv:pasted__pTorus1
+    400450: wheelchair3___after_uv:pCone1
+    400452: wheelchair3___after_uv:pCube2
+    400454: wheelchair3___after_uv:pCylinder1
+    400456: wheelchair3___after_uv:pCylinder2
+    400458: wheelchair3___after_uv:pCylinder3
+    400460: wheelchair3___after_uv:pCylinder4
+    400462: wheelchair3___after_uv:pCylinder5
+    400464: wheelchair3___after_uv:pCylinder7
+    400466: wheelchair3___after_uv:pCylinder9
+    400468: wheelchair3___after_uv:polySurface1
+    400470: wheelchair3___after_uv:polySurface16
+    400472: wheelchair3___after_uv:polySurface17
+    400474: wheelchair3___after_uv:polySurface18
+    400476: wheelchair3___after_uv:polySurface20
+    400478: wheelchair3___after_uv:polySurface23
+    400480: wheelchair3___after_uv:polySurface23 1
+    400482: wheelchair3___after_uv:polySurface24
+    400484: wheelchair3___after_uv:polySurface26
+    400486: wheelchair3___after_uv:polySurface29
+    400488: wheelchair3___after_uv:polySurface33
+    400490: wheelchair3___after_uv:polySurface34
+    400492: wheelchair3___after_uv:polySurface37
+    400494: wheelchair3___after_uv:polySurface38
+    400496: wheelchair3___after_uv:polySurface39
+    400498: wheelchair3___after_uv:polySurface4
+    400500: wheelchair3___after_uv:polySurface40
+    400502: wheelchair3___after_uv:polySurface41
+    400504: wheelchair3___after_uv:polySurface56
+    400506: wheelchair3___after_uv:polySurface56 1
+    400508: wheelchair3___after_uv:polySurface57
+    400510: wheelchair3___after_uv:polySurface58
+    400512: wheelchair3___after_uv:polySurface59
+    400514: wheelchair3___after_uv:polySurface60
+    400516: wheelchair3___after_uv:polySurface61
+    400518: wheelchair3___after_uv:polySurface62
+    400520: wheelchair3___after_uv:polySurface63
+    400522: wheelchair3___after_uv:polySurface64
+    400524: wheelchair3___after_uv:polySurface65
+    400526: wheelchair3___after_uv:polySurface66
+    400528: wheelchair3___after_uv:polySurface67
+    400530: wheelchair3___after_uv:polySurface68
+    400532: wheelchair3___after_uv:polySurface69
+    400534: wheelchair3___after_uv:pTorus1
+    400536: wheelchair3___after_uv:senior_6_1___sit:pCube1
+    400538: wheelchair3___after_uv:senior_6_1___sit:pCylinder13
+    400540: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+    400542: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+    400544: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+    400546: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+    400548: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+    400550: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+    400552: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+    400554: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+    400556: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+    400558: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+    400560: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:transform1
+    400562: wheelchair3___after_uv:senior_6_1___sit:transform1
+    400564: wheelchair3___after_uv:transform1
+    400566: wheelchair3___after_uv:transform10
+    400568: wheelchair3___after_uv:transform11
+    400570: wheelchair3___after_uv:transform12
+    400572: wheelchair3___after_uv:transform13
+    400574: wheelchair3___after_uv:transform14
+    400576: wheelchair3___after_uv:transform15
+    400578: wheelchair3___after_uv:transform16
+    400580: wheelchair3___after_uv:transform17
+    400582: wheelchair3___after_uv:transform18
+    400584: wheelchair3___after_uv:transform19
+    400586: wheelchair3___after_uv:transform2
+    400588: wheelchair3___after_uv:transform20
+    400590: wheelchair3___after_uv:transform21
+    400592: wheelchair3___after_uv:transform22
+    400594: wheelchair3___after_uv:transform23
+    400596: wheelchair3___after_uv:transform24
+    400598: wheelchair3___after_uv:transform25
+    400600: wheelchair3___after_uv:transform26
+    400602: wheelchair3___after_uv:transform27
+    400604: wheelchair3___after_uv:transform28
+    400606: wheelchair3___after_uv:transform29
+    400608: wheelchair3___after_uv:transform3
+    400610: wheelchair3___after_uv:transform30
+    400612: wheelchair3___after_uv:transform31
+    400614: wheelchair3___after_uv:transform4
+    400616: wheelchair3___after_uv:transform5
+    400618: wheelchair3___after_uv:transform6
+    400620: wheelchair3___after_uv:transform7
+    400622: wheelchair3___after_uv:transform8
+    400624: wheelchair3___after_uv:transform9
+    400626: wing1:pTorus1
+    400628: wing2:pTorus1
+    400630: wing:baby
+    400632: wing:cloth
+    400634: wing:polySurface12
+    400636: wing:polySurface13
+    400638: wing:pTorus1
+    400640: wing:transform1
+    2300000: babyAngelBody
+    2300002: pasted__babyAngelBody
+    2300004: pasted__polySurface32
+    2300006: pasted__polySurface33
+    2300008: polySurface32
+    2300010: polySurface33
+    2300012: wing1:pTorus1
+    2300014: wing2:pTorus1
+    2300016: wing:polySurface12
+    2300018: wing:polySurface13
+    2300020: wing:pTorus1
+    3300000: babyAngelBody
+    3300002: pasted__babyAngelBody
+    3300004: pasted__polySurface32
+    3300006: pasted__polySurface33
+    3300008: polySurface32
+    3300010: polySurface33
+    3300012: wing1:pTorus1
+    3300014: wing2:pTorus1
+    3300016: wing:polySurface12
+    3300018: wing:polySurface13
+    3300020: wing:pTorus1
+    4300000: polySurface19
+    4300002: polySurface23
+    4300004: pCube4
+    4300006: pCube5
+    4300008: wing:polySurface13
+    4300010: wing:polySurface12
+    4300012: wing:pTorus1
+    4300014: babyAngelBody
+    4300016: polySurface32
+    4300018: wing2:pTorus1
+    4300020: polySurface33
+    4300022: pasted__babyAngelBody
+    4300024: pasted__polySurface32
+    4300026: wing1:pTorus1
+    4300028: pasted__polySurface33
+    7400000: Idle
+    7400002: Fly
+    9500000: //RootNode
+    13700000: pCube4
+    13700002: pCube5
+    13700004: polySurface19
+    13700006: polySurface23
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: baby_angel_modeling_2___after_texture:polySurface10
+        weight: 1
+      - path: baby_angel_modeling_2___after_texture:polySurface10/baby_angel_modeling_2___after_texture:transform2
+        weight: 1
+      - path: babyAngelBody
+        weight: 1
+      - path: babyAngelBody/polySurface32
+        weight: 1
+      - path: babyAngelBody/polySurface33
+        weight: 1
+      - path: babyAngelBody/wing2:pTorus1
+        weight: 1
+      - path: Character2_Ctrl_Reference
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector/wing:polySurface12
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector/wing:polySurface13
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HeadEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HeadEffector/wing:pTorus1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg/Character2_Ctrl_LeftFoot
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg/Character2_Ctrl_LeftFoot/Character2_Ctrl_LeftToeBase
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg/Character2_Ctrl_RightFoot
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg/Character2_Ctrl_RightFoot/Character2_Ctrl_RightToeBase
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2/Character2_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2/Character2_Ctrl_LeftHandRing3/Character2_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_Neck
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_Neck/Character2_Ctrl_Head
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2/Character2_Ctrl_RightHandRing3
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2/Character2_Ctrl_RightHandRing3/Character2_Ctrl_RightHandRing4
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HipsEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightFootEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightHipEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightWristEffector
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character2_Reference/Character2_Hips
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg/Character2_LeftFoot
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg/Character2_LeftFoot/Character2_LeftToeBase
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg/Character2_RightFoot
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg/Character2_RightFoot/Character2_RightToeBase
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2/Character2_LeftHandRing3
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2/Character2_LeftHandRing3/Character2_LeftHandRing4
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_Neck
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_Neck/Character2_Head
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2/Character2_RightHandRing3
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2/Character2_RightHandRing3/Character2_RightHandRing4
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/baby_angel_modeling_2___after_texture1:polySurface10
+        weight: 1
+      - path: group/baby_angel_modeling_2___after_texture1:polySurface10/baby_angel_modeling_2___after_texture1:transform2
+        weight: 1
+      - path: group/pasted__babyAngelBody
+        weight: 1
+      - path: group/pasted__babyAngelBody/pasted__polySurface32
+        weight: 1
+      - path: group/pasted__babyAngelBody/pasted__polySurface33
+        weight: 1
+      - path: group/pasted__babyAngelBody/wing1:pTorus1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/wheel
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform1
+        weight: 1
+      - path: pCube4
+        weight: 1
+      - path: pCube5
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group2/senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube5/senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube6/senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:polySurface24/senior_1___head:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:group
+        weight: 1
+      - path: wheelchair3___after_uv1:group/wheelchair3___after_uv1:pasted__pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1/wheelchair3___after_uv1:polySurface37
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1/wheelchair3___after_uv1:polySurface37/wheelchair3___after_uv1:transform4
+        weight: 1
+      - path: wheelchair3___after_uv1:group2
+        weight: 1
+      - path: wheelchair3___after_uv1:group3
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24/wheelchair3___after_uv1:polySurface26
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24/wheelchair3___after_uv1:polySurface26/wheelchair3___after_uv1:transform2
+        weight: 1
+      - path: wheelchair3___after_uv1:group5
+        weight: 1
+      - path: wheelchair3___after_uv1:group5/wheelchair3___after_uv1:pasted__group2
+        weight: 1
+      - path: wheelchair3___after_uv1:pasted__polySurface7
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1/wheelchair3___after_uv1:polySurface29
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1/wheelchair3___after_uv1:polySurface29/wheelchair3___after_uv1:transform3
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2/wheelchair3___after_uv1:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2/wheelchair3___after_uv1:polySurface24/wheelchair3___after_uv1:transform14
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder2
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder3
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder4
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder5
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7/wheelchair3___after_uv1:polySurface23
+          1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7/wheelchair3___after_uv1:polySurface23
+          1/wheelchair3___after_uv1:transform15
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9/wheelchair3___after_uv1:polySurface34
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9/wheelchair3___after_uv1:polySurface34/wheelchair3___after_uv1:transform11
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface16
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface16/wheelchair3___after_uv1:transform10
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface17
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface17/wheelchair3___after_uv1:transform8
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface18
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface18/wheelchair3___after_uv1:transform9
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface20
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface20/wheelchair3___after_uv1:transform6
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface56
+          1
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface56
+          1/wheelchair3___after_uv1:transform30
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface57
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface57/wheelchair3___after_uv1:transform29
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface58
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface58/wheelchair3___after_uv1:transform28
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface59
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface59/wheelchair3___after_uv1:transform27
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface60
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface60/wheelchair3___after_uv1:transform26
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface61
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface61/wheelchair3___after_uv1:transform25
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface62
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface62/wheelchair3___after_uv1:transform24
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface63
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface63/wheelchair3___after_uv1:transform23
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface64
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface64/wheelchair3___after_uv1:transform22
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface65
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface65/wheelchair3___after_uv1:transform21
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface66
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface66/wheelchair3___after_uv1:transform20
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface67
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface67/wheelchair3___after_uv1:transform19
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface68
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface68/wheelchair3___after_uv1:transform18
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface69
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface69/wheelchair3___after_uv1:transform17
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:transform16
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface38
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface38/wheelchair3___after_uv1:transform13
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface39
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface39/wheelchair3___after_uv1:transform12
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface40
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface40/wheelchair3___after_uv1:transform7
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface41
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface41/wheelchair3___after_uv1:transform5
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface56
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface56/wheelchair3___after_uv1:transform31
+        weight: 1
+      - path: wheelchair3___after_uv1:pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCube1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCube1/wheelchair3___after_uv1:senior_6_1___sit:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCylinder13
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:group
+        weight: 1
+      - path: wheelchair3___after_uv:group/wheelchair3___after_uv:pasted__pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv:group1
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1/wheelchair3___after_uv:polySurface37
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1/wheelchair3___after_uv:polySurface37/wheelchair3___after_uv:transform4
+        weight: 1
+      - path: wheelchair3___after_uv:group2
+        weight: 1
+      - path: wheelchair3___after_uv:group3
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24/wheelchair3___after_uv:polySurface26
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24/wheelchair3___after_uv:polySurface26/wheelchair3___after_uv:transform2
+        weight: 1
+      - path: wheelchair3___after_uv:group5
+        weight: 1
+      - path: wheelchair3___after_uv:group5/wheelchair3___after_uv:pasted__group2
+        weight: 1
+      - path: wheelchair3___after_uv:pasted__polySurface7
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1/wheelchair3___after_uv:polySurface29
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1/wheelchair3___after_uv:polySurface29/wheelchair3___after_uv:transform3
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2/wheelchair3___after_uv:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2/wheelchair3___after_uv:polySurface24/wheelchair3___after_uv:transform14
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder1
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder2
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder3
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder4
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder5
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7/wheelchair3___after_uv:polySurface23
+          1
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7/wheelchair3___after_uv:polySurface23
+          1/wheelchair3___after_uv:transform15
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9/wheelchair3___after_uv:polySurface34
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9/wheelchair3___after_uv:polySurface34/wheelchair3___after_uv:transform11
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface16
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface16/wheelchair3___after_uv:transform10
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface17
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface17/wheelchair3___after_uv:transform8
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface18
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface18/wheelchair3___after_uv:transform9
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface20
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface20/wheelchair3___after_uv:transform6
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface56
+          1
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface56
+          1/wheelchair3___after_uv:transform30
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface57
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface57/wheelchair3___after_uv:transform29
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface58
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface58/wheelchair3___after_uv:transform28
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface59
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface59/wheelchair3___after_uv:transform27
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface60
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface60/wheelchair3___after_uv:transform26
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface61
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface61/wheelchair3___after_uv:transform25
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface62
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface62/wheelchair3___after_uv:transform24
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface63
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface63/wheelchair3___after_uv:transform23
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface64
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface64/wheelchair3___after_uv:transform22
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface65
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface65/wheelchair3___after_uv:transform21
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface66
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface66/wheelchair3___after_uv:transform20
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface67
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface67/wheelchair3___after_uv:transform19
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface68
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface68/wheelchair3___after_uv:transform18
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface69
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface69/wheelchair3___after_uv:transform17
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:transform16
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface38
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface38/wheelchair3___after_uv:transform13
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface39
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface39/wheelchair3___after_uv:transform12
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface40
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface40/wheelchair3___after_uv:transform7
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface41
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface41/wheelchair3___after_uv:transform5
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface56
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface56/wheelchair3___after_uv:transform31
+        weight: 1
+      - path: wheelchair3___after_uv:pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCube1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCube1/wheelchair3___after_uv:senior_6_1___sit:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCylinder13
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:transform1
+        weight: 1
+      - path: wing:baby
+        weight: 1
+      - path: wing:baby/wing:transform1
+        weight: 1
+      - path: wing:cloth
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: baby_angel_modeling_2___after_texture:polySurface10
+        weight: 1
+      - path: baby_angel_modeling_2___after_texture:polySurface10/baby_angel_modeling_2___after_texture:transform2
+        weight: 1
+      - path: babyAngelBody
+        weight: 1
+      - path: babyAngelBody/polySurface32
+        weight: 1
+      - path: babyAngelBody/polySurface33
+        weight: 1
+      - path: babyAngelBody/wing2:pTorus1
+        weight: 1
+      - path: Character2_Ctrl_Reference
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector/wing:polySurface12
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestEndEffector/wing:polySurface13
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HeadEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HeadEffector/wing:pTorus1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg/Character2_Ctrl_LeftFoot
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_LeftUpLeg/Character2_Ctrl_LeftLeg/Character2_Ctrl_LeftFoot/Character2_Ctrl_LeftToeBase
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg/Character2_Ctrl_RightFoot
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_RightUpLeg/Character2_Ctrl_RightLeg/Character2_Ctrl_RightFoot/Character2_Ctrl_RightToeBase
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2/Character2_Ctrl_LeftHandRing3
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_LeftShoulder/Character2_Ctrl_LeftArm/Character2_Ctrl_LeftForeArm/Character2_Ctrl_LeftHand/Character2_Ctrl_LeftHandRing1/Character2_Ctrl_LeftHandRing2/Character2_Ctrl_LeftHandRing3/Character2_Ctrl_LeftHandRing4
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_Neck
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_Neck/Character2_Ctrl_Head
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2/Character2_Ctrl_RightHandRing3
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_Hips/Character2_Ctrl_Spine/Character2_Ctrl_Spine1/Character2_Ctrl_Spine2/Character2_Ctrl_RightShoulder/Character2_Ctrl_RightArm/Character2_Ctrl_RightForeArm/Character2_Ctrl_RightHand/Character2_Ctrl_RightHandRing1/Character2_Ctrl_RightHandRing2/Character2_Ctrl_RightHandRing3/Character2_Ctrl_RightHandRing4
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_HipsEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftFootEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftHipEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_LeftWristEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightElbowEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightFootEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightHipEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightKneeEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: Character2_Ctrl_Reference/Character2_Ctrl_RightWristEffector
+        weight: 1
+      - path: Character2_Reference
+        weight: 1
+      - path: Character2_Reference/Character2_Hips
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg/Character2_LeftFoot
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_LeftUpLeg/Character2_LeftLeg/Character2_LeftFoot/Character2_LeftToeBase
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg/Character2_RightFoot
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_RightUpLeg/Character2_RightLeg/Character2_RightFoot/Character2_RightToeBase
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2/Character2_LeftHandRing3
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_LeftShoulder/Character2_LeftArm/Character2_LeftForeArm/Character2_LeftHand/Character2_LeftHandRing1/Character2_LeftHandRing2/Character2_LeftHandRing3/Character2_LeftHandRing4
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_Neck
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_Neck/Character2_Head
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2/Character2_RightHandRing3
+        weight: 1
+      - path: Character2_Reference/Character2_Hips/Character2_Spine/Character2_Spine1/Character2_Spine2/Character2_RightShoulder/Character2_RightArm/Character2_RightForeArm/Character2_RightHand/Character2_RightHandRing1/Character2_RightHandRing2/Character2_RightHandRing3/Character2_RightHandRing4
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/baby_angel_modeling_2___after_texture1:polySurface10
+        weight: 1
+      - path: group/baby_angel_modeling_2___after_texture1:polySurface10/baby_angel_modeling_2___after_texture1:transform2
+        weight: 1
+      - path: group/pasted__babyAngelBody
+        weight: 1
+      - path: group/pasted__babyAngelBody/pasted__polySurface32
+        weight: 1
+      - path: group/pasted__babyAngelBody/pasted__polySurface33
+        weight: 1
+      - path: group/pasted__babyAngelBody/wing1:pTorus1
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/wheel
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform1
+        weight: 1
+      - path: pCube4
+        weight: 1
+      - path: pCube5
+        weight: 1
+      - path: pCylinder13
+        weight: 1
+      - path: polySurface19
+        weight: 1
+      - path: polySurface23
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:group2/senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube5/senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:pCube6/senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: senior_1___head:adult_8___modeling__after_uv_:polySurface24/senior_1___head:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:group
+        weight: 1
+      - path: wheelchair3___after_uv1:group/wheelchair3___after_uv1:pasted__pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1/wheelchair3___after_uv1:polySurface37
+        weight: 1
+      - path: wheelchair3___after_uv1:group1/wheelchair3___after_uv1:pasted__pCylinder6/wheelchair3___after_uv1:polySurface1/wheelchair3___after_uv1:polySurface37/wheelchair3___after_uv1:transform4
+        weight: 1
+      - path: wheelchair3___after_uv1:group2
+        weight: 1
+      - path: wheelchair3___after_uv1:group3
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24/wheelchair3___after_uv1:polySurface26
+        weight: 1
+      - path: wheelchair3___after_uv1:group3/wheelchair3___after_uv1:pasted__pCube2/wheelchair3___after_uv1:pasted__polySurface24/wheelchair3___after_uv1:polySurface26/wheelchair3___after_uv1:transform2
+        weight: 1
+      - path: wheelchair3___after_uv1:group5
+        weight: 1
+      - path: wheelchair3___after_uv1:group5/wheelchair3___after_uv1:pasted__group2
+        weight: 1
+      - path: wheelchair3___after_uv1:pasted__polySurface7
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1/wheelchair3___after_uv1:polySurface29
+        weight: 1
+      - path: wheelchair3___after_uv1:pCone1/wheelchair3___after_uv1:polySurface29/wheelchair3___after_uv1:transform3
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2/wheelchair3___after_uv1:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:pCube2/wheelchair3___after_uv1:polySurface24/wheelchair3___after_uv1:transform14
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder2
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder3
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder4
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder5
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7/wheelchair3___after_uv1:polySurface23
+          1
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder7/wheelchair3___after_uv1:polySurface23
+          1/wheelchair3___after_uv1:transform15
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9/wheelchair3___after_uv1:polySurface34
+        weight: 1
+      - path: wheelchair3___after_uv1:pCylinder9/wheelchair3___after_uv1:polySurface34/wheelchair3___after_uv1:transform11
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface16
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface16/wheelchair3___after_uv1:transform10
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface17
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface17/wheelchair3___after_uv1:transform8
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface18
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface18/wheelchair3___after_uv1:transform9
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface20
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface4/wheelchair3___after_uv1:polySurface20/wheelchair3___after_uv1:transform6
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface56
+          1
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface56
+          1/wheelchair3___after_uv1:transform30
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface57
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface57/wheelchair3___after_uv1:transform29
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface58
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface58/wheelchair3___after_uv1:transform28
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface59
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface59/wheelchair3___after_uv1:transform27
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface60
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface60/wheelchair3___after_uv1:transform26
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface61
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface61/wheelchair3___after_uv1:transform25
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface62
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface62/wheelchair3___after_uv1:transform24
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface63
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface63/wheelchair3___after_uv1:transform23
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface64
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface64/wheelchair3___after_uv1:transform22
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface65
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface65/wheelchair3___after_uv1:transform21
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface66
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface66/wheelchair3___after_uv1:transform20
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface67
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface67/wheelchair3___after_uv1:transform19
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface68
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface68/wheelchair3___after_uv1:transform18
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface69
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:polySurface69/wheelchair3___after_uv1:transform17
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface23/wheelchair3___after_uv1:transform16
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface38
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface38/wheelchair3___after_uv1:transform13
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface39
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:polySurface39/wheelchair3___after_uv1:transform12
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface33/wheelchair3___after_uv1:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface40
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface40/wheelchair3___after_uv1:transform7
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface41
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface41/wheelchair3___after_uv1:transform5
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface56
+        weight: 1
+      - path: wheelchair3___after_uv1:polySurface56/wheelchair3___after_uv1:transform31
+        weight: 1
+      - path: wheelchair3___after_uv1:pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCube1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCube1/wheelchair3___after_uv1:senior_6_1___sit:transform1
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:pCylinder13
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24/wheelchair3___after_uv1:senior_6_1___sit:senior_1___head:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:group
+        weight: 1
+      - path: wheelchair3___after_uv:group/wheelchair3___after_uv:pasted__pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv:group1
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1/wheelchair3___after_uv:polySurface37
+        weight: 1
+      - path: wheelchair3___after_uv:group1/wheelchair3___after_uv:pasted__pCylinder6/wheelchair3___after_uv:polySurface1/wheelchair3___after_uv:polySurface37/wheelchair3___after_uv:transform4
+        weight: 1
+      - path: wheelchair3___after_uv:group2
+        weight: 1
+      - path: wheelchair3___after_uv:group3
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24/wheelchair3___after_uv:polySurface26
+        weight: 1
+      - path: wheelchair3___after_uv:group3/wheelchair3___after_uv:pasted__pCube2/wheelchair3___after_uv:pasted__polySurface24/wheelchair3___after_uv:polySurface26/wheelchair3___after_uv:transform2
+        weight: 1
+      - path: wheelchair3___after_uv:group5
+        weight: 1
+      - path: wheelchair3___after_uv:group5/wheelchair3___after_uv:pasted__group2
+        weight: 1
+      - path: wheelchair3___after_uv:pasted__polySurface7
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1/wheelchair3___after_uv:polySurface29
+        weight: 1
+      - path: wheelchair3___after_uv:pCone1/wheelchair3___after_uv:polySurface29/wheelchair3___after_uv:transform3
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2/wheelchair3___after_uv:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:pCube2/wheelchair3___after_uv:polySurface24/wheelchair3___after_uv:transform14
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder1
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder2
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder3
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder4
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder5
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7/wheelchair3___after_uv:polySurface23
+          1
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder7/wheelchair3___after_uv:polySurface23
+          1/wheelchair3___after_uv:transform15
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9/wheelchair3___after_uv:polySurface34
+        weight: 1
+      - path: wheelchair3___after_uv:pCylinder9/wheelchair3___after_uv:polySurface34/wheelchair3___after_uv:transform11
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface16
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface16/wheelchair3___after_uv:transform10
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface17
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface17/wheelchair3___after_uv:transform8
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface18
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface18/wheelchair3___after_uv:transform9
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface20
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface4/wheelchair3___after_uv:polySurface20/wheelchair3___after_uv:transform6
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface56
+          1
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface56
+          1/wheelchair3___after_uv:transform30
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface57
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface57/wheelchair3___after_uv:transform29
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface58
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface58/wheelchair3___after_uv:transform28
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface59
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface59/wheelchair3___after_uv:transform27
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface60
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface60/wheelchair3___after_uv:transform26
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface61
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface61/wheelchair3___after_uv:transform25
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface62
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface62/wheelchair3___after_uv:transform24
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface63
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface63/wheelchair3___after_uv:transform23
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface64
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface64/wheelchair3___after_uv:transform22
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface65
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface65/wheelchair3___after_uv:transform21
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface66
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface66/wheelchair3___after_uv:transform20
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface67
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface67/wheelchair3___after_uv:transform19
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface68
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface68/wheelchair3___after_uv:transform18
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface69
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:polySurface69/wheelchair3___after_uv:transform17
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface23/wheelchair3___after_uv:transform16
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface38
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface38/wheelchair3___after_uv:transform13
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface39
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:polySurface39/wheelchair3___after_uv:transform12
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface33/wheelchair3___after_uv:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface40
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface40/wheelchair3___after_uv:transform7
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface41
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface41/wheelchair3___after_uv:transform5
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface56
+        weight: 1
+      - path: wheelchair3___after_uv:polySurface56/wheelchair3___after_uv:transform31
+        weight: 1
+      - path: wheelchair3___after_uv:pTorus1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCube1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCube1/wheelchair3___after_uv:senior_6_1___sit:transform1
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:pCylinder13
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:bag:polySurface9/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform25
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:group2/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform28
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube5/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform27
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:pCube6/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:transform26
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24
+        weight: 1
+      - path: wheelchair3___after_uv:senior_6_1___sit:senior_1___head:adult_8___modeling__after_uv_:polySurface24/wheelchair3___after_uv:senior_6_1___sit:senior_1___head:transform1
+        weight: 1
+      - path: wing:baby
+        weight: 1
+      - path: wing:baby/wing:transform1
+        weight: 1
+      - path: wing:cloth
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
