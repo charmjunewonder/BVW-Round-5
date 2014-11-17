@@ -34,6 +34,8 @@ public class Controller : MonoBehaviour {
 	public SoundManager sm;
 	public GameObject leaderBoard;
 	public Animator jumpPadAnimator;
+	public GameObject wheelChairFlare;
+	public GameObject SeniorToBeLookedAt;
 
 	private RaycastHit hit;
 	private float rayLength = 100;
@@ -76,8 +78,11 @@ public class Controller : MonoBehaviour {
 	private bool isDropPath;
 
 	private bool wheelchairRun;
-
+	private bool arrivedOnTime;
+	private bool lookAtSenior;
 	private int lapCount = 0;
+
+
 	public static int finalLapCount = -1;
 	public static int leadingNum = -1;
 	public static int winningNum = -1;
@@ -85,7 +90,7 @@ public class Controller : MonoBehaviour {
 
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
-	}	
+	}
 	
 	
 	void Start(){
@@ -112,6 +117,8 @@ public class Controller : MonoBehaviour {
 		tomb.SetActive (false);
 		hellgate.SetActive (false);
 		wheelchairRun = false;
+		arrivedOnTime = false;
+		lookAtSenior = false;
 		countDown = 10;
 
 		normals = new Queue ();
@@ -153,6 +160,7 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
+		CameraLook();
 		//CheckCollectedItemCount();
 	}
 
@@ -221,7 +229,10 @@ public class Controller : MonoBehaviour {
 				}
 			}
 		} else if(characterMode == 3){
-
+			if(velocity > 0.00008f)
+			{
+				wheelChairFlare.SetActive(true);
+			}
 		} else{
 			if(waitingCount > 5){
 				waitingCount = 0;
@@ -455,9 +466,6 @@ public class Controller : MonoBehaviour {
 				{
 					GameObject.Find("ItemsGenerator2").GetComponent<ItemGenerator2>().Clear();
 				}
-
-
-
 				StartCoroutine("seniorAutoWalk");
 				break;
 			}
@@ -674,7 +682,11 @@ public class Controller : MonoBehaviour {
 				}
 
 			}
-			Debug.Log("@@@@@@@@");
+			else
+			{
+				arrivedOnTime = true;
+				StopCoroutine("CountDownIEnumerator");
+			}
 			velocity = 0;
 			walkable = false;
 			models[characterMode].SetActive(false);
@@ -692,10 +704,12 @@ public class Controller : MonoBehaviour {
 		models[4].SetActive(true);
 		animator = models[4].GetComponent<Animator>();
 		animator.SetBool ("Fly", true);
+		camera.LookAt (SeniorToBeLookedAt.transform.position);
+		lookAtSenior = true;
 	}
 
 	public void CountDown(){
-		StartCoroutine(CountDownIEnumerator());
+		StartCoroutine("CountDownIEnumerator");
 	}
 
 	IEnumerator CountDownIEnumerator()
@@ -708,8 +722,17 @@ public class Controller : MonoBehaviour {
 			yield return new WaitForSeconds(1f);
 		}
 		readyGoGUI.SetActive (false);
-		tomb.SetActive (false);
-		hellgate.SetActive (true);
+		if (!arrivedOnTime) {
+			tomb.SetActive (false);
+			hellgate.SetActive (true);
+		}
+	}
 
+	private void CameraLook()
+	{
+		if(lookAtSenior)
+		{
+			camera.LookAt(SeniorToBeLookedAt.transform.position);
+		}
 	}
 }
