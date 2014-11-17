@@ -9,6 +9,7 @@ public class Item2 : MonoBehaviour {
 	private CharacterFeedback feedback;	
 	private ItemGenerator2 itemGenerator;
 	private Controller controller;
+	private SoundManager sm;
 	//private LifeProgressBar lifeBar;
 	
 	void Start(){
@@ -16,10 +17,12 @@ public class Item2 : MonoBehaviour {
 		controller = GameObject.Find ("Character2").GetComponent<Controller> ();
 		//lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 		feedback = GameObject.Find ("Feedback2").GetComponent<CharacterFeedback> ();
+		sm = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
 	}
 	
 	void Update()
 	{
+		modeOfCharacter = controller.characterMode;
 		if (modeOfCharacter > 0) {
 			transform.Rotate (0, -3, 0, Space.World);
 		}
@@ -55,12 +58,8 @@ public class Item2 : MonoBehaviour {
 			}
 			
 			itemGenerator.itemCount--;
-			if(modeOfCharacter == 0)
-			{
-				GameObject.Find ("SoundManager").GetComponent<SoundManager>().PlaySoundEffect(0, false);
-			}
-
 			Destroy(gameObject);
+			sm.PlayVoiceEffect(modeOfCharacter, 1, true);
 		}
 	}
 }

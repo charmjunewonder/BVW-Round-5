@@ -4,18 +4,23 @@ using System.Collections;
 public class Obstacle : MonoBehaviour {
 
 	public float obstaclePosition;
+	public int modeOfCharacter;
+
 	private CharacterLeftFeedback leftFeedback;
 	private ItemGenerator itemGenerator;
 	private Controller controller;
+	private SoundManager sm;
 	// Use this for initialization
 	void Start () {
 		itemGenerator = GameObject.Find ("ItemsGenerator").GetComponent<ItemGenerator> ();
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
 		leftFeedback = GameObject.Find ("LeftFeedback1").GetComponent<CharacterLeftFeedback> ();
+		sm = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		modeOfCharacter = controller.characterMode;
 		CheckValid ();
 	}
 
@@ -44,6 +49,8 @@ public class Obstacle : MonoBehaviour {
 				itemGenerator.obstacleQueue.Dequeue();
 			}
 			Destroy(gameObject);
+
+			sm.PlayVoiceEffect(modeOfCharacter, 0, false);
 		}
 	}
 }

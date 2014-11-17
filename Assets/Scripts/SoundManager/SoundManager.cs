@@ -5,9 +5,16 @@ public class SoundManager : MonoBehaviour {
 	
 	public AudioSource BGMPlayer;
 	public AudioSource soundEffectPlayer;
+	public AudioSource[] voiceEffectPlayer;
 
 	public AudioClip[] BGMs;
 	public AudioClip[] soundEffects;
+
+	public AudioClip[] BabyItemSound;
+	public AudioClip[] BoyItemSound;
+	public AudioClip[] BoyObstacleSound;
+	public AudioClip[] AdultItemSound;
+	public AudioClip[] AdultObstacleSound;
 
 	private int BGMCount = 0;
 
@@ -21,10 +28,40 @@ public class SoundManager : MonoBehaviour {
 
 	}
 
+	public void PlayVoiceEffect(int index, int num, bool PoN)
+	{
+		if (index == 0) {
+			voiceEffectPlayer[num].clip = BabyItemSound[Random.Range (0, BabyItemSound.Length - 1)];
+		}
+		else if(index == 1)
+		{
+			if(PoN)
+			{
+				voiceEffectPlayer[num].clip = BoyItemSound[Random.Range (0, BoyItemSound.Length - 1)];
+			}
+			else
+			{
+				//voiceEffectPlayer.clip = BoyObstacleSound[Random.Range (0, BoyObstacleSound.Length - 1)];
+			}
+		}
+		else if(index == 2)
+		{
+			if(PoN)
+			{
+				voiceEffectPlayer[num].clip = AdultItemSound[Random.Range (0, AdultItemSound.Length - 1)];
+			}
+			else
+			{
+				voiceEffectPlayer[num].clip = AdultObstacleSound[Random.Range (0, AdultObstacleSound.Length - 1)];
+			}
+		}
+		Debug.Log ("$%^&*()");
+		voiceEffectPlayer[num].Play ();
+	}
+
 	public void PlaySoundEffect(int index, bool loop)
 	{
-		soundEffectPlayer.clip = soundEffects [index];
-		soundEffectPlayer.loop = loop;
+		soundEffectPlayer.clip = soundEffects[index];
 		soundEffectPlayer.Play ();
 	}
 }

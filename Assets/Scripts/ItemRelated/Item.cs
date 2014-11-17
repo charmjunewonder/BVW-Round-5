@@ -9,6 +9,7 @@ public class Item : MonoBehaviour {
 	private CharacterFeedback feedback;
 	private ItemGenerator itemGenerator;
 	private Controller controller;
+	private SoundManager sm;
 	//private LifeProgressBar lifeBar;
 
 	void Start(){
@@ -16,10 +17,12 @@ public class Item : MonoBehaviour {
 		controller = GameObject.Find ("Character1").GetComponent<Controller> ();
 		//lifeBar = GameObject.Find ("LifeProgressBar").GetComponent<LifeProgressBar> ();
 		feedback = GameObject.Find ("Feedback1").GetComponent<CharacterFeedback> ();
+		sm = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
 	}
 
 	void Update()
 	{
+		modeOfCharacter = controller.characterMode;
 		if (modeOfCharacter > 0) {
 			transform.Rotate (0, -3, 0, Space.World);
 		}
@@ -47,7 +50,6 @@ public class Item : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "RunMan"){
 			other.gameObject.GetComponent<Controller>().collectedItemCount++;
-			//lifeBar.changeToNextState();
 			feedback.showFeedbackNumber(other.gameObject.GetComponent<Controller>().collectedItemCount);
 			if(itemGenerator.itemQueue.Count > 0)
 			{
@@ -55,11 +57,8 @@ public class Item : MonoBehaviour {
 			}
 
 			itemGenerator.itemCount--;
-			if(modeOfCharacter == 0)
-			{
-				GameObject.Find ("SoundManager").GetComponent<SoundManager>().PlaySoundEffect(0, false);
-			}
 			Destroy(gameObject);
+			sm.PlayVoiceEffect(modeOfCharacter, 0, true);
 		}
 	}
 

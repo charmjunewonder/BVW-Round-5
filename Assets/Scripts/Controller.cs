@@ -134,7 +134,9 @@ public class Controller : MonoBehaviour {
 
 	IEnumerator look(){
 		animator.SetTrigger("Look");
+
 		yield return new WaitForSeconds(1.5f);
+		sm.PlaySoundEffect (0, false);
 		readyGoGUI.SetActive(true);
 		readyGoGUI.guiTexture.texture = readyGo[0];
 		yield return new WaitForSeconds(0.8f);
@@ -196,6 +198,7 @@ public class Controller : MonoBehaviour {
 		StopCoroutine("seniorAutoWalk");
 		animator.SetTrigger("Sit");
 		yield return new WaitForSeconds(7.15f);
+		sm.PlayBGM (4);
 		camera2.SetActive(false);
 		camera.SetActive(true);
 		walkable = true;
@@ -464,7 +467,7 @@ public class Controller : MonoBehaviour {
 				characterMode = ++characterMode % 4;
 				animator = models[characterMode].GetComponent<Animator>();
 
-				sm.PlaySoundEffect(2, false);
+				sm.PlaySoundEffect(1, false);
 				sm.PlayBGM(characterMode);
 
 				Invoke("SetNextModelActive", 1);
@@ -473,6 +476,7 @@ public class Controller : MonoBehaviour {
 			if(characterMode == 3){
 				if(leadingNum == -1)
 				{
+					sm.PlayBGM(3);
 					leadingNum = Number;
 					finalLapCount = lapCount + 1;
 				}
@@ -502,7 +506,6 @@ public class Controller : MonoBehaviour {
 
 	public void SetWalkableTrue()
 	{
-		sm.PlaySoundEffect (1, true);
 		TransitionEffect.gameObject.SetActive(false);
 		walkable = true;
 	}
@@ -704,6 +707,7 @@ public class Controller : MonoBehaviour {
 		{
 			if(winningNum == -1)
 			{
+				sm.PlayBGM(5);
 				winningNum = Number;
 				if(Number == 0)
 				{
