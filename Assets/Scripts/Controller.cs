@@ -15,7 +15,9 @@ public class Controller : MonoBehaviour {
 
 	public Transform[] controlPath;
 	public Transform character;
-	public Transform camera;
+	public GameObject camera;
+	public GameObject camera2;
+
 	public int collectedItemCount = 0;
 	public GameObject[] models;
 	public int characterMode = 0;
@@ -160,7 +162,7 @@ public class Controller : MonoBehaviour {
 		DetectKeys();
 		FindFloorAndRotation();
 		MoveCharacter();
-		CameraLook();
+		//CameraLook();
 		//CheckCollectedItemCount();
 	}
 
@@ -192,6 +194,8 @@ public class Controller : MonoBehaviour {
 		StopCoroutine("seniorAutoWalk");
 		animator.SetTrigger("Sit");
 		yield return new WaitForSeconds(7.15f);
+		camera2.SetActive(false);
+		camera.SetActive(true);
 		walkable = true;
 		models[3].collider.enabled = false;
 //		StartCoroutine("wheelChairAutoRun");
@@ -466,6 +470,8 @@ public class Controller : MonoBehaviour {
 				{
 					GameObject.Find("ItemsGenerator2").GetComponent<ItemGenerator2>().Clear();
 				}
+				camera2.SetActive(true);
+				camera.SetActive(false);
 				StartCoroutine("seniorAutoWalk");
 				break;
 			}
@@ -704,7 +710,7 @@ public class Controller : MonoBehaviour {
 		models[4].SetActive(true);
 		animator = models[4].GetComponent<Animator>();
 		animator.SetBool ("Fly", true);
-		camera.LookAt (SeniorToBeLookedAt.transform.position);
+		camera.transform.LookAt (SeniorToBeLookedAt.transform.position);
 		lookAtSenior = true;
 	}
 
@@ -732,7 +738,7 @@ public class Controller : MonoBehaviour {
 	{
 		if(lookAtSenior)
 		{
-			camera.LookAt(SeniorToBeLookedAt.transform.position);
+			camera.transform.LookAt(SeniorToBeLookedAt.transform.position);
 		}
 	}
 }
