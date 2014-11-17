@@ -737,6 +737,7 @@ public class Controller : MonoBehaviour {
 		{
 			if(winningNum == -1)
 			{
+				isFinished = true;
 				sm.PlayBGM(5);
 				winningNum = Number;
 				if(Number == 0)
@@ -753,6 +754,7 @@ public class Controller : MonoBehaviour {
 			}
 			else
 			{
+				isFinished = true;
 				arrivedOnTime = true;
 				showLeaderBoard();
 				StopCoroutine("CountDownIEnumerator");
@@ -764,6 +766,7 @@ public class Controller : MonoBehaviour {
 		}
 		else if(col.gameObject.tag == "HellGate")
 		{
+			isFinished = true;
 			velocity = 0;
 			walkable = false;
 			showLeaderBoard();
