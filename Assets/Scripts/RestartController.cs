@@ -17,6 +17,8 @@ public class RestartController : MonoBehaviour {
 	private int newRecordCount = 0;
 	// Use this for initialization
 	void Start () {
+		times = new int[5];
+		names = new string[5];
 		//PlayerPrefs.DeleteAll();
 		//StartToDisplay(140, 141);
 		//StartCoroutine(refreshAuto());
@@ -138,8 +140,7 @@ public class RestartController : MonoBehaviour {
     }
 
     public void StartToDisplay(int playertime1, int playertime2){
-    	times = new int[5];
-    	names = new string[5];
+
     	int time1, time2;
     	if(playertime1 < playertime2){
     		time1 = playertime1;

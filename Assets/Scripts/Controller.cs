@@ -100,6 +100,7 @@ public class Controller : MonoBehaviour {
 	void Start(){
 		spUnity = Controller.spsp;
 		startTime = (int)Time.time;
+		leaderBoard.GetComponent<RestartController>().deleteUnknown();
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
@@ -226,7 +227,8 @@ public class Controller : MonoBehaviour {
 					}
 					waitingCount = 0;
 				} else{
-					waitingCount += Time.deltaTime;
+					if(velocity == 0)
+						waitingCount += Time.deltaTime;
 				} 
 			}
 			if (characterMode == 0) {
@@ -282,9 +284,11 @@ public class Controller : MonoBehaviour {
 					{
 						velocity += velocityIncrement * Time.deltaTime;
 					}
+					
 					waitingCount = 0;
 				} else{
-					waitingCount += Time.deltaTime;
+					if(velocity == 0)
+						waitingCount += Time.deltaTime;
 				}
 			}
 			if(characterMode == 0){
