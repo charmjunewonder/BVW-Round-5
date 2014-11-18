@@ -85,6 +85,8 @@ public class Controller : MonoBehaviour {
 	private bool lookAtSenior;
 	private int lapCount = 0;
 
+	private bool hellCamera = false;
+
 	public int gameTime;
 	private int startTime;
 	public static int finalLapCount = -1;
@@ -129,6 +131,7 @@ public class Controller : MonoBehaviour {
 		normals = new Queue ();
 		StartCoroutine(look());
 		StartCoroutine("CheckCollectedItemCount");
+		StartCoroutine("CameraLook");
 
 		sm.PlayBGM (0);
 	}
@@ -180,7 +183,7 @@ public class Controller : MonoBehaviour {
 		bc.size = new Vector3(0.05f, 0.05f, 0.05f);
 		bc.isTrigger = true;
 
-		ModifyLookAtDirection(wheelChairClone, pathPosition+0.01f);
+		ModifyLookAtDirection(wheelChairClone, pathPosition+0.01f, false);
 		wheelChairClone.SetActive(true);
 
 		while(true){
@@ -557,7 +560,7 @@ public class Controller : MonoBehaviour {
 		return iTween.PointOnPath(controlPath,percent);
 	}
 
-	public void ModifyLookAtDirection(GameObject other, float percent){
+	public void ModifyLookAtDirection(GameObject other, float percent, bool t){
 		float pathPercent = percent%1f;
 		Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
 		Vector3 lookTarget;
@@ -605,8 +608,17 @@ public class Controller : MonoBehaviour {
 		}
 		Vector3 offsetVector1 = Vector3.Cross(vectorWithMinDistance, direction);
 		other.transform.LookAt(other.transform.position + direction.normalized, vectorWithMinDistance);
-		other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
+		if (!t) {
+			other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
 				+ offsetVector1.normalized * pathOffset;
+		}
+		else
+		{
+			other.transform.position = positionVector + 3f * vectorWithMinDistance.normalized
+				+ offsetVector1.normalized * pathOffset;
+		}
+
+
 		Debug.Log (positionVector + " " + vectorWithMinDistance + " " + offsetVector1);
 	}
 
@@ -798,16 +810,44 @@ public class Controller : MonoBehaviour {
 		readyGoGUI.SetActive (false);
 		if (!arrivedOnTime) {
 			tomb.SetActive (false);
+
+			Debug.Log ("!@#$%^& " + pathPosition % 1);
+
+			if(pathPosition % 1 <= 0.94f)
+			{
+				ModifyLookAtDirection(hellgate, (pathPosition + 0.05f) % 1, true);
+				hellgate.transform.Rotate (0, 180, 0, Space.Self);
+				hellCamera = true;
+			}
 			hellgate.SetActive (true);
 		}
 	}
 
-	private void CameraLook()
+	IEnumerator CameraLook()
 	{
-		if(lookAtSenior)
-		{
-			camera.transform.LookAt(SeniorToBeLookedAt.transform.position);
+		float distance = 0f;
+		while (true) {
+			if (hellCamera) {
+//				camera.transform.Translate(0, Time.deltaTime, 0, Space.Self);
+//				camera.transform.LookAt(hellgate.transform.position);
+//				distance += Time.deltaTime;
+//				if(distance >= 5)
+//				{
+//					break;
+//				}
+			}
+			else if(lookAtSenior)
+			{
+				camera.transform.Rotate (-10 * Time.deltaTime, 0, 0, Space.Self);
+				distance += 10 * Time.deltaTime;
+				if(distance >= 60)
+				{
+					break;
+				}
+			}
+			yield return new WaitForSeconds(0.01f); 
 		}
+
 	}
 
 	private void showLeaderBoard(){

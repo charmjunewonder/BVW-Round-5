@@ -33,5 +33,7 @@ public class BoosterTrigger : MonoBehaviour {
 			controller2.SetOnRollerCoaster(true);
 			itemGenerator2.Clear ();
 		}
+
+		GameObject.Find ("SoundManager").GetComponent<SoundManager>().PlaySoundEffect(2, false);
 	}
 }

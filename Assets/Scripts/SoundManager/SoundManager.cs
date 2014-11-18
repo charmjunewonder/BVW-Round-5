@@ -32,12 +32,14 @@ public class SoundManager : MonoBehaviour {
 	{
 		if (index == 0) {
 			voiceEffectPlayer[num].clip = BabyItemSound[Random.Range (0, BabyItemSound.Length - 1)];
+			voiceEffectPlayer[num].Play ();
 		}
 		else if(index == 1)
 		{
 			if(PoN)
 			{
 				voiceEffectPlayer[num].clip = BoyItemSound[Random.Range (0, BoyItemSound.Length - 1)];
+				voiceEffectPlayer[num].Play ();
 			}
 			else
 			{
@@ -49,19 +51,21 @@ public class SoundManager : MonoBehaviour {
 			if(PoN)
 			{
 				voiceEffectPlayer[num].clip = AdultItemSound[Random.Range (0, AdultItemSound.Length - 1)];
+				voiceEffectPlayer[num].Play ();
 			}
 			else
 			{
 				voiceEffectPlayer[num].clip = AdultObstacleSound[Random.Range (0, AdultObstacleSound.Length - 1)];
+				voiceEffectPlayer[num].Play ();
 			}
 		}
-		Debug.Log ("$%^&*()");
-		voiceEffectPlayer[num].Play ();
+
 	}
 
 	public void PlaySoundEffect(int index, bool loop)
 	{
 		soundEffectPlayer.clip = soundEffects[index];
+		soundEffectPlayer.loop = loop;
 		soundEffectPlayer.Play ();
 	}
 }

@@ -49,7 +49,6 @@ public class Obstacle : MonoBehaviour {
 				itemGenerator.obstacleQueue.Dequeue();
 			}
 			Destroy(gameObject);
-
 			sm.PlayVoiceEffect(modeOfCharacter, 0, false);
 		}
 	}
