@@ -110,9 +110,9 @@ public class Controller : MonoBehaviour {
 		player2 = GameObject.Find("Character2");
 		player2.GetComponent<Controller>().isPlayer = true;
 		startTime = (int)Time.time;
-//		leaderBoard.SetActive (true);
-//		leaderBoard.GetComponent<RestartController>().deleteUnknown();
-//		leaderBoard.SetActive (false);
+		//leaderBoard.SetActive (true);
+		leaderBoard.GetComponent<RestartController>().deleteUnknown();
+		//leaderBoard.SetActive (false);
 
 		//set the model of the character
 		characterMode = 0;
