@@ -116,9 +116,9 @@ public class RestartController : MonoBehaviour {
 		for(int i = 0; i < 5; ++i){
 			if(names[i] == "Unknown"){
 				if(newRecordIndex1 == i){
-					newRecordName1 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250, 28), newRecordName1, 25);
+					newRecordName1 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250*widthRatio, 28*widthRatio), newRecordName1, 25);
 				} else if(newRecordIndex2 == i){
-					newRecordName2 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250, 28), newRecordName2, 25);
+					newRecordName2 = GUI.TextField(new Rect(rightOffset + 150*widthRatio, (274+64.8f*i)*widthRatio, 250*widthRatio, 28*widthRatio), newRecordName2, 25);
 				}
 			} else if(names[i] == "NotExisted"){
 				continue;

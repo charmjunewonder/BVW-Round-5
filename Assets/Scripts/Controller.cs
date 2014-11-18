@@ -6,6 +6,7 @@ using System.IO.Ports;
 public class Controller : MonoBehaviour {
 
 	public static SerialPort spsp;
+	public static SerialPort spsp2;
 
 	public int Number;
 
@@ -76,6 +77,7 @@ public class Controller : MonoBehaviour {
 	private int[] speedNums = {10, 30, 100, 200};
 
 	private SerialPort spUnity;
+	private SerialPort spUnity2;
 	private bool isOnRollerCoaster;
 	private bool isPadJumping;
 	private bool isDropPath;
@@ -94,6 +96,8 @@ public class Controller : MonoBehaviour {
 	public static int winningNum = -1;
 	private int countDown;
 	private bool isFinished = false;
+	public bool isPlayer;
+	private GameObject player2;
 	void OnDrawGizmos(){
 		iTween.DrawPath(controlPath,Color.blue);	
 	}
@@ -101,6 +105,10 @@ public class Controller : MonoBehaviour {
 	
 	void Start(){
 		spUnity = Controller.spsp;
+		spUnity2 = Controller.spsp2;
+		
+		player2 = GameObject.Find("Character2");
+		player2.GetComponent<Controller>().isPlayer = true;
 		startTime = (int)Time.time;
 		leaderBoard.GetComponent<RestartController>().deleteUnknown();
 		//set the model of the character
@@ -153,14 +161,23 @@ public class Controller : MonoBehaviour {
 	
 	void Update(){
 		//--------------------------x----------------------------
-		if (spUnity != null) {
-			if (spUnity.IsOpen) {
+		if (spUnity != null && spUnity2 != null) {
+			if (spUnity.IsOpen ) {
 				try {
-					DetectKeysArduino ();
+					DetectKeysArduinoBrown ();
 				} catch (System.Exception) {
 
 				}
 			}
+			
+			if (spUnity2.IsOpen ) {
+				try {
+					DetectKeysArduinoYellow ();
+				} catch (System.Exception) {
+					
+				}
+			}
+			
 			//DetectKeys();
 		}
 		//------------------------------------------------------
@@ -185,8 +202,9 @@ public class Controller : MonoBehaviour {
 
 		ModifyLookAtDirection(wheelChairClone, pathPosition+0.01f, false);
 		wheelChairClone.SetActive(true);
-
+		walkable = false;
 		while(true){
+			walkable = false;
 			velocity = Mathf.Clamp(velocity + velocityIncrement * Time.deltaTime, 0, 0.00003f);
 			yield return new WaitForSeconds(0.1f);
 		}
@@ -217,8 +235,8 @@ public class Controller : MonoBehaviour {
 //		}
 //	}
 
-	void DetectKeysArduino(){
-
+	void DetectKeysArduinoBrown(){
+		if(isPlayer == false){
 		int arduinoValue = spUnity.ReadByte ();
 
 		if (!isOnRollerCoaster) {
@@ -230,7 +248,7 @@ public class Controller : MonoBehaviour {
 					}
 					waitingCount = 0;
 				} else{
-					if(velocity == 0)
+					if(velocity == 0 && characterMode < 3)
 						waitingCount += Time.deltaTime;
 				} 
 			}
@@ -278,7 +296,69 @@ public class Controller : MonoBehaviour {
 		pathPosition += velocity;
 		animator.SetFloat ("Speed", velocity);
 	}
-
+	}
+void DetectKeysArduinoYellow(){
+		if(isPlayer == true){
+		int arduinoValue2 = spUnity2.ReadByte ();
+		
+		if (!isOnRollerCoaster) {
+			if (walkable) {
+				if (arduinoValue2 == 4) {
+					if(velocity < velocityUpperBounds[characterMode % 4])
+					{
+						velocity += velocityIncrement * Time.deltaTime;
+					}
+					waitingCount = 0;
+				} else{
+					if(velocity == 0 && characterMode < 3)
+						waitingCount += Time.deltaTime;
+				} 
+			}
+			if (characterMode == 0) {
+				if (waitingCount > 5) {
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine (LookBack ());
+				}
+				if (lookingBack) {
+					if (arduinoValue2 == 4) {
+						waitingCount = 0;
+						lookingBack = false;
+						StartCoroutine (LookForward ());
+					}
+				}
+			} else if (characterMode == 3) {
+				
+			} else {
+				if (waitingCount > 5) {
+					waitingCount = 0;
+					walkable = false;
+					StartCoroutine (Idle ());
+				}
+				//jump:
+				if (walkable && arduinoValue2 == 3 && jumpState == 0) {
+					animator.SetTrigger ("Jump");
+					StartCoroutine (Jump ());
+					jumpState = 1;
+				}
+			}
+			if(velocity > velocityUpperBounds[characterMode % 4])
+			{
+				velocity = Mathf.Clamp(velocity - 5 * velocityDecrement * Time.deltaTime, 0, 1f);
+			}
+			else
+			{
+				velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
+			}
+		}
+		else
+		{
+			velocity = 0.0005f;
+		}
+		pathPosition += velocity;
+		animator.SetFloat ("Speed", velocity);
+	}
+	}
 	void DetectKeys(){
 		if (!isOnRollerCoaster) {
 			if(walkable){
@@ -290,7 +370,7 @@ public class Controller : MonoBehaviour {
 					
 					waitingCount = 0;
 				} else{
-					if(velocity == 0)
+					if(velocity == 0 && characterMode < 3)
 						waitingCount += Time.deltaTime;
 				}
 			}
@@ -410,12 +490,13 @@ public class Controller : MonoBehaviour {
 		// }
 		//Test
 		offsetVector = Vector3.Cross(previousNormal, diretion);
-		if (Physics.Raycast(coordinateOnPath+offsetVector.normalized * pathOffset + previousNormal.normalized * 3,-previousNormal,out hit, rayLength, layerOfPath)){
+		Vector3 testNormal = previousNormal;
+		if (Physics.Raycast(coordinateOnPath+offsetVector.normalized * pathOffset + previousNormal.normalized * 10,-previousNormal,out hit, rayLength, layerOfPath)){
 			previousNormal = GetNormal(hit.normal);
 
 			if(Vector3.Distance(previousPosition, hit.point) > 0.5f){
 				floorPosition=hit.point;
-				Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset + previousNormal.normalized * 3, -previousNormal.normalized * 10, Color.red, 10); 
+				Debug.DrawRay(coordinateOnPath+ offsetVector.normalized * pathOffset + testNormal.normalized * 10, -testNormal.normalized * 10, Color.red, 10); 
 				if(isDropPath || isPadJumping){
 					//Debug.Log("fssfsdfsdfsdfsd " + pathPosition);
 					Vector3 v1 = Vector3.Cross(previousNormal, diretion);
@@ -852,8 +933,11 @@ public class Controller : MonoBehaviour {
 
 	private void showLeaderBoard(){
 		leaderBoard.SetActive(true);
-		int time1 = GameObject.Find ("Character1").GetComponent<Controller> ().gameTime;
-		int time2 = GameObject.Find ("Character2").GetComponent<Controller> ().gameTime;
-		leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
+		Controller c1 = GameObject.Find ("Character1").GetComponent<Controller> ();
+		Controller c2 = GameObject.Find ("Character2").GetComponent<Controller> ();
+		int time1 = c1.gameTime;
+		int time2 = c2.gameTime;
+		c1.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
+		c2.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
 	}
 }
