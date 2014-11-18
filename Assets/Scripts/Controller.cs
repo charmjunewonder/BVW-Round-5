@@ -110,7 +110,10 @@ public class Controller : MonoBehaviour {
 		player2 = GameObject.Find("Character2");
 		player2.GetComponent<Controller>().isPlayer = true;
 		startTime = (int)Time.time;
-		leaderBoard.GetComponent<RestartController>().deleteUnknown();
+//		leaderBoard.SetActive (true);
+//		leaderBoard.GetComponent<RestartController>().deleteUnknown();
+//		leaderBoard.SetActive (false);
+
 		//set the model of the character
 		characterMode = 0;
 		models[0].SetActive(true);
@@ -221,6 +224,7 @@ public class Controller : MonoBehaviour {
 		animator.SetTrigger("Sit");
 		yield return new WaitForSeconds(7.15f);
 		sm.PlayBGM (4);
+		wheelChairFlare.SetActive (true);
 		camera2.SetActive(false);
 		camera.SetActive(true);
 		walkable = true;
