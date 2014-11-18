@@ -43,7 +43,8 @@ public class SoundManager : MonoBehaviour {
 			}
 			else
 			{
-				//voiceEffectPlayer.clip = BoyObstacleSound[Random.Range (0, BoyObstacleSound.Length - 1)];
+				voiceEffectPlayer[num].clip = BoyObstacleSound[Random.Range (0, BoyObstacleSound.Length - 1)];
+				voiceEffectPlayer[num].Play ();
 			}
 		}
 		else if(index == 2)
@@ -67,5 +68,10 @@ public class SoundManager : MonoBehaviour {
 		soundEffectPlayer.clip = soundEffects[index];
 		soundEffectPlayer.loop = loop;
 		soundEffectPlayer.Play ();
+	}
+
+	public void StopSoundEffect()
+	{
+		soundEffectPlayer.Stop ();
 	}
 }

@@ -297,7 +297,7 @@ public class Controller : MonoBehaviour {
 		animator.SetFloat ("Speed", velocity);
 	}
 	}
-void DetectKeysArduinoYellow(){
+	void DetectKeysArduinoYellow(){
 		if(isPlayer == true){
 		int arduinoValue2 = spUnity2.ReadByte ();
 		
@@ -517,31 +517,34 @@ void DetectKeysArduinoYellow(){
 	
 	
 	void MoveCharacter(){
-		prevPosition = character.position;
-		// set offset for each player
-		//character.position = floorPosition + previousNormal.normalized * ySpeed;
-		if(isPadJumping){
-			pathPosition += 0.001f;
-			float pathPercent = pathPosition%1f;
-			Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
-			character.position = coordinateOnPath + offsetVector.normalized * pathOffset;
-			return;
-		}
-
-		Vector3 nextPosition = calculateNextPosition();
-		if(character.position.y - nextPosition.y > 40 && !isDropping){
-			walkable = false;
-			isDropping = true;
-		} 
-		else if(isDropping){
-			character.position = new Vector3(nextPosition.x, character.position.y - 3 , nextPosition.z);
-			if(character.position.y - nextPosition.y < 0.1f){
-				isDropping = false;
-				walkable = true;
+		if (!lookAtSenior) 
+		{
+			prevPosition = character.position;
+			// set offset for each player
+			//character.position = floorPosition + previousNormal.normalized * ySpeed;
+			if(isPadJumping){
+				pathPosition += 0.001f;
+				float pathPercent = pathPosition%1f;
+				Vector3 coordinateOnPath = iTween.PointOnPath(controlPath,pathPercent);
+				character.position = coordinateOnPath + offsetVector.normalized * pathOffset;
+				return;
 			}
-		}
-		else{
-			character.position = nextPosition;
+			
+			Vector3 nextPosition = calculateNextPosition();
+			if(character.position.y - nextPosition.y > 40 && !isDropping){
+				walkable = false;
+				isDropping = true;
+			} 
+			else if(isDropping){
+				character.position = new Vector3(nextPosition.x, character.position.y - 3 , nextPosition.z);
+				if(character.position.y - nextPosition.y < 0.1f){
+					isDropping = false;
+					walkable = true;
+				}
+			}
+			else{
+				character.position = nextPosition;
+			}
 		}
 	}
 
@@ -820,6 +823,7 @@ void DetectKeysArduinoYellow(){
 			}
 		} 
 		else if (col.gameObject.tag == "JumpPadTrigger"){
+			sm.PlaySoundEffect(6, false);
 			jumpPadAnimator.SetTrigger("Jump");
 			SetIsJumpingTrue();
 		}
@@ -828,10 +832,12 @@ void DetectKeysArduinoYellow(){
 		}
 		else if (col.gameObject.tag == "Tomb") 
 		{
+			camera.transform.parent = null;
 			if(winningNum == -1)
 			{
 				isFinished = true;
 				sm.PlayBGM(5);
+				sm.PlaySoundEffect(3, true);
 				winningNum = Number;
 				if(Number == 0)
 				{
@@ -850,19 +856,25 @@ void DetectKeysArduinoYellow(){
 				isFinished = true;
 				arrivedOnTime = true;
 				showLeaderBoard();
+				sm.StopSoundEffect();
+				readyGoGUI.SetActive (false);
 				StopCoroutine("CountDownIEnumerator");
 			}
 			velocity = 0;
 			walkable = false;
 			models[characterMode].SetActive(false);
-			Invoke("BeAngel", 1);
+			Invoke("BeAngel", 3);
 		}
 		else if(col.gameObject.tag == "HellGate")
 		{
+			camera.transform.parent = null;
+			hellCamera = true;
+			sm.StopSoundEffect();
 			isFinished = true;
 			velocity = 0;
 			walkable = false;
 			showLeaderBoard();
+			sm.PlaySoundEffect(5, false);
 		}
 	}
 
@@ -871,8 +883,16 @@ void DetectKeysArduinoYellow(){
 		models[4].SetActive(true);
 		animator = models[4].GetComponent<Animator>();
 		animator.SetBool ("Fly", true);
-		camera.transform.LookAt (SeniorToBeLookedAt.transform.position);
 		lookAtSenior = true;
+		Invoke ("GoToHeaven", 3);
+	}
+
+	private void GoToHeaven()
+	{
+		Debug.Log ("In Controller Go To Heaven");
+		animator.SetBool("FlyAway", true);
+
+		gameObject.GetComponent<GoToHeaven>().Go = true;
 	}
 
 	public void CountDown(){
@@ -892,12 +912,11 @@ void DetectKeysArduinoYellow(){
 		if (!arrivedOnTime) {
 			tomb.SetActive (false);
 
-			Debug.Log ("!@#$%^& " + pathPosition % 1);
-
-			if(pathPosition % 1 <= 0.94f)
+			if(pathPosition % 1 <= 0.96f)
 			{
-				ModifyLookAtDirection(hellgate, (pathPosition + 0.05f) % 1, true);
+				ModifyLookAtDirection(hellgate, (pathPosition + 0.02f) % 1, true);
 				hellgate.transform.Rotate (0, 180, 0, Space.Self);
+				hellgate.transform.Translate (5, 0, 0, Space.Self);
 				hellCamera = true;
 			}
 			hellgate.SetActive (true);
@@ -909,17 +928,17 @@ void DetectKeysArduinoYellow(){
 		float distance = 0f;
 		while (true) {
 			if (hellCamera) {
-//				camera.transform.Translate(0, Time.deltaTime, 0, Space.Self);
-//				camera.transform.LookAt(hellgate.transform.position);
-//				distance += Time.deltaTime;
-//				if(distance >= 5)
-//				{
-//					break;
-//				}
+				camera.transform.Translate(0, -1 * Time.deltaTime, 0, Space.Self);
+				camera.transform.Translate(0, 0, 10 * Time.deltaTime, Space.Self);
+				distance += 10 * Time.deltaTime;
+				if(distance >= 5)
+				{
+					break;
+				}
 			}
 			else if(lookAtSenior)
 			{
-				camera.transform.Rotate (-10 * Time.deltaTime, 0, 0, Space.Self);
+				camera.transform.Rotate (-12 * Time.deltaTime, 0, 0, Space.Self);
 				distance += 10 * Time.deltaTime;
 				if(distance >= 60)
 				{
