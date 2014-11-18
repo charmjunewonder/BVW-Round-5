@@ -20,7 +20,7 @@ public class RestartController : MonoBehaviour {
 		times = new int[5];
 		names = new string[5];
 		//PlayerPrefs.DeleteAll();
-		//StartToDisplay(140, 141);
+		StartToDisplay(90, 90);
 		//StartCoroutine(refreshAuto());
 	}
 
