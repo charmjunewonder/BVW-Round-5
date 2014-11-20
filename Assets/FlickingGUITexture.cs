@@ -3,7 +3,8 @@ using System.Collections;
 using System.IO.Ports;
 
 public class FlickingGUITexture : MonoBehaviour {
-
+	public GameObject instruction;
+	public GameObject Plane;
 
 	private SerialPort spUnity;
 	private SerialPort spUnity2;
@@ -15,12 +16,16 @@ public class FlickingGUITexture : MonoBehaviour {
 	
 		spUnity = Controller.spsp;
 		spUnity2 = Controller.spsp2;
-		StartCoroutine(flick());
+		StartCoroutine("flick");
 	}
 
 	void Update(){
 		if(Input.GetButtonDown("Fire1")) {
-			Application.LoadLevel("Path");	
+			guiTexture.enabled = false;
+			StopCoroutine("flick");
+			instruction.SetActive(false);
+			Plane.GetComponent<Playtutorial>().PlayTutorial();
+
 		}
 		
 		if (spUnity != null && spUnity2 !=null) {
@@ -28,7 +33,6 @@ public class FlickingGUITexture : MonoBehaviour {
 				try {
 					player1 = spUnity.ReadByte();
 				} catch (System.Exception) {
-					
 				}
 			}
 			
@@ -43,8 +47,11 @@ public class FlickingGUITexture : MonoBehaviour {
 		}
 		
 		if(player1 == 1 && player2 ==4){
-	
-			Application.LoadLevel("Path");
+			guiTexture.enabled = false;
+			StopCoroutine("flick");
+			instruction.SetActive(false);
+			Plane.GetComponent<Playtutorial>().PlayTutorial();
+
 		}
 	}
 	

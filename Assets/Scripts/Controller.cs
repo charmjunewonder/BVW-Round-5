@@ -449,15 +449,18 @@ public class Controller : MonoBehaviour {
 
 	IEnumerator Jump(){
 		float jumpIncrement = jumpForce/5;
-		for(int i = 0; i < 18; i++){
-			ySpeed += jumpIncrement / 1.8f;
+		float temp = velocityDecrement;
+		velocityDecrement = 0;
+		for(int i = 0; i < 22; i++){
+			ySpeed += jumpIncrement / 2.2f;
 			yield return new WaitForSeconds(0.01f);
 		}
 		//yield return new WaitForSeconds(0.01f);
-		for(int i = 0; i < 15; i++){
-			ySpeed -= jumpIncrement / 1.5f;
+		for(int i = 0; i < 18; i++){
+			ySpeed -= jumpIncrement / 1.8f;
 			yield return new WaitForSeconds(0.01f);
 		}
+		velocityDecrement = temp;
 		ySpeed = Mathf.Clamp(ySpeed, 0, jumpForce+1);	
 		jumpState=0;
 	}
@@ -824,7 +827,7 @@ public class Controller : MonoBehaviour {
 		} else if (col.gameObject.name == "NewLapCounter") {
 			lapCount++;
 			Debug.Log("Number " + Number + " now is in lap " + lapCount + " and Final Lap is " + finalLapCount);
-			if (lapCount == finalLapCount) {
+			if (lapCount >= finalLapCount && characterMode == 3) {
 				tomb.SetActive (true);
 				hellgate.SetActive (false);
 			}
@@ -862,7 +865,7 @@ public class Controller : MonoBehaviour {
 			{
 				isFinished = true;
 				arrivedOnTime = true;
-				showLeaderBoard();
+				Invoke ("showLeaderBoard", 5);
 				sm.StopSoundEffect();
 				readyGoGUI.SetActive (false);
 				StopCoroutine("CountDownIEnumerator");
@@ -881,10 +884,11 @@ public class Controller : MonoBehaviour {
 			isFinished = true;
 			velocity = 0;
 			walkable = false;
-			showLeaderBoard();
+			Invoke ("showLeaderBoard", 5);
 			sm.PlaySoundEffect(5, false);
 		}
 	}
+
 
 	private void BeAngel()
 	{
@@ -892,7 +896,7 @@ public class Controller : MonoBehaviour {
 		animator = models[4].GetComponent<Animator>();
 		animator.SetBool ("Fly", true);
 		lookAtSenior = true;
-		Invoke ("GoToHeaven", 6);
+		Invoke ("GoToHeaven", 5);
 	}
 
 	private void GoToHeaven()

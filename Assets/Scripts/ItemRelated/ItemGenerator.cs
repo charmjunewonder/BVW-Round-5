@@ -60,7 +60,13 @@ public class ItemGenerator : MonoBehaviour {
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
 		ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
-		obstacleClone.transform.Rotate (0, 180, 0);
+		if (modeOfCharacter != 2) {
+			obstacleClone.transform.Rotate (0, 180, 0);	
+		}
+		else
+		{
+			obstacleClone.transform.Rotate (0, 90, 0);	
+		}
 
 		obstacleClone.transform.parent = transform;
 
@@ -144,12 +150,21 @@ public class ItemGenerator : MonoBehaviour {
 		//other.transform.up = vectorWithMinDistance;
 		//Debug.DrawRay (coordinateOnPath, -vectorWithMinDistance, Color.red, 1000);
 		if (!onGround) {
-			other.transform.position = positionVector + 12 * vectorWithMinDistance.normalized
-				+ offsetVector.normalized * characterOffset;
+			if(controller.characterMode != 2)
+			{
+				other.transform.position = positionVector + 12 * vectorWithMinDistance.normalized
+					+ offsetVector.normalized * characterOffset;
+			}
+			else
+			{
+				other.transform.position = positionVector + 9 * vectorWithMinDistance.normalized
+					+ offsetVector.normalized * characterOffset;
+			}
+
 		}
 		else
 		{
-			other.transform.position = positionVector + 1f * vectorWithMinDistance.normalized
+			other.transform.position = positionVector + 1 * vectorWithMinDistance.normalized
 				+ offsetVector.normalized * characterOffset;
 		}
 	}
