@@ -295,7 +295,8 @@ public class Controller : MonoBehaviour {
 		}
 		else
 		{
-			velocity = 0.0005f;
+			if(characterMode != 3)
+				velocity = 0.0005f;
 		}
 		pathPosition += velocity;
 		animator.SetFloat ("Speed", velocity);
@@ -305,7 +306,7 @@ public class Controller : MonoBehaviour {
 		if(isPlayer == true){
 		int arduinoValue2 = spUnity2.ReadByte ();
 		
-		if (!isOnRollerCoaster) {
+			if (!isOnRollerCoaster) {
 			if (walkable) {
 				if (arduinoValue2 == 4) {
 					if(velocity < velocityUpperBounds[characterMode % 4])
@@ -357,7 +358,8 @@ public class Controller : MonoBehaviour {
 		}
 		else
 		{
-			velocity = 0.0005f;
+			if(characterMode != 3)
+				velocity = 0.0005f;
 		}
 		pathPosition += velocity;
 		animator.SetFloat ("Speed", velocity);
@@ -418,7 +420,8 @@ public class Controller : MonoBehaviour {
 		}
 		else
 		{
-			velocity = 0.0005f;
+			if(characterMode != 3)
+				velocity = 0.0005f;
 		}
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
@@ -867,12 +870,13 @@ public class Controller : MonoBehaviour {
 			velocity = 0;
 			walkable = false;
 			models[characterMode].SetActive(false);
-			Invoke("BeAngel", 3);
+			Invoke("BeAngel", 1);
 		}
 		else if(col.gameObject.tag == "HellGate")
 		{
 			camera.transform.parent = null;
 			hellCamera = true;
+			wheelChairFlare.SetActive(false);
 			sm.StopSoundEffect();
 			isFinished = true;
 			velocity = 0;
@@ -888,15 +892,14 @@ public class Controller : MonoBehaviour {
 		animator = models[4].GetComponent<Animator>();
 		animator.SetBool ("Fly", true);
 		lookAtSenior = true;
-		Invoke ("GoToHeaven", 3);
+		Invoke ("GoToHeaven", 6);
 	}
 
 	private void GoToHeaven()
 	{
 		Debug.Log ("In Controller Go To Heaven");
-		animator.SetBool("FlyAway", true);
-
-		gameObject.GetComponent<GoToHeaven>().Go = true;
+		models[4].SetActive(false);
+		//gameObject.GetComponent<GoToHeaven>().Go = true;
 	}
 
 	public void CountDown(){

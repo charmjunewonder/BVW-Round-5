@@ -70,7 +70,7 @@ public class RestartController : MonoBehaviour {
 			if(clickQuit){
 				Debug.Log("Quit");
 				deleteUnknown();
-				Application.Quit();
+				Application.LoadLevel("Credit");
 			}			
 		}
 		if(Input.GetKeyDown(KeyCode.Return)){
