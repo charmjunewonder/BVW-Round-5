@@ -901,7 +901,6 @@ public class Controller : MonoBehaviour {
 
 	private void GoToHeaven()
 	{
-		Debug.Log ("In Controller Go To Heaven");
 		models[4].SetActive(false);
 		//gameObject.GetComponent<GoToHeaven>().Go = true;
 	}
