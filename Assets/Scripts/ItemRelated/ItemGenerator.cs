@@ -36,16 +36,16 @@ public class ItemGenerator : MonoBehaviour {
 
 	void Update()
 	{
-		if (!isOnRollerCoaster) {
-			//Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount);
-			if (itemCount < 1) {
-				itemCount++;
-				Invoke ("GenerateItem", 0.1f);
-			}
+		//if (!isOnRollerCoaster) {
+			//Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount)
 			if (controller.characterMode > 0 && obstacleCount < 1) {
 				obstacleCount++;
 				Invoke("GenerateObstacle", 0.1f);
 			}
+		//}
+		if (itemCount < 1) {
+			itemCount++;
+			Invoke ("GenerateItem", 0.1f);
 		}
 
 	}
@@ -157,15 +157,22 @@ public class ItemGenerator : MonoBehaviour {
 			}
 			else
 			{
-				other.transform.position = positionVector + 9 * vectorWithMinDistance.normalized
+				other.transform.position = positionVector + 11 * vectorWithMinDistance.normalized
 					+ offsetVector.normalized * characterOffset;
 			}
 
 		}
 		else
 		{
-			other.transform.position = positionVector + 1 * vectorWithMinDistance.normalized
-				+ offsetVector.normalized * characterOffset;
+			if(controller.characterMode != 2)
+			{
+				other.transform.position = positionVector + 1 * vectorWithMinDistance.normalized
+					+ offsetVector.normalized * characterOffset;
+			}
+			else
+			{
+				other.transform.position = positionVector + offsetVector.normalized * characterOffset - 1 * vectorWithMinDistance.normalized;
+			}
 		}
 	}
 
@@ -182,11 +189,11 @@ public class ItemGenerator : MonoBehaviour {
 			Destroy(temp);
 		}
 		
-		if(itemQueue.Count > 0)
-		{
-			GameObject temp = itemQueue.Dequeue() as GameObject;
-			Destroy(temp);
-		}
+//		if(itemQueue.Count > 0)
+//		{
+//			GameObject temp = itemQueue.Dequeue() as GameObject;
+//			Destroy(temp);
+//		}
 		SetIsOnRollerCoaster (true);
 	}
 }

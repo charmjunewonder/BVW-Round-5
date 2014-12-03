@@ -20,11 +20,11 @@ public class RestartController : MonoBehaviour {
 		times = new int[5];
 		names = new string[5];
 		//PlayerPrefs.DeleteAll();
-		//if(!isWinning) return;
-		//StartToDisplay(60);
+//		if(!isWinning) return;
+//		StartToDisplay(60);
 		//StartCoroutine(refreshAuto());
-		// if(isWinning)
-		// 	Invoke("deleteUnknown", 5);
+//		 if(isWinning)
+//		 	Invoke("deleteUnknown", 5);
 	}
 
 	void Update(){
@@ -97,13 +97,13 @@ public class RestartController : MonoBehaviour {
 		//Debug.Log(widthRatio);
 
 		float width = boardTexture[0].width*0.6f*widthRatio, height = boardTexture[0].height*0.6f*widthRatio;
-		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.05f, Screen.height * 0.15f, width, height), boardTexture[0]);
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.05f*widthRatio, Screen.height * 0.15f*widthRatio, width, height), boardTexture[0]);
 		width = boardTexture[restartButtonIndex].width*0.7f*widthRatio;
 		height = boardTexture[restartButtonIndex].height*0.7f*widthRatio;
-		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.09f, Screen.height * 0.69f, width, height), boardTexture[restartButtonIndex]);
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.09f*widthRatio, Screen.height * 0.69f*widthRatio, width, height), boardTexture[restartButtonIndex]);
 		width = boardTexture[quitButtonIndex].width*0.6f*widthRatio;
 		height = boardTexture[quitButtonIndex].height*0.6f*widthRatio;
-		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.285f, Screen.height * 0.695f, width, height), boardTexture[quitButtonIndex]);
+		GUI.DrawTexture(new Rect(rightOffset + Screen.width * 0.285f*widthRatio, Screen.height * 0.695f*widthRatio, width, height), boardTexture[quitButtonIndex]);
 
 		// Content
 		GUIStyle style = new GUIStyle();

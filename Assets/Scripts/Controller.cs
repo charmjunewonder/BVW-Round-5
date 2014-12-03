@@ -31,7 +31,6 @@ public class Controller : MonoBehaviour {
 	public Texture[] progressBar;
 	public GameObject readyGoGUI;
 	public GameObject wheelChair;
-	public GameObject tomb;
 	public GameObject hellgate;
 	public bool rightPlayer;
 	public SoundManager sm;
@@ -132,8 +131,6 @@ public class Controller : MonoBehaviour {
 		}
 
 		isOnRollerCoaster = false;
-		tomb.SetActive (false);
-		hellgate.SetActive (false);
 		wheelchairRun = false;
 		arrivedOnTime = false;
 		lookAtSenior = false;
@@ -142,7 +139,6 @@ public class Controller : MonoBehaviour {
 		normals = new Queue ();
 		StartCoroutine(look());
 		StartCoroutine("CheckCollectedItemCount");
-		StartCoroutine("CameraLook");
 
 		sm.PlayBGM (0);
 	}
@@ -366,63 +362,57 @@ public class Controller : MonoBehaviour {
 	}
 	}
 	void DetectKeys(){
-		if (!isOnRollerCoaster) {
-			if(walkable){
-				if(Input.GetKey(key1) || Input.GetKeyDown(key2)) {
-					if(velocity < velocityUpperBounds[characterMode % 4])
-					{
-						velocity += velocityIncrement * Time.deltaTime;
-					}
-					
-					waitingCount = 0;
-				} else{
-					if(velocity == 0 && characterMode < 3)
-						waitingCount += Time.deltaTime;
+		if(walkable){
+			if(Input.GetKey(key1) || Input.GetKeyDown(key2)) {
+				if(velocity < velocityUpperBounds[characterMode % 4])
+				{
+					velocity += velocityIncrement * Time.deltaTime;
 				}
-			}
-			if(characterMode == 0){
-				if(waitingCount > 5){
-					waitingCount = 0;
-					walkable = false;
-					StartCoroutine(LookBack());
-				}
-				if(lookingBack){
-					if(Input.GetKey(key1) || Input.GetKey(key2)) {
-						waitingCount = 0;
-						lookingBack = false;
-						StartCoroutine(LookForward());
-					}
-				}
-			} else if(characterMode == 3){
-
+				
+				waitingCount = 0;
 			} else{
-				if(waitingCount > 5){
+				if(velocity == 0 && characterMode < 3)
+					waitingCount += Time.deltaTime;
+			}
+		}
+		if(characterMode == 0){
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(LookBack());
+			}
+			if(lookingBack){
+				if(Input.GetKey(key1) || Input.GetKey(key2)) {
 					waitingCount = 0;
-					walkable = false;
-					StartCoroutine(Idle());
-				}
-				//jump:
-				if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
-					animator.SetTrigger("Jump");
-					StartCoroutine(Jump());
-					jumpState=1;
+					lookingBack = false;
+					StartCoroutine(LookForward());
 				}
 			}
-			if(velocity > velocityUpperBounds[characterMode % 4])
-			{
-				velocity = Mathf.Clamp(velocity - 5 * velocityDecrement * Time.deltaTime, 0, 1f);
-			}
-			else
-			{
-				velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
-			}
+		} else if(characterMode == 3){
 
+		} else{
+			if(waitingCount > 5){
+				waitingCount = 0;
+				walkable = false;
+				StartCoroutine(Idle());
+			}
+			//jump:
+			if (walkable && Input.GetKeyDown(jumpKey) && jumpState==0) {
+				animator.SetTrigger("Jump");
+				StartCoroutine(Jump());
+				jumpState=1;
+			}
+		}
+		if(velocity > velocityUpperBounds[characterMode % 4])
+		{
+			velocity = Mathf.Clamp(velocity - 5 * velocityDecrement * Time.deltaTime, 0, 1f);
 		}
 		else
 		{
-			if(characterMode != 3)
-				velocity = 0.0005f;
+			velocity = Mathf.Clamp(velocity - velocityDecrement * Time.deltaTime, 0, 1f);
 		}
+
+
 		pathPosition += velocity;
 		animator.SetFloat("Speed", velocity);
 	}
@@ -824,13 +814,6 @@ public class Controller : MonoBehaviour {
 			isDropPath = true;
 		} else if (col.gameObject.tag == "FallingExit") {
 			isDropPath = false;
-		} else if (col.gameObject.name == "NewLapCounter") {
-			lapCount++;
-			Debug.Log("Number " + Number + " now is in lap " + lapCount + " and Final Lap is " + finalLapCount);
-			if (lapCount >= finalLapCount && characterMode == 3) {
-				tomb.SetActive (true);
-				hellgate.SetActive (false);
-			}
 		} 
 		else if (col.gameObject.tag == "JumpPadTrigger"){
 			sm.PlaySoundEffect(6, false);
@@ -842,122 +825,76 @@ public class Controller : MonoBehaviour {
 		}
 		else if (col.gameObject.tag == "Tomb") 
 		{
-			camera.transform.parent = null;
+			velocity = 0;
+			walkable = false;
 			if(winningNum == -1)
 			{
 				isFinished = true;
 				sm.PlayBGM(5);
-				sm.PlaySoundEffect(3, true);
+				//sm.PlaySoundEffect(3, true);
 				winningNum = Number;
 				if(Number == 0)
 				{
-					GameObject.Find("Character2").GetComponent<Controller>().CountDown();
+					GameObject.Find("Character2").GetComponent<Controller>().Dance();
+					GameObject.Find("Character2").GetComponent<Controller>().velocity = 0;
+					GameObject.Find("Character2").GetComponent<Controller>().walkable = false;
+					GameObject.Find ("Character2").GetComponent<Controller>().SwitchCamera();
 					GameObject.Find("Camera1").GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("UI"));
+
 				}
 				else
 				{
 					GameObject.Find("Camera2").GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("UI"));
-					GameObject.Find("Character1").GetComponent<Controller>().CountDown();
+					GameObject.Find("Character1").GetComponent<Controller>().Dance();
+					GameObject.Find("Character1").GetComponent<Controller>().velocity = 0;
+					GameObject.Find("Character1").GetComponent<Controller>().walkable = false;
+					GameObject.Find ("Character1").GetComponent<Controller>().SwitchCamera();
+					GameObject.Find("Camera11").SetActive (true);
 				}
-
+				Invoke ("showLeaderBoard", 2);
 			}
-			else
-			{
-				isFinished = true;
-				arrivedOnTime = true;
-				Invoke ("showLeaderBoard", 5);
-				sm.StopSoundEffect();
-				readyGoGUI.SetActive (false);
-				StopCoroutine("CountDownIEnumerator");
-			}
-			velocity = 0;
-			walkable = false;
 			models[characterMode].SetActive(false);
-			Invoke("BeAngel", 1);
-		}
-		else if(col.gameObject.tag == "HellGate")
-		{
-			camera.transform.parent = null;
-			hellCamera = true;
-			wheelChairFlare.SetActive(false);
-			sm.StopSoundEffect();
-			isFinished = true;
-			velocity = 0;
-			walkable = false;
-			Invoke ("showLeaderBoard", 5);
-			sm.PlaySoundEffect(5, false);
 		}
 	}
 
-
-	private void BeAngel()
+	public void Dance()
 	{
-		models[4].SetActive(true);
-		animator = models[4].GetComponent<Animator>();
-		animator.SetBool ("Fly", true);
-		lookAtSenior = true;
-		Invoke ("GoToHeaven", 5);
+		Debug.Log ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		animator.SetBool("standup", true);
 	}
 
-	private void GoToHeaven()
+//	public void CountDown(){
+//		StartCoroutine("CountDownIEnumerator");
+//	}
+//
+//	IEnumerator CountDownIEnumerator()
+//	{
+//		readyGoGUI.SetActive(true);
+//		for (int i = 10; i >= 1; i--) 
+//		{
+//			countDown--;
+//			readyGoGUI.guiTexture.texture = numbers[countDown];
+//			yield return new WaitForSeconds(1f);
+//		}
+//		readyGoGUI.SetActive (false);
+//		if (!arrivedOnTime) {
+//			tomb.SetActive (false);
+//
+//			if(pathPosition % 1 <= 0.96f)
+//			{
+//				ModifyLookAtDirection(hellgate, (pathPosition + 0.02f) % 1, true);
+//				hellgate.transform.Rotate (0, 180, 0, Space.Self);
+//				hellgate.transform.Translate (5, 0, 0, Space.Self);
+//				hellCamera = true;
+//			}
+//			hellgate.SetActive (true);
+//		}
+//	}
+
+	public void SwitchCamera()
 	{
-		models[4].SetActive(false);
-		//gameObject.GetComponent<GoToHeaven>().Go = true;
-	}
-
-	public void CountDown(){
-		StartCoroutine("CountDownIEnumerator");
-	}
-
-	IEnumerator CountDownIEnumerator()
-	{
-		readyGoGUI.SetActive(true);
-		for (int i = 10; i >= 1; i--) 
-		{
-			countDown--;
-			readyGoGUI.guiTexture.texture = numbers[countDown];
-			yield return new WaitForSeconds(1f);
-		}
-		readyGoGUI.SetActive (false);
-		if (!arrivedOnTime) {
-			tomb.SetActive (false);
-
-			if(pathPosition % 1 <= 0.96f)
-			{
-				ModifyLookAtDirection(hellgate, (pathPosition + 0.02f) % 1, true);
-				hellgate.transform.Rotate (0, 180, 0, Space.Self);
-				hellgate.transform.Translate (5, 0, 0, Space.Self);
-				hellCamera = true;
-			}
-			hellgate.SetActive (true);
-		}
-	}
-
-	IEnumerator CameraLook()
-	{
-		float distance = 0f;
-		while (true) {
-			if (hellCamera) {
-				camera.transform.Translate(0, -1 * Time.deltaTime, 0, Space.Self);
-				camera.transform.Translate(0, 0, 10 * Time.deltaTime, Space.Self);
-				distance += 10 * Time.deltaTime;
-				if(distance >= 5)
-				{
-					break;
-				}
-			}
-			else if(lookAtSenior)
-			{
-				camera.transform.Rotate (-12 * Time.deltaTime, 0, 0, Space.Self);
-				distance += 10 * Time.deltaTime;
-				if(distance >= 60)
-				{
-					break;
-				}
-			}
-			yield return new WaitForSeconds(0.01f); 
-		}
-
+		camera2.SetActive(true);
+		camera.SetActive(false);
 	}
 
 	private void showLeaderBoard(){

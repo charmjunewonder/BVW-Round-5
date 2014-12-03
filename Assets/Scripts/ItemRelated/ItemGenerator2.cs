@@ -36,16 +36,17 @@ public class ItemGenerator2 : MonoBehaviour {
 	
 	void Update()
 	{
-		if (!isOnRollerCoaster) {
+		//if (!isOnRollerCoaster) {
 			//Debug.Log ("Size of Obstacle Queue is " + obstacleQueue.Count + " ItemCount is " + itemCount);
-			if (itemCount < 1) {
-				itemCount++;
-				Invoke ("GenerateItem", 0.1f);
-			}
+
 			if (controller.characterMode > 0 && obstacleCount < 1) {
 				obstacleCount++;
 				Invoke("GenerateObstacle", 0.1f);
 			}
+		//}
+		if (itemCount < 1) {
+			itemCount++;
+			Invoke ("GenerateItem", 0.1f);
 		}
 		
 	}
@@ -59,7 +60,6 @@ public class ItemGenerator2 : MonoBehaviour {
 		float characterPosition = controller.pathPosition;
 		GameObject obstacleClone = Instantiate(Obstacles[modeOfCharacter]) as GameObject;
 		float offset = Random.Range (-ObstacleOffsetVariation, ObstacleOffsetVariation);
-		Debug.Log(modeOfCharacter);
 		ModifyLookAtDirection(obstacleClone, (characterPosition + ObstacleOffset[modeOfCharacter] + offset) % 1, true);
 		if (modeOfCharacter != 2) {
 			obstacleClone.transform.Rotate (0, 180, 0);	
@@ -159,14 +159,23 @@ public class ItemGenerator2 : MonoBehaviour {
 			}
 			else
 			{
-				other.transform.position = positionVector + 9 * vectorWithMinDistance.normalized
+				other.transform.position = positionVector + 11 * vectorWithMinDistance.normalized
 					+ offsetVector.normalized * characterOffset;
 			}
+			
 		}
 		else
 		{
-			other.transform.position = positionVector + 1 * vectorWithMinDistance.normalized
-				+ offsetVector.normalized * characterOffset;
+			if(controller.characterMode != 2)
+			{
+				other.transform.position = positionVector + 1 * vectorWithMinDistance.normalized
+					+ offsetVector.normalized * characterOffset;
+			}
+			else
+			{
+				other.transform.position = positionVector + offsetVector.normalized * characterOffset - 1 * vectorWithMinDistance.normalized;
+			}
+
 		}
 	}
 	
@@ -183,11 +192,11 @@ public class ItemGenerator2 : MonoBehaviour {
 			Destroy(temp);
 		}
 		
-		if(itemQueue.Count > 0)
-		{
-			GameObject temp = itemQueue.Dequeue() as GameObject;
-			Destroy(temp);
-		}
+//		if(itemQueue.Count > 0)
+//		{
+//			GameObject temp = itemQueue.Dequeue() as GameObject;
+//			Destroy(temp);
+//		}
 		SetIsOnRollerCoaster (true);
 	}
 }
