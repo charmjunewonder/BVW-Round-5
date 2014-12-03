@@ -783,6 +783,7 @@ ModelImporter:
     7400008: Nothing
     7400010: WheelNothing
     7400012: WheelChair
+    7400014: WheelNothing1
     9500000: //RootNode
     13700000: pCube4
     13700002: pCube5
@@ -814,7 +815,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -4345,16 +4346,16 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: WheelNothing
+      name: WheelChair
       takeName: Take 001
       firstFrame: 220
-      lastFrame: 220.100006
+      lastFrame: 229
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -5053,10 +5054,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: WheelChair
+      name: WheelNothing1
       takeName: Take 001
       firstFrame: 220
-      lastFrame: 229
+      lastFrame: 220.100006
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

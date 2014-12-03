@@ -966,7 +966,16 @@ public class Controller : MonoBehaviour {
 		Controller c2 = GameObject.Find ("Character2").GetComponent<Controller> ();
 		int time1 = c1.gameTime;
 		int time2 = c2.gameTime;
-		c1.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
-		c2.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1, time2);
+		if(time1 > time2){
+			//2 is the winner
+			c2.leaderBoard.GetComponent<RestartController>().isWinning = true;
+			c2.leaderBoard.GetComponent<RestartController>().StartToDisplay(time2);
+			c1.leaderBoard.GetComponent<RestartController>().StartToDisplay(time2);
+		} else{
+			//1 is the winner
+			c1.leaderBoard.GetComponent<RestartController>().isWinning = true;
+			c1.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1);
+			c2.leaderBoard.GetComponent<RestartController>().StartToDisplay(time1);
+		}
 	}
 }
